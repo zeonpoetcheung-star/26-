@@ -1,0 +1,44 @@
+\documentclass[border=8pt]{standalone}
+\usepackage{ctex}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc, backgrounds}
+\begin{document}
+\begin{tikzpicture}[
+  font=\small,
+  box/.style={draw, rounded corners=3pt, minimum height=9mm, minimum width=30mm, align=center, fill=#1},
+  databox/.style={box=blue!12, draw=blue!50!black},
+  modelbox/.style={box=green!12, draw=green!50!black},
+  resultbox/.style={box=orange!15, draw=orange!70!black},
+  arr/.style={-{Stealth[length=2.2mm]}, thick},
+]
+
+% 数据层
+\node[databox] (data) at (0,0) {附件数据\\男胎 1082 例 / 女胎 605 例};
+\node[databox, below=8mm of data] (clean) {数据清洗与预处理\\孕周解析、缺失处理、派生指标};
+
+% 四个子问题
+\node[modelbox] (q1) [below=18mm of clean, xshift=-45mm] {问题一\\Y 浓度与孕周、BMI\\混合效应模型 + 显著性检验};
+\node[modelbox] (q2) [below=12mm of q1] {问题二\\BMI 分组 + 风险最小化\\最佳 NIPT 时点};
+\node[modelbox] (q3) [below=12mm of q2] {问题三\\多维分组 + 达标比例\\最佳 NIPT 时点};
+\node[modelbox] (q4) [below=18mm of clean, xshift=45mm] {问题四\\女胎异常判定\\逻辑回归 / 随机森林};
+
+% 结果层
+\node[resultbox] (r1) [below=18mm of q3] {达标时间--BMI 关系\\各 BMI 组最佳时点};
+\node[resultbox] (r4) [below=18mm of q4] {ROC / AUC / 混淆矩阵\\异常判定方法};
+
+% 底部
+\node[resultbox] (sens) [below=22mm of r1, xshift=22mm] {灵敏度分析与模型检验};
+
+% 连线
+\draw[arr] (data) -- (clean);
+\draw[arr] (clean.south) -- ++(0,-4mm) -| (q1.north);
+\draw[arr] (clean.south) -- ++(0,-4mm) -| (q4.north);
+\draw[arr] (q1) -- (q2);
+\draw[arr] (q2) -- (q3);
+\draw[arr] (q3) -- (r1);
+\draw[arr] (q4) -- (r4);
+\draw[arr] (r1.south) -- ++(0,-4mm) -| (sens.north);
+\draw[arr] (r4.south) -- ++(0,-4mm) -| (sens.north);
+
+\end{tikzpicture}
+\end{document}

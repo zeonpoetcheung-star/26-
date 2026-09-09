@@ -1,0 +1,188 @@
+% !TEX program = xelatex
+% =============================================================================
+%  全国大学生数学建模竞赛（CUMCM）LaTeX 模板
+%  对应 Typst 模板 zh/cumcm/main.typ 的全部功能。
+%
+%  字体依赖（正文宋体 / 标题黑体 / 强调楷体）：
+%    - 规范字体：SimSun（宋体）、SimHei（黑体）、KaiTi（楷体）。
+%    - 本模板默认使用 ctex 的 fontset=mac，在 macOS 上自动选用同族等价字体
+%      Songti SC / Heiti SC / Kaiti SC，确保开箱即用。
+%    - 若系统已安装 SimSun/SimHei/KaiTi（如 Windows 或手动安装），可将下方
+%      \documentclass 选项 fontset=mac 改为 fontset=windows，即可使用规范字体。
+%    - 西文正文：Times New Roman；代码等宽：Menlo（缺失时回退到默认字体）。
+%  编译方式：xelatex main.tex （需运行两遍以生成目录）
+% =============================================================================
+\documentclass[fontset=fandol, 12pt, a4paper]{ctexart}
+
+% ---------- 页面：A4，上下左右 2.5cm ----------
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+
+% ---------- 数学 ----------
+\usepackage{amsmath,amssymb}
+
+% ---------- 图片、浮动体与交叉引用 ----------
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage[hidelinks]{hyperref}
+
+% ---------- 字体（fontspec + ctex，xelatex 编译） ----------
+% 中文宋体/黑体/楷体由 ctex 的 fontset=fandol 自动设置，
+% 并自动定义 \songti / \heiti / \kaishu 等字体命令。
+
+% ---------- 正文：12.05pt，首行缩进 2em，两端对齐，行距 0.72em ----------
+% 12pt 字号近似 12.05pt；0.72em 行距 => 行高 = 1.72 * 字号，\linespread 因子 ≈ 1.43
+\linespread{1.43}
+\setlength{\parindent}{2em}
+
+% ---------- 标题编号（\ctexset 配置） ----------
+% 一级标题用中文数字“一、二、三、”，二级及以下用 1.1 / 1.1.1
+\ctexset{
+  section/number       = \chinese{section},
+  subsection/number    = \arabic{section}.\arabic{subsection},
+  subsubsection/number = \arabic{section}.\arabic{subsection}.\arabic{subsubsection},
+}
+
+% ---------- 标题格式（titlesec 配置） ----------
+\usepackage{titlesec}
+\titleformat{\section}
+  {\centering\fontsize{17.3pt}{20.8pt}\heiti\bfseries}
+  {\chinese{section}、}{1em}{}
+\titleformat{\subsection}
+  {\fontsize{14.45pt}{17.4pt}\heiti\bfseries}
+  {\arabic{section}.\arabic{subsection}}{1em}{}
+\titleformat{\subsubsection}
+  {\fontsize{12.05pt}{14.5pt}\heiti\bfseries}
+  {\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}{1em}{}
+\titlespacing{\section}       {0pt}{1.25em}{0.82em}
+\titlespacing{\subsection}    {0pt}{1.15em}{0.55em}
+\titlespacing{\subsubsection} {0pt}{1.15em}{0.55em}
+
+% ---------- 目录（tocloft 点线引导） ----------
+\usepackage{tocloft}
+\renewcommand{\cftsecfont}{\heiti\bfseries}
+\renewcommand{\cftsecpagefont}{\heiti\bfseries}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftdotsep}}
+
+% ---------- 表格与代码 ----------
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{black!3},
+  frame=single,
+  framesep=6pt,
+  rulecolor=\color{black!30},
+  framerule=0.8pt,
+  breaklines=true,
+  showstringspaces=false,
+  columns=fullflexible,
+  keepspaces=true,
+}
+
+% ---------- 页码：底部居中 ----------
+\pagestyle{plain}
+
+% ---------- 自定义命令（对应 Typst 函数） ----------
+% \papertitle{标题}：居中 17.3pt 加粗标题
+\newcommand{\papertitle}[1]{%
+  \thispagestyle{empty}%
+  \begin{center}
+    {\fontsize{17.3pt}{22pt}\bfseries #1}
+  \end{center}
+  \vspace{1em}
+}
+% \abstractcn{摘要正文}{关键词}：居中“摘要”标题（14pt 加粗）+ 正文 + “关键字：”加粗 + 关键词 + 换页
+\newcommand{\abstractcn}[2]{%
+  \thispagestyle{empty}%
+  \begin{center}{\fontsize{14pt}{17pt}\bfseries 摘要}\end{center}
+  #1\par
+  \vspace{1em}
+  {\heiti\bfseries 关键字：}#2\par
+  \newpage
+}
+% \tocpage：目录页，标题“目录”居中 17.3pt 黑体加粗，点线引导
+\makeatletter
+\newcommand{\tocpage}{%
+  \setcounter{page}{1}%
+  \begin{center}
+    {\fontsize{17.3pt}{20.8pt}\heiti\bfseries 目录}
+  \end{center}
+  \vspace{0.5em}
+  \@starttoc{toc}%
+  \newpage
+}
+\makeatother
+% \referencescn：参考文献节，标题“参考文献”（不带编号但进目录）
+\newcommand{\referencescn}{%
+  \addcontentsline{toc}{section}{参考文献}%
+  \input{references}%
+}
+% \appendixcn：附录节，标题“附录 A  核心代码”
+\newcommand{\appendixcn}{%
+  \section*{附录 A\quad 核心代码}%
+  \addcontentsline{toc}{section}{附录 A\quad 核心代码}%
+  \input{sections/A_code}%
+}
+% \threelinetable{标题}{列定义}{表头}{表格内容}：三线表，标题在表格上方居中 10.5pt 黑体加粗
+% 调用示例：\threelinetable{表 1 示例}{ccc}{A & B & C}{1 & 2 & 3 \\ 4 & 5 & 6}
+\newcommand{\threelinetable}[4]{%
+  \begin{center}
+    {\fontsize{10.5pt}{12.6pt}\heiti\bfseries #1}\par
+    \vspace{0.6em}
+    \begin{tabular}{#2}
+      \toprule
+      #3 \\
+      \midrule
+      #4 \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+}
+
+\begin{document}
+
+% 封面（不编号）
+\papertitle{基于面板数据建模的 NIPT 时点选择与胎儿异常判定}
+
+% 摘要页（不编号）
+\abstractcn{%
+针对无创产前检测（NIPT）的时点选择与胎儿异常判定问题，本文建立了统计建模与分类判定相结合的一整套方法。
+
+\textbf{针对问题一}，考虑到数据为纵向面板结构，横截面相关存在混杂，本文采用组内/组间分解与混合效应模型分离孕周与 BMI 的效应。结果表明：同一孕妇内 Y 染色体浓度随孕周显著线性上升（固定效应斜率 $0.00319$/周，$t=24.26$，$p<10^{-100}$），孕妇间 BMI 表现为显著负效应（$-0.00222$/BMI，$p<10^{-4}$）；混合效应模型给出关系式 $Y=0.070+0.00313t-0.00138B$，孕周与 BMI 效应均高度显著。
+
+\textbf{针对问题二}，以固定效应斜率估计个体达标时间，回归得到达标时间与 BMI 的关系 $t=-19.46+0.757B$（$p<0.001$）。按 BMI 分组并取组内 90\% 可靠达标的最早时点作为最佳时点：BMI $[28,32)$ 组约 15.5 周、$[32,36)$ 组约 16.1 周、$[36,40)$ 组约 20.1 周，BMI 越高最佳时点越晚。检测误差每增加约 0.005，最佳时点后移约 2 周。
+
+\textbf{针对问题三}，引入身高、体重、年龄多维因素，随机森林显示体重与 BMI 为主导因素；多维 K-means 聚类分组后，高 BMI 组（BMI$\approx36.4$）最佳时点约 20.2 周、低 BMI 组约 14.5 周，且组内同质性优于仅按 BMI 分组。
+
+\textbf{针对问题四}，以染色体非整倍体为标签建立女胎异常判定模型。单一 $|Z|>3$ 阈值法几乎失效（AUC 仅 0.479），随机森林综合 X 染色体浓度、染色体 Z 值、GC 含量、读段数、BMI 等特征后 AUC 达 0.789、特异度 0.957，显著提升判定能力。
+
+本文模型经灵敏度分析验证稳健，为 NIPT 时点的分组优化与女胎异常判定提供了可落地的定量依据。%
+}{%
+NIPT \quad 面板数据 \quad 混合效应模型 \quad 最佳检测时点 \quad 异常判定%
+}
+
+% 目录页（页码从 1 开始）
+\tocpage
+
+\input{sections/1_restatement}
+\input{sections/2_analysis}
+\input{sections/3_assumptions}
+\input{sections/4_symbols}
+\input{sections/5_problem1}
+\input{sections/6_problem2}
+\input{sections/7_problem3}
+\input{sections/8_problem4}
+\input{sections/9_sensitivity}
+\input{sections/10_evaluation}
+
+\newpage
+\referencescn
+\newpage
+\appendixcn
+
+\end{document}

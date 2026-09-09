@@ -1,0 +1,29 @@
+\documentclass[border=8pt]{standalone}
+\usepackage{ctex}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc}
+\begin{document}
+\begin{tikzpicture}[
+  font=\small,
+  box/.style={draw, rounded corners=3pt, minimum height=8mm, align=center, fill=#1},
+  sbox/.style={box=gray!10, draw=gray!60, minimum width=26mm},
+  mbox/.style={box=blue!12, draw=blue!50!black, minimum width=30mm},
+  arr/.style={-{Stealth[length=2.2mm]}, thick},
+]
+
+% 数据处理流程（问题一/二/三共用）
+\node[sbox] (raw) {原始数据\\附件.xlsx};
+\node[sbox, right=6mm of raw] (parse) {孕周解析\\$11w+6 \to 11.86$ 周};
+\node[sbox, right=6mm of parse] (miss) {缺失与异常处理\\非整倍体空白=正常};
+\node[mbox, right=6mm of miss] (feat) {派生指标\\达标(≥4\%)、个体达标时间};
+\node[mbox, below=10mm of feat] (model) {面板数据建模\\组内/组间分解、混合效应};
+\node[mbox, below=10mm of model] (out) {结果输出\\回归系数、显著性、最佳时点};
+
+\draw[arr] (raw) -- (parse);
+\draw[arr] (parse) -- (miss);
+\draw[arr] (miss) -- (feat);
+\draw[arr] (feat.south) -- ++(0,-4mm) -| (model.north);
+\draw[arr] (model) -- (out);
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,38 @@
+\contentsline {section}{\numberline {一}问题重述}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}问题背景}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}需要解决的问题}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {二}数据理解与总体思路}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}数据来源与结构}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}数据预处理}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}总体建模思路}{4}{subsection.2.3}%
+\contentsline {section}{\numberline {三}模型假设}{6}{section.3}%
+\contentsline {section}{\numberline {四}符号说明}{6}{section.4}%
+\contentsline {section}{\numberline {五}问题一的建模与求解：Y 染色体浓度与孕周、BMI 的关系模型}{7}{section.5}%
+\contentsline {subsection}{\numberline {5.1}问题分析}{7}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}面板分解}{7}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}结果与显著性检验}{8}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}混合效应关系模型}{9}{subsection.5.4}%
+\contentsline {section}{\numberline {六}问题二的建模与求解：BMI 分组与最佳 NIPT 时点}{10}{section.6}%
+\contentsline {subsection}{\numberline {6.1}达标时间估计}{10}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}达标时间与 BMI 的关系}{11}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}BMI 合理分组与最佳时点}{11}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}检测误差的影响}{12}{subsection.6.4}%
+\contentsline {section}{\numberline {七}问题三的建模与求解：多维因素分组与最佳时点}{15}{section.7}%
+\contentsline {subsection}{\numberline {7.1}多维因素分析}{15}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}多维聚类分组}{15}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}与问题二的对比}{16}{subsection.7.3}%
+\contentsline {section}{\numberline {八}问题四的建模与求解：女胎异常判定}{17}{section.8}%
+\contentsline {subsection}{\numberline {8.1}问题分析}{17}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}判定方法}{17}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}特征重要性}{18}{subsection.8.3}%
+\contentsline {section}{\numberline {九}灵敏度分析}{21}{section.9}%
+\contentsline {subsection}{\numberline {9.1}问题一模型设定的稳健性}{21}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}问题二/三检测误差的灵敏度}{21}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}问题三分组方式的稳健性}{21}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}问题四判定阈值的灵敏度}{21}{subsection.9.4}%
+\contentsline {section}{\numberline {十}模型评价与推广}{21}{section.10}%
+\contentsline {subsection}{\numberline {10.1}模型优点}{21}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}模型不足}{22}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}模型推广}{22}{subsection.10.3}%
+\contentsline {section}{参考文献}{23}{Item.22}%
+\contentsline {section}{附录 A\hskip 1em\relax 核心代码}{24}{Item.22}%
