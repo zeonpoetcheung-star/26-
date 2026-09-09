@@ -1,0 +1,31 @@
+\documentclass[border=8pt]{standalone}
+\usepackage{ctex}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc}
+\begin{document}
+\begin{tikzpicture}[
+  font=\small,
+  box/.style={draw, rounded corners=3pt, minimum height=8mm, align=center, fill=#1},
+  sbox/.style={box=gray!10, draw=gray!60, minimum width=30mm},
+  dbox/.style={box=yellow!25, draw=yellow!70!black, minimum width=34mm},
+  mbox/.style={box=blue!12, draw=blue!50!black, minimum width=34mm},
+  rbox/.style={box=green!12, draw=green!50!black, minimum width=34mm},
+  arr/.style={-{Stealth[length=2.2mm]}, thick},
+]
+
+% 问题二/三 最佳时点求解流程
+\node[sbox] (inp) {输入：男胎数据\\（孕周、BMI、Y 浓度，多因素）};
+\node[dbox, below=8mm of inp] (est) {估计个体达标时间\\$t_i=(4\%-a_i)/\beta_1$\\（共享斜率 $\beta_1$ + 个体水平 $a_i$）};
+\node[dbox, below=8mm of est] (reg) {达标时间对 BMI / 多因素回归\\（显著性检验）};
+\node[dbox, below=8mm of reg] (grp) {合理分组\\BMI 区间 / 多维聚类};
+\node[mbox, below=8mm of grp] (risk) {风险最小化\\90\% 孕妇可靠达标的最早时点};
+\node[rbox, below=8mm of risk] (opt) {输出：每组最佳 NIPT 时点\\+ 检测误差影响分析};
+
+\draw[arr] (inp) -- (est);
+\draw[arr] (est) -- (reg);
+\draw[arr] (reg) -- (grp);
+\draw[arr] (grp) -- (risk);
+\draw[arr] (risk) -- (opt);
+
+\end{tikzpicture}
+\end{document}

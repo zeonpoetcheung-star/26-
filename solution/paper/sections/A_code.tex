@@ -1,0 +1,55 @@
+% 附录：核心代码（关键片段，完整代码见 code/ 目录）
+
+\textbf{1. 孕周解析与达标指标（utils.py 核心）}
+
+\begin{lstlisting}[language=Python]
+def parse_wk(s):
+    t = str(s).lower()
+    if "w" not in t:
+        return float("nan")
+    w = float(t.split("w")[0])
+    d = float(t.split("+")[1]) if "+" in t else 0.0
+    return w + d / 7.0
+
+THETA = 0.04  # Y 染色体浓度达标阈值
+male["孕周"] = male["检测孕周"].apply(parse_wk)
+male["达标"] = (male["Y染色体浓度"] >= THETA).astype(int)
+\end{lstlisting}
+
+\textbf{2. 问题一面板分解与混合效应模型}
+
+\begin{lstlisting}[language=Python]
+import statsmodels.formula.api as smf
+# 组内去均值（固定效应）
+df["y_w"] = df["y"] - df.groupby("code")["y"].transform("mean")
+df["week_w"] = df["week"] - df.groupby("code")["week"].transform("mean")
+fe = smf.ols("y_w ~ week_w - 1", data=df).fit()   # 组内孕周斜率
+# 组间 BMI
+gb = df.drop_duplicates("code")
+between = smf.ols("y_mean ~ bmi_mean", data=gb).fit()  # 组间 BMI 效应
+# 混合效应模型
+me = smf.mixedlm("y ~ week + bmi", data=df, groups=df["code"]).fit(reml=True)
+\end{lstlisting}
+
+\textbf{3. 问题二达标时间估计与最佳时点}
+
+\begin{lstlisting}[language=Python]
+BETA1 = 0.00319  # 问题一固定效应斜率
+df["adj"] = df["y"] - BETA1 * df["week"]
+person = df.groupby("code").agg(a=("adj", "mean"), bmi=("bmi", "mean")).reset_index()
+person["tstar"] = (THETA - person["a"]) / BETA1   # 个体达标时间
+# BMI 分组，取组内 90% 分位作为最佳时点
+person["group"] = pd.cut(person["bmi"], bins=[20,28,32,36,40,60], right=False)
+best = person.groupby("group")["tstar"].quantile(0.9)
+\end{lstlisting}
+
+\textbf{4. 问题四女胎异常判定（随机森林 + 交叉验证）}
+
+\begin{lstlisting}[language=Python]
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import StratifiedKFold, cross_val_predict
+skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+rf = RandomForestClassifier(n_estimators=500, class_weight="balanced", random_state=42)
+rf_prob = cross_val_predict(rf, X, y, cv=skf, method="predict_proba")[:, 1]
+auc = roc_auc_score(y, rf_prob)   # AUC = 0.789
+\end{lstlisting}
