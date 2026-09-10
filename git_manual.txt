@@ -1,0 +1,39 @@
+推荐的工作流
+第一步：创建并切换分支
+# 确保本地 main 是最新的
+git checkout main
+git pull origin main
+
+# 创建新功能分支
+git checkout -b feature/my-task
+​
+第二步：开发与提交
+# 修改代码...
+git add .
+git commit -m "feat: 完成用户登录功能"
+​
+第三步：推送分支到远程
+# 将你的分支推送到原仓库
+git push origin feature/my-task
+​
+第四步：在 GitHub 网页端发起 Pull Request (PR)
+虽然你可以直接推送到 main，但强烈建议通过 PR 进行合并：
+
+进入 GitHub 仓库页面。
+切换到你的 feature/my-task 分支。
+点击 "Compare & pull request"。
+请求团队成员审查（Code Review）。
+审查通过后，点击 "Merge pull request"。
+5. 同步最新代码
+由于多人同时开发，你需要经常同步远程的最新更改：
+
+# 切换到主分支
+git checkout main
+
+# 拉取远程最新代码
+git pull origin main
+
+# 如果有其他人在你开发期间更新了 main，你需要将其合并到你的功能分支
+git checkout feature/my-task
+git merge main
+# 解决可能出现的冲突
