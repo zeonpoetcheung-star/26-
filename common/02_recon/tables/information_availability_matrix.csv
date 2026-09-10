@@ -1,0 +1,111 @@
+problem,decision_time,quantity,classification,source_fact_or_limit
+P1,0:00,fixed tariff,KNOWN_BY_PROBLEM_ASSUMPTION,Fixed tariff is supplied for the fixed-price problems.
+P1,0:00,dynamic price,AMBIGUOUS_FROM_STATEMENT,Dynamic price is outside the fixed-price problem definition.
+P1,0:00,historical load,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P1,0:00,future actual load,KNOWN_BY_PROBLEM_ASSUMPTION,P1 supplies the repeated deterministic daily load profile.
+P1,0:00,historical PV actual,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P1,0:00,future PV actual,EX_POST_ONLY,Actual PV is realized after the decision and cannot be treated as known.
+P1,0:00,PV forecast issued at current decision time,AVAILABLE_FROM_PUBLISHED_FORECAST,The applicable problem supplies a forecast at this decision time.
+P1,0:00,future PV forecast not yet issued,EX_POST_ONLY,A later forecast release is not available at the current decision time.
+P1,0:00,current storage state,CURRENT_STATE_IF_OBSERVED,The current state can be used if observed at the decision boundary; only the initial 2025-01-01 value is stated numerically.
+P1,0:00,future storage state,EX_POST_ONLY,"Future storage state is a downstream state, not current information."
+P2,daily 0:00,fixed tariff,KNOWN_BY_PROBLEM_ASSUMPTION,Fixed tariff is supplied for the fixed-price problems.
+P2,daily 0:00,dynamic price,AMBIGUOUS_FROM_STATEMENT,Dynamic price is outside the fixed-price problem definition.
+P2,daily 0:00,historical load,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P2,daily 0:00,future actual load,EX_POST_ONLY,"The attachment contains realized values, not a publication available before realization."
+P2,daily 0:00,historical PV actual,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P2,daily 0:00,future PV actual,EX_POST_ONLY,Actual PV is realized after the decision and cannot be treated as known.
+P2,daily 0:00,PV forecast issued at current decision time,AMBIGUOUS_FROM_STATEMENT,No official forecast object for this decision context is supplied.
+P2,daily 0:00,future PV forecast not yet issued,EX_POST_ONLY,A later forecast release is not available at the current decision time.
+P2,daily 0:00,current storage state,CURRENT_STATE_IF_OBSERVED,The current state can be used if observed at the decision boundary; only the initial 2025-01-01 value is stated numerically.
+P2,daily 0:00,future storage state,EX_POST_ONLY,"Future storage state is a downstream state, not current information."
+P3,0:00,fixed tariff,KNOWN_BY_PROBLEM_ASSUMPTION,Fixed tariff is supplied for the fixed-price problems.
+P3,0:00,dynamic price,AMBIGUOUS_FROM_STATEMENT,Dynamic price is outside the fixed-price problem definition.
+P3,0:00,historical load,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P3,0:00,future actual load,EX_POST_ONLY,"The attachment contains realized values, not a publication available before realization."
+P3,0:00,historical PV actual,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P3,0:00,future PV actual,EX_POST_ONLY,Actual PV is realized after the decision and cannot be treated as known.
+P3,0:00,PV forecast issued at current decision time,AVAILABLE_FROM_PUBLISHED_FORECAST,The applicable problem supplies a forecast at this decision time.
+P3,0:00,future PV forecast not yet issued,EX_POST_ONLY,A later forecast release is not available at the current decision time.
+P3,0:00,current storage state,CURRENT_STATE_IF_OBSERVED,The current state can be used if observed at the decision boundary; only the initial 2025-01-01 value is stated numerically.
+P3,0:00,future storage state,EX_POST_ONLY,"Future storage state is a downstream state, not current information."
+P3,6:00,fixed tariff,KNOWN_BY_PROBLEM_ASSUMPTION,Fixed tariff is supplied for the fixed-price problems.
+P3,6:00,dynamic price,AMBIGUOUS_FROM_STATEMENT,Dynamic price is outside the fixed-price problem definition.
+P3,6:00,historical load,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P3,6:00,future actual load,EX_POST_ONLY,"The attachment contains realized values, not a publication available before realization."
+P3,6:00,historical PV actual,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P3,6:00,future PV actual,EX_POST_ONLY,Actual PV is realized after the decision and cannot be treated as known.
+P3,6:00,PV forecast issued at current decision time,AVAILABLE_FROM_PUBLISHED_FORECAST,The applicable problem supplies a forecast at this decision time.
+P3,6:00,future PV forecast not yet issued,EX_POST_ONLY,A later forecast release is not available at the current decision time.
+P3,6:00,current storage state,CURRENT_STATE_IF_OBSERVED,The current state can be used if observed at the decision boundary; only the initial 2025-01-01 value is stated numerically.
+P3,6:00,future storage state,EX_POST_ONLY,"Future storage state is a downstream state, not current information."
+P3,12:00,fixed tariff,KNOWN_BY_PROBLEM_ASSUMPTION,Fixed tariff is supplied for the fixed-price problems.
+P3,12:00,dynamic price,AMBIGUOUS_FROM_STATEMENT,Dynamic price is outside the fixed-price problem definition.
+P3,12:00,historical load,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P3,12:00,future actual load,EX_POST_ONLY,"The attachment contains realized values, not a publication available before realization."
+P3,12:00,historical PV actual,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P3,12:00,future PV actual,EX_POST_ONLY,Actual PV is realized after the decision and cannot be treated as known.
+P3,12:00,PV forecast issued at current decision time,AVAILABLE_FROM_PUBLISHED_FORECAST,The applicable problem supplies a forecast at this decision time.
+P3,12:00,future PV forecast not yet issued,EX_POST_ONLY,A later forecast release is not available at the current decision time.
+P3,12:00,current storage state,CURRENT_STATE_IF_OBSERVED,The current state can be used if observed at the decision boundary; only the initial 2025-01-01 value is stated numerically.
+P3,12:00,future storage state,EX_POST_ONLY,"Future storage state is a downstream state, not current information."
+P3,18:00,fixed tariff,KNOWN_BY_PROBLEM_ASSUMPTION,Fixed tariff is supplied for the fixed-price problems.
+P3,18:00,dynamic price,AMBIGUOUS_FROM_STATEMENT,Dynamic price is outside the fixed-price problem definition.
+P3,18:00,historical load,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P3,18:00,future actual load,EX_POST_ONLY,"The attachment contains realized values, not a publication available before realization."
+P3,18:00,historical PV actual,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P3,18:00,future PV actual,EX_POST_ONLY,Actual PV is realized after the decision and cannot be treated as known.
+P3,18:00,PV forecast issued at current decision time,AVAILABLE_FROM_PUBLISHED_FORECAST,The applicable problem supplies a forecast at this decision time.
+P3,18:00,future PV forecast not yet issued,EX_POST_ONLY,A later forecast release is not available at the current decision time.
+P3,18:00,current storage state,CURRENT_STATE_IF_OBSERVED,The current state can be used if observed at the decision boundary; only the initial 2025-01-01 value is stated numerically.
+P3,18:00,future storage state,EX_POST_ONLY,"Future storage state is a downstream state, not current information."
+P4-2,0:00,fixed tariff,AMBIGUOUS_FROM_STATEMENT,Fixed tariff is not the governing P4 price process.
+P4-2,0:00,dynamic price,AMBIGUOUS_FROM_STATEMENT,"Realized dynamic prices are supplied, but future publication/forecast availability is not stated."
+P4-2,0:00,historical load,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P4-2,0:00,future actual load,EX_POST_ONLY,"The attachment contains realized values, not a publication available before realization."
+P4-2,0:00,historical PV actual,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P4-2,0:00,future PV actual,EX_POST_ONLY,Actual PV is realized after the decision and cannot be treated as known.
+P4-2,0:00,PV forecast issued at current decision time,AMBIGUOUS_FROM_STATEMENT,No official forecast object for this decision context is supplied.
+P4-2,0:00,future PV forecast not yet issued,EX_POST_ONLY,A later forecast release is not available at the current decision time.
+P4-2,0:00,current storage state,CURRENT_STATE_IF_OBSERVED,The current state can be used if observed at the decision boundary; only the initial 2025-01-01 value is stated numerically.
+P4-2,0:00,future storage state,EX_POST_ONLY,"Future storage state is a downstream state, not current information."
+P4-3,0:00,fixed tariff,AMBIGUOUS_FROM_STATEMENT,Fixed tariff is not the governing P4 price process.
+P4-3,0:00,dynamic price,AMBIGUOUS_FROM_STATEMENT,"Realized dynamic prices are supplied, but future publication/forecast availability is not stated."
+P4-3,0:00,historical load,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P4-3,0:00,future actual load,EX_POST_ONLY,"The attachment contains realized values, not a publication available before realization."
+P4-3,0:00,historical PV actual,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P4-3,0:00,future PV actual,EX_POST_ONLY,Actual PV is realized after the decision and cannot be treated as known.
+P4-3,0:00,PV forecast issued at current decision time,AVAILABLE_FROM_PUBLISHED_FORECAST,The applicable problem supplies a forecast at this decision time.
+P4-3,0:00,future PV forecast not yet issued,EX_POST_ONLY,A later forecast release is not available at the current decision time.
+P4-3,0:00,current storage state,CURRENT_STATE_IF_OBSERVED,The current state can be used if observed at the decision boundary; only the initial 2025-01-01 value is stated numerically.
+P4-3,0:00,future storage state,EX_POST_ONLY,"Future storage state is a downstream state, not current information."
+P4-3,6:00,fixed tariff,AMBIGUOUS_FROM_STATEMENT,Fixed tariff is not the governing P4 price process.
+P4-3,6:00,dynamic price,AMBIGUOUS_FROM_STATEMENT,"Realized dynamic prices are supplied, but future publication/forecast availability is not stated."
+P4-3,6:00,historical load,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P4-3,6:00,future actual load,EX_POST_ONLY,"The attachment contains realized values, not a publication available before realization."
+P4-3,6:00,historical PV actual,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P4-3,6:00,future PV actual,EX_POST_ONLY,Actual PV is realized after the decision and cannot be treated as known.
+P4-3,6:00,PV forecast issued at current decision time,AVAILABLE_FROM_PUBLISHED_FORECAST,The applicable problem supplies a forecast at this decision time.
+P4-3,6:00,future PV forecast not yet issued,EX_POST_ONLY,A later forecast release is not available at the current decision time.
+P4-3,6:00,current storage state,CURRENT_STATE_IF_OBSERVED,The current state can be used if observed at the decision boundary; only the initial 2025-01-01 value is stated numerically.
+P4-3,6:00,future storage state,EX_POST_ONLY,"Future storage state is a downstream state, not current information."
+P4-3,12:00,fixed tariff,AMBIGUOUS_FROM_STATEMENT,Fixed tariff is not the governing P4 price process.
+P4-3,12:00,dynamic price,AMBIGUOUS_FROM_STATEMENT,"Realized dynamic prices are supplied, but future publication/forecast availability is not stated."
+P4-3,12:00,historical load,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P4-3,12:00,future actual load,EX_POST_ONLY,"The attachment contains realized values, not a publication available before realization."
+P4-3,12:00,historical PV actual,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P4-3,12:00,future PV actual,EX_POST_ONLY,Actual PV is realized after the decision and cannot be treated as known.
+P4-3,12:00,PV forecast issued at current decision time,AVAILABLE_FROM_PUBLISHED_FORECAST,The applicable problem supplies a forecast at this decision time.
+P4-3,12:00,future PV forecast not yet issued,EX_POST_ONLY,A later forecast release is not available at the current decision time.
+P4-3,12:00,current storage state,CURRENT_STATE_IF_OBSERVED,The current state can be used if observed at the decision boundary; only the initial 2025-01-01 value is stated numerically.
+P4-3,12:00,future storage state,EX_POST_ONLY,"Future storage state is a downstream state, not current information."
+P4-3,18:00,fixed tariff,AMBIGUOUS_FROM_STATEMENT,Fixed tariff is not the governing P4 price process.
+P4-3,18:00,dynamic price,AMBIGUOUS_FROM_STATEMENT,"Realized dynamic prices are supplied, but future publication/forecast availability is not stated."
+P4-3,18:00,historical load,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P4-3,18:00,future actual load,EX_POST_ONLY,"The attachment contains realized values, not a publication available before realization."
+P4-3,18:00,historical PV actual,REALIZED_HISTORY_ONLY,Only observations strictly before the decision time are historical.
+P4-3,18:00,future PV actual,EX_POST_ONLY,Actual PV is realized after the decision and cannot be treated as known.
+P4-3,18:00,PV forecast issued at current decision time,AVAILABLE_FROM_PUBLISHED_FORECAST,The applicable problem supplies a forecast at this decision time.
+P4-3,18:00,future PV forecast not yet issued,EX_POST_ONLY,A later forecast release is not available at the current decision time.
+P4-3,18:00,current storage state,CURRENT_STATE_IF_OBSERVED,The current state can be used if observed at the decision boundary; only the initial 2025-01-01 value is stated numerically.
+P4-3,18:00,future storage state,EX_POST_ONLY,"Future storage state is a downstream state, not current information."

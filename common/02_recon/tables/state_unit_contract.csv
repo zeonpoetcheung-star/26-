@@ -1,0 +1,13 @@
+item,value,unit,status,decision_deferred
+storage maximum capacity,12000,kWh,OFFICIAL,none
+allowed state minimum,1200,kWh,OFFICIAL,none
+allowed state maximum,10800,kWh,OFFICIAL,none
+usable state band,9600,kWh,DETERMINISTIC_DERIVATION,none
+initial state at 2025-01-01 0:00,6000,kWh,OFFICIAL,cross-day propagation
+maximum charge/discharge power,5000,kW,OFFICIAL,none
+ten-minute duration,1/6,h,DETERMINISTIC_DERIVATION,none
+rated ten-minute transfer before efficiency,833.333333333333,kWh,DETERMINISTIC_DERIVATION,efficiency side
+stated charge/discharge efficiency,90%,dimensionless,OFFICIAL_AMBIGUOUS_CONVENTION,efficiency decomposition and energy side
+state boundary count for 144 intervals,145,points,CONDITIONAL_ON_0_24_INTERVAL_CONVENTION,time semantics
+P1 terminal relation,S(0:00)=S(24:00),kWh,OFFICIAL,none for P1
+P2/P3/P4 daily terminal relation,not explicitly stated,,UNRESOLVED,daily reset/cross-day/terminal treatment

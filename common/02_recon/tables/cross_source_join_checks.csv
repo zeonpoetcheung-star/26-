@@ -1,0 +1,9 @@
+check_name,expected,actual,status,join_contract
+fixed_day complete key,"144 rows and unique ('slot_id',)",rows=144; unique_keys=144,PASS,mechanically exact key
+annual load complete key,"52560 rows and unique ('date', 'slot_id')",rows=52560; unique_keys=52560,PASS,mechanically exact key
+annual PV complete key,"52560 rows and unique ('date', 'slot_id')",rows=52560; unique_keys=52560,PASS,mechanically exact key
+annual merged actual complete key,"52560 rows and unique ('date', 'slot_id')",rows=52560; unique_keys=52560,PASS,mechanically exact key
+annual dynamic price complete key,"52560 rows and unique ('date', 'slot_id')",rows=52560; unique_keys=52560,PASS,mechanically exact key
+load and PV key sets identical,52560,52560,PASS,"safe on (date, slot_id)"
+merged actual and price key sets identical,52560,52560,PASS,"safe on (date, slot_id)"
+four source marker sequences identical,144 true flags,144,PASS,safe positional match only; interval semantics unresolved

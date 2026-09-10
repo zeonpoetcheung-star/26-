@@ -1,0 +1,9 @@
+﻿变量,probe,lag类型,lag值,有效对数,Pearson,配对规则
+load_kw,within_day_lag_1_slot,日内槽位,1,52195,0.9869974189071637,同日 slot_id 差 1，不跨日
+load_kw,within_day_lag_6_slot,日内槽位,6,50370,0.9162939447444407,同日 slot_id 差 6，不跨日
+load_kw,same_slot_lag_1_day,跨日同槽位,1,52416,0.6792228203357931,日期差 1 天且 slot_id 相同
+load_kw,same_slot_lag_7_day,跨日同槽位,7,51552,0.98548417315895,日期差 7 天且 slot_id 相同
+pv_actual_kw,within_day_lag_1_slot,日内槽位,1,52195,0.9979617552531532,同日 slot_id 差 1，不跨日
+pv_actual_kw,within_day_lag_6_slot,日内槽位,6,50370,0.9415179978890014,同日 slot_id 差 6，不跨日
+pv_actual_kw,same_slot_lag_1_day,跨日同槽位,1,52416,0.9923139365019294,日期差 1 天且 slot_id 相同
+pv_actual_kw,same_slot_lag_7_day,跨日同槽位,7,51552,0.9903393354144852,日期差 7 天且 slot_id 相同

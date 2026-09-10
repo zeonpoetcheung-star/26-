@@ -1,0 +1,9 @@
+﻿文件名,分析问题,图形,字段,主要用途,配色
+01_fixed_day_profiles.png,固定日输入的槽位轮廓,三面板折线,"slot_id, load_kw, pv_forecast_kw, price_fixed_yuan_per_kwh",展示固定日位置结构,蓝/金/橙
+02_mean_slot_profiles_load_pv_net.png,平均日内功率形状,多系列折线,"slot_id, mean(load/PV/net)",比较三类系统量,蓝/金/橙
+03_monthly_load_pv_net_summary.png,月度平均结构,12点折线,"month, mean(load/PV/net)",比较月度形状,蓝/金/橙
+04_daily_peak_position_frequency.png,每日峰谷位置集中度,频数热图,"peak_type, slot_id, date_count",展示峰谷槽位频数,单根蓝
+05_key_lag_dependence.png,预指定 lag 依赖,水平条形,"probe, Pearson, n",比较 8 个依赖统计,蓝/金
+06_naive_predictability_probes.png,D1/W1 误差量级,双面板条形,"variable, probe, MAE, RMSE",比较固定历史探针,蓝/金
+07_forecast_revision_by_horizon.png,修订幅度随预测时距的变化,分发布对折线,"issue_pair, newer_horizon, mean_abs_revision",展示预报内部修订结构,最多四根色
+08_dynamic_price_profile.png,动态价格的 slot 分布,分位折线,"slot_id, mean, P10, P90",展示动态电价位置结构,蓝/橙+中性浅蓝

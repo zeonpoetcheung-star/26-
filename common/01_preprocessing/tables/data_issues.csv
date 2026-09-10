@@ -1,0 +1,7 @@
+issue_id,severity,source_file,source_sheet,source_cell,field,raw_value,issue_type,detail,handling_status
+ISSUE-00001,warning,result2.xlsx,计划购电量,EO1,time_label,0:00-0:10+1,TEMPLATE_TIME_LABEL_INCONSISTENCY,"This template ends with 0:00-0:10+1, while result1 ends with 0:00+1-0:10+1. No template was modified.",retained_not_modified
+ISSUE-00002,warning,result3.xlsx,计划购电量,EO1,time_label,0:00-0:10+1,TEMPLATE_TIME_LABEL_INCONSISTENCY,"This template ends with 0:00-0:10+1, while result1 ends with 0:00+1-0:10+1. No template was modified.",retained_not_modified
+ISSUE-00003,warning,result3.xlsx,调整购电量,EO1,time_label,0:00-0:10+1,TEMPLATE_TIME_LABEL_INCONSISTENCY,"This template ends with 0:00-0:10+1, while result1 ends with 0:00+1-0:10+1. No template was modified.",retained_not_modified
+ISSUE-00004,warning,result4-2.xlsx,计划购电量,EO1,time_label,0:00-0:10+1,TEMPLATE_TIME_LABEL_INCONSISTENCY,"This template ends with 0:00-0:10+1, while result1 ends with 0:00+1-0:10+1. No template was modified.",retained_not_modified
+ISSUE-00005,warning,result4-3.xlsx,计划购电量,EO1,time_label,0:00-0:10+1,TEMPLATE_TIME_LABEL_INCONSISTENCY,"This template ends with 0:00-0:10+1, while result1 ends with 0:00+1-0:10+1. No template was modified.",retained_not_modified
+ISSUE-00006,warning,result4-3.xlsx,调整购电量,EO1,time_label,0:00-0:10+1,TEMPLATE_TIME_LABEL_INCONSISTENCY,"This template ends with 0:00-0:10+1, while result1 ends with 0:00+1-0:10+1. No template was modified.",retained_not_modified

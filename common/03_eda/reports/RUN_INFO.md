@@ -1,0 +1,53 @@
+# A-3 运行信息
+
+- 运行时间：`2026-09-10T22:56:56.316539+08:00`
+- 工作目录：`D:\2026数模国赛\CUMCM2026_C`
+- Python：`C:\Users\JINPU\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe`
+- Python 版本：`3.12.14`
+- 包版本：`{"pandas": "3.0.1", "numpy": "2.3.5", "Pillow": "12.3.0"}`
+- 执行命令：`python A_route/common/03_eda/scripts/eda_c2026.py`
+- 独立校验器由主脚本在阶段验收文件生成前调用。
+- 冻结上游文件数：53
+
+## 产物清单
+
+- `A_route/common/03_eda/figures/diagnostic/01_fixed_day_profiles.png`
+- `A_route/common/03_eda/figures/diagnostic/02_mean_slot_profiles_load_pv_net.png`
+- `A_route/common/03_eda/figures/diagnostic/03_monthly_load_pv_net_summary.png`
+- `A_route/common/03_eda/figures/diagnostic/04_daily_peak_position_frequency.png`
+- `A_route/common/03_eda/figures/diagnostic/05_key_lag_dependence.png`
+- `A_route/common/03_eda/figures/diagnostic/06_naive_predictability_probes.png`
+- `A_route/common/03_eda/figures/diagnostic/07_forecast_revision_by_horizon.png`
+- `A_route/common/03_eda/figures/diagnostic/08_dynamic_price_profile.png`
+- `A_route/common/03_eda/reports/CALENDAR_STRUCTURE_EDA.md`
+- `A_route/common/03_eda/reports/CORE_EDA.md`
+- `A_route/common/03_eda/reports/EDA_GATE.md`
+- `A_route/common/03_eda/reports/EDA_SUMMARY.md`
+- `A_route/common/03_eda/reports/FORECAST_REVISION_EDA.md`
+- `A_route/common/03_eda/reports/PREDICTABILITY_PROBES.md`
+- `A_route/common/03_eda/reports/PRICE_EDA.md`
+- `A_route/common/03_eda/reports/RUN_INFO.md`
+- `A_route/common/03_eda/reports/SCALE_EDA.md`
+- `A_route/common/03_eda/reports/TEMPORAL_DEPENDENCE_EDA.md`
+- `A_route/common/03_eda/scripts/eda_c2026.py`
+- `A_route/common/03_eda/scripts/validate_eda.py`
+- `A_route/common/03_eda/tables/battery_system_scale.csv`
+- `A_route/common/03_eda/tables/core_descriptive_summary.csv`
+- `A_route/common/03_eda/tables/daily_peak_positions.csv`
+- `A_route/common/03_eda/tables/diagnostic_figure_contract.csv`
+- `A_route/common/03_eda/tables/dynamic_price_daily_range.csv`
+- `A_route/common/03_eda/tables/dynamic_price_monthly_summary.csv`
+- `A_route/common/03_eda/tables/dynamic_price_slot_summary.csv`
+- `A_route/common/03_eda/tables/eda_checks.csv`
+- `A_route/common/03_eda/tables/fixed_tariff_structure.csv`
+- `A_route/common/03_eda/tables/forecast_revision_pairs.csv`
+- `A_route/common/03_eda/tables/forecast_revision_summary.csv`
+- `A_route/common/03_eda/tables/key_lag_dependence.csv`
+- `A_route/common/03_eda/tables/monthly_profile_summary.csv`
+- `A_route/common/03_eda/tables/naive_predictability_by_month.csv`
+- `A_route/common/03_eda/tables/naive_predictability_probes.csv`
+- `A_route/common/03_eda/tables/peak_position_frequency.csv`
+- `A_route/common/03_eda/tables/price_association_summary.csv`
+- `A_route/common/03_eda/tables/slot_profile_summary.csv`
+- `A_route/common/03_eda/tables/upstream_frozen_hashes.csv`
+- `A_route/common/03_eda/tables/weekday_profile_summary.csv`

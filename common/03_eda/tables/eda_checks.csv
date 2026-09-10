@@ -1,0 +1,33 @@
+﻿执行器,检查编号,范围,检查项,状态,阻塞性,期望,实际,说明
+main,EDA-MAIN-001,输入,year_actual_10min 行数,PASS,True,52560,52560,nan
+main,EDA-MAIN-002,输入,pv_forecast_hourly_long 行数,PASS,True,35040,35040,nan
+main,EDA-MAIN-003,输入,dynamic_price_10min 行数,PASS,True,52560,52560,nan
+main,EDA-MAIN-004,D1_W1,评估起止日期,PASS,True,2025-02-01..2025-12-31,2025-02-01..2025-12-31,nan
+main,EDA-MAIN-005,D1_W1,每组有效对数,PASS,True,48096,[48096],nan
+main,EDA-MAIN-006,时间依赖,预指定配对数,PASS,True,"{'within_day_lag_1_slot': 52195, 'within_day_lag_6_slot': 50370, 'same_slot_lag_1_day': 52416, 'same_slot_lag_7_day': 51552}","{'within_day_lag_1_slot': 52195, 'within_day_lag_6_slot': 50370, 'same_slot_lag_1_day': 52416, 'same_slot_lag_7_day': 51552}",nan
+main,EDA-MAIN-007,预报修订,修订对同目标,PASS,True,True,True,nan
+main,EDA-MAIN-008,预报修订,连续发布间隔,PASS,True,6,[6],nan
+main,EDA-MAIN-009,电价,价格相关解释标签,PASS,True,EX_POST_DESCRIPTIVE_ONLY,['EX_POST_DESCRIPTIVE_ONLY'],nan
+main,EDA-MAIN-010,图形,诊断图数量,PASS,True,<=8,8,nan
+main,EDA-MAIN-011,范围,未选择 H-END/H-START,PASS,True,0,0,EDA 仅使用 slot_id/time_mark 位置标签。
+validator,V001,产物,必需表格齐全,PASS,true,缺失 0,0,
+validator,V002,产物,阶段验收前必需报告齐全,PASS,true,缺失 0,0,
+validator,V003,流水线,独立校验器启动时验收文件尚未生成,PASS,true,False,False,
+validator,V004,范围,不存在建模或优化目录,PASS,true,无,[],
+validator,V005,冻结上游,A-0/A-1/A-2 与状态文件哈希未变,PASS,true,缺失/新增/变更均为 0,"{'缺失': 0, '新增': 0, '变更': 0}","{'缺失': [], '新增': [], '变更': []}"
+validator,V006,输入,全年实际数据结构,PASS,true,365×144 且唯一,52560 行,
+validator,V007,D1_W1,总体四组唯一键,PASS,true,"{('load_kw', 'W1'), ('pv_actual_kw', 'D1'), ('load_kw', 'D1'), ('pv_actual_kw', 'W1')}","{('load_kw', 'W1'), ('pv_actual_kw', 'D1'), ('load_kw', 'D1'), ('pv_actual_kw', 'W1')}",
+validator,V008,D1_W1,独立复算总体指标,PASS,true,4/4 一致且每组 n=48096,4/4,
+validator,V009,D1_W1,日期与同 slot 规则,PASS,true,2025-02-01..2025-12-31；D1=1/W1=7,"日期=True, 规则=True",
+validator,V010,D1_W1,月度拆分完整,PASS,true,44 行且各总体 n=48096,"44 行；总数={('load_kw', 'D1'): 48096, ('load_kw', 'W1'): 48096, ('pv_actual_kw', 'D1'): 48096, ('pv_actual_kw', 'W1'): 48096}",
+validator,V011,时间依赖,四类 lag 独立复算,PASS,true,8/8 配对数与 Pearson 一致,8/8,
+validator,V012,时间依赖,边界规则显式记录,PASS,true,日内不跨日；跨日同 slot,"日内=True, 跨日=True",
+validator,V013,预报修订,同目标连续发布配对,PASS,true,同一目标、间隔 6h、差值正确,n=26262,
+validator,V014,OI-13,未计算官方预报—实际误差,PASS,true,0 个相关产物/字样,"文件=[], 内容=[]",
+validator,V015,OI-01,未选择 H-END/H-START,PASS,true,无最终选择,内容命中=[]; 上游选定=False,
+validator,V016,OI-12,价格关联仅作事后描述,PASS,true,3 行且标签统一,3 行,
+validator,V017,图形,诊断图数量上限,PASS,true,<=8,8,
+validator,V018,图形,诊断图文件集合,PASS,true,"['01_fixed_day_profiles.png', '02_mean_slot_profiles_load_pv_net.png', '03_monthly_load_pv_net_summary.png', '04_daily_peak_position_frequency.png', '05_key_lag_dependence.png', '06_naive_predictability_probes.png', '07_forecast_revision_by_horizon.png', '08_dynamic_price_profile.png']","['01_fixed_day_profiles.png', '02_mean_slot_profiles_load_pv_net.png', '03_monthly_load_pv_net_summary.png', '04_daily_peak_position_frequency.png', '05_key_lag_dependence.png', '06_naive_predictability_probes.png', '07_forecast_revision_by_horizon.png', '08_dynamic_price_profile.png']",
+validator,V019,图形,PNG 可解码且尺寸充分,PASS,true,8/8,8/8,
+validator,V020,图形,图形契约一一对应,PASS,true,8 行,8,
+validator,V021,摘要,八项交接摘要,PASS,true,8,8,

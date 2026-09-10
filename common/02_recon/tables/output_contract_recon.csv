@@ -1,0 +1,17 @@
+workbook,sheet,sheet_type,used_range,data_rows_or_positions,ten_minute_positions,output_start_date,output_end_date,ellipsis_present,first_label,last_label,later_writer_decision_required
+result1.xlsx,计划购电量,plan_or_adjustment,A1:B145,145,144,,,false,0:10-0:20,0:00+1-0:10+1,true
+result1.xlsx,充放电量,example_or_summary,A1:E7,7,,,,false,0:00-4:00,20:00-24:00,false
+result2.xlsx,计划购电量,plan_or_adjustment,A1:EQ335,334,144,2025-02-01,2025-12-31,false,0:10-0:20,0:00-0:10+1,true
+result2.xlsx,充放电量,example_or_summary,A1:F20,20,,,,true,2025-02-01 00:00:00,20:00-24:00,true
+result2.xlsx,紧急购电量,example_or_summary,A1:C11,11,,,,true,2025-02-01 00:00:00,2025-12-31 00:00:00,true
+result3.xlsx,计划购电量,plan_or_adjustment,A1:EQ335,334,144,2025-02-01,2025-12-31,false,0:10-0:20,0:00-0:10+1,true
+result3.xlsx,调整购电量,plan_or_adjustment,A1:EQ335,334,144,2025-02-01,2025-12-31,false,0:10-0:20,0:00-0:10+1,true
+result3.xlsx,充放电量,example_or_summary,A1:F26,26,,,,true,2025-02-01 00:00:00,20:00-24:00,true
+result3.xlsx,紧急购电量,example_or_summary,A1:C11,11,,,,true,2025-02-01 00:00:00,2025-12-31 00:00:00,true
+result4-2.xlsx,计划购电量,plan_or_adjustment,A1:EQ335,334,144,2025-02-01,2025-12-31,false,0:10-0:20,0:00-0:10+1,true
+result4-2.xlsx,充放电量,example_or_summary,A1:F20,20,,,,true,2025-02-01 00:00:00,20:00-24:00,true
+result4-2.xlsx,紧急购电量,example_or_summary,A1:C11,11,,,,true,2025-02-01 00:00:00,2025-12-31 00:00:00,true
+result4-3.xlsx,计划购电量,plan_or_adjustment,A1:EQ335,334,144,2025-02-01,2025-12-31,false,0:10-0:20,0:00-0:10+1,true
+result4-3.xlsx,调整购电量,plan_or_adjustment,A1:EQ335,334,144,2025-02-01,2025-12-31,false,0:10-0:20,0:00-0:10+1,true
+result4-3.xlsx,充放电量,example_or_summary,A1:F26,26,,,,true,2025-02-01 00:00:00,20:00-24:00,true
+result4-3.xlsx,紧急购电量,example_or_summary,A1:C11,11,,,,true,2025-02-01 00:00:00,2025-12-31 00:00:00,true

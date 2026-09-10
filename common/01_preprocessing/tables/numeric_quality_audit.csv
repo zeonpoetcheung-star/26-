@@ -1,0 +1,8 @@
+source_object,field,row_count,missing_count,blank_string_count,non_numeric_count,nan_count,positive_inf_count,negative_inf_count,negative_count,zero_count,min,max
+fixed_day_10min,price_fixed_yuan_per_kwh,144,0,0,0,0,0,0,0,0,0.3713,1.3952
+fixed_day_10min,load_kw,144,0,0,0,0,0,0,0,0,3309.3934,5958.9696
+fixed_day_10min,pv_forecast_kw,144,0,0,0,0,0,0,0,55,0.0,7612.316
+year_load_10min,load_kw,52560,0,0,0,0,0,0,0,0,1995.7176,7978.8849
+year_pv_actual_10min,pv_actual_kw,52560,0,0,0,0,0,0,0,23540,0.0,10216.2
+attachment3_raw_forecast,pv_forecast_kw,35040,0,0,0,0,0,0,0,17525,0.0,9995.8875
+dynamic_price_10min,price_yuan_per_kwh,52560,0,0,0,0,0,0,0,0,0.0076,1.7936
