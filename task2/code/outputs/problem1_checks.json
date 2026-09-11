@@ -1,0 +1,22 @@
+{
+  "solver_objective_yuan": 35126.84858928963,
+  "total_purchase_kwh": 59482.69899835391,
+  "total_charge_kwh": 20740.66613168725,
+  "total_discharge_kwh": 16799.939566666668,
+  "total_spill_kwh": 0.0,
+  "baseline_purchase_kwh": 61789.935399999995,
+  "baseline_cost_yuan": 48052.046590846665,
+  "max_balance_residual_kwh": 2.2737367544323206e-13,
+  "max_soc_transition_residual_kwh": 8.313350008393172e-13,
+  "min_soc_kwh": 1200.0,
+  "max_soc_kwh": 10800.0,
+  "initial_soc_kwh": 6000.0,
+  "final_soc_kwh": 6000.0,
+  "max_charge_kwh": 833.3333333333333,
+  "max_discharge_kwh": 715.6530333333333,
+  "simultaneous_charge_discharge_intervals": 0,
+  "cost_saving_yuan": 12925.198001557037,
+  "cost_saving_rate": 0.26898329870551513,
+  "sensitivity_round_trip_90_percent_cost_yuan": 33801.47764894513,
+  "sensitivity_cost_change_yuan": -1325.3709403444955
+}

@@ -1,0 +1,119 @@
+{
+  "prediction_metrics_power_kw": {
+    "load": {
+      "seasonal": {
+        "mae": 176.79572117223884,
+        "rmse": 244.28661499529923
+      },
+      "weekday": {
+        "mae": 188.8801444901863,
+        "rmse": 262.06136128453306
+      },
+      "ridge": {
+        "mae": 141.77446957916968,
+        "rmse": 190.0202770391915
+      },
+      "forest": {
+        "mae": 142.6728686395865,
+        "rmse": 203.5542289792185
+      },
+      "ensemble": {
+        "mae": 140.28799964382145,
+        "rmse": 194.04398895473497
+      }
+    },
+    "pv": {
+      "seasonal": {
+        "mae": 214.6883097658849,
+        "rmse": 419.94796844945364
+      },
+      "weekday": {
+        "mae": 251.72946127224716,
+        "rmse": 446.64901494993563
+      },
+      "ridge": {
+        "mae": 242.8734742949421,
+        "rmse": 614.7107019971346
+      },
+      "forest": {
+        "mae": 174.45304427965382,
+        "rmse": 328.3306281516296
+      },
+      "ensemble": {
+        "mae": 179.7225499486683,
+        "rmse": 346.0440146980708
+      }
+    },
+    "net": {
+      "seasonal": {
+        "mae": 327.7711702012641,
+        "rmse": 486.4685521696587
+      },
+      "weekday": {
+        "mae": 370.00562262350303,
+        "rmse": 520.5253383877194
+      },
+      "ridge": {
+        "mae": 326.4410648546984,
+        "rmse": 635.694289811524
+      },
+      "forest": {
+        "mae": 262.60658162997845,
+        "rmse": 383.4684590240391
+      },
+      "ensemble": {
+        "mae": 265.94664269467285,
+        "rmse": 393.59553011190263
+      }
+    }
+  },
+  "strategy_comparison": [
+    {
+      "name": "周同期点预测",
+      "plan_purchase_kwh": 20210590.42411781,
+      "emergency_purchase_kwh": 629236.1471228865,
+      "plan_cost_yuan": 12243843.435509946,
+      "emergency_cost_yuan": 3792617.74701134,
+      "total_cost_yuan": 16036461.182521285
+    },
+    {
+      "name": "机器学习集成点预测",
+      "plan_purchase_kwh": 20319324.253724117,
+      "emergency_purchase_kwh": 501893.18093841046,
+      "plan_cost_yuan": 12299415.799439838,
+      "emergency_cost_yuan": 3020829.683846178,
+      "total_cost_yuan": 15320245.483286016
+    },
+    {
+      "name": "机器学习集成+80%分位裕度",
+      "plan_purchase_kwh": 22045397.684002027,
+      "emergency_purchase_kwh": 100029.40556446354,
+      "plan_cost_yuan": 13510048.7256695,
+      "emergency_cost_yuan": 614610.0207996019,
+      "total_cost_yuan": 14124658.746469103
+    }
+  ],
+  "output_days": 334,
+  "plan_intervals": 48096,
+  "total_plan_purchase_kwh": 22045397.684002027,
+  "total_emergency_purchase_kwh": 100029.40556446354,
+  "total_plan_cost_yuan": 13510048.7256695,
+  "total_emergency_cost_yuan": 614610.0207996019,
+  "total_cost_yuan": 14124658.746469103,
+  "emergency_intervals": 613,
+  "min_soc_kwh": 1200.0,
+  "max_soc_kwh": 10800.0,
+  "max_charge_kwh": 833.3333333333333,
+  "max_discharge_kwh": 833.3333333333333,
+  "cross_day_soc_residual_kwh": 0.0,
+  "max_actual_balance_residual_kwh": 2.2737367544323206e-13,
+  "max_soc_transition_residual_kwh": 9.094947017729282e-13,
+  "workbook_plan_rows": 334,
+  "workbook_storage_rows": 2004,
+  "workbook_emergency_segments": 195,
+  "workbook_plan_sum_residual_kwh": 0.0,
+  "workbook_plan_cost_residual_yuan": 1.862645149230957e-09,
+  "workbook_emergency_sum_residual_kwh": 1.4551915228366852e-11,
+  "workbook_first_date": "2025-02-01",
+  "workbook_last_date": "2025-12-31"
+}
