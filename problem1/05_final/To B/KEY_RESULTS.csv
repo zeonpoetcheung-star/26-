@@ -1,0 +1,41 @@
+﻿category,metric,value,unit,note
+final,time_convention,H-END,,Final 建模假设
+final,total_purchase,59482.698998353910,kWh,全天计划购电量
+final,total_purchase_cost,35126.948589289634,元,全天计划购电费
+baseline,total_purchase,61789.935400000002,kWh,无储能基准
+baseline,total_purchase_cost,48052.046590846658,元,无储能基准
+comparison,purchase_reduction,2307.236401646092,kWh,Final 相比无储能
+comparison,purchase_reduction_rate,0.037340003460,ratio,Final 相比无储能
+comparison,cost_saving,12925.098001557024,元,Final 相比无储能
+comparison,cost_saving_rate,0.268981217629,ratio,Final 相比无储能
+storage,total_charge_bus,20740.666131687249,kWh,母线侧
+storage,total_discharge_bus,16799.939566666668,kWh,母线侧
+storage,soc_min,1200.000000000000,kWh,
+storage,soc_max,10800.000000000000,kWh,
+storage,soc_0,6000.000000000000,kWh,
+storage,soc_24,6000.000000000000,kWh,
+pv,final_curtailment,0.000000000000,kWh,
+pv,baseline_curtailment,6247.962966666666,kWh,
+sensitivity_efficiency,sqrt09_cost,33801.495542222001,元,eta_c=eta_d=sqrt(0.9)
+sensitivity_efficiency,sqrt09_cost_change_vs_main,-1325.453047067633,元,
+sensitivity_time,h_start_cost,35126.848589289628,元,A/B Crosscheck 的 H-START 口径
+sensitivity_time,cost_difference_vs_h_end,-0.100000000006,元,
+sensitivity_time,max_specified_interval_relative_diff,0.198000,ratio,18:00-18:10
+table1,purchase_10:00-10:10,0.000000000000,kWh,Final H-END
+table1,purchase_12:00-12:10,480.412450000000,kWh,Final H-END
+table1,purchase_14:00-14:10,0.000000000000,kWh,Final H-END
+table1,purchase_16:00-16:10,445.431650000000,kWh,Final H-END
+table1,purchase_18:00-18:10,531.894050000000,kWh,Final H-END
+table1,purchase_20:00-20:10,0.000000000000,kWh,Final H-END
+table2,charge_0:00-4:00,4500.000000000000,kWh,Final H-END
+table2,discharge_0:00-4:00,0.000000000000,kWh,Final H-END
+table2,charge_4:00-8:00,833.333333333300,kWh,Final H-END
+table2,discharge_4:00-8:00,6365.841200000000,kWh,Final H-END
+table2,charge_8:00-12:00,4787.964288065800,kWh,Final H-END
+table2,discharge_8:00-12:00,1702.996983333300,kWh,Final H-END
+table2,charge_12:00-16:00,5286.035176954700,kWh,Final H-END
+table2,discharge_12:00-16:00,91.101383333300,kWh,Final H-END
+table2,charge_16:00-20:00,0.000000000000,kWh,Final H-END
+table2,discharge_16:00-20:00,5780.131883333300,kWh,Final H-END
+table2,charge_20:00-24:00,5333.333333333300,kWh,Final H-END
+table2,discharge_20:00-24:00,2859.868116666700,kWh,Final H-END
