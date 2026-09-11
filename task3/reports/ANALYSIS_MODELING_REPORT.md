@@ -120,9 +120,11 @@ $$
 令场景紧急购电费用为 $Z_s$，目标函数为：
 
 $$
-\min\ C^{contract}
-+(1-\lambda)\mathbb E[Z]
-+\lambda\operatorname{CVaR}_{0.9}(Z),
+\min \left\{
+C_{\mathrm{contract}}
++(1-\lambda)\,\mathrm{E}[Z]
++\lambda\,\mathrm{CVaR}_{0.9}(Z)
+\right\}
 $$
 
 其中 $\lambda=0.2$。CVaR 使用辅助变量线性化，因此整体仍为线性规划。它牺牲少量平均成本，以降低极端情况下的紧急购电。
