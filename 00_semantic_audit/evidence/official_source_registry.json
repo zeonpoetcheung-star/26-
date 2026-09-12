@@ -1,0 +1,36 @@
+{
+  "provenance": "uploaded CUMCM2026Problems.zip; official C题 members only",
+  "inputs": {
+    "official_statement": {
+      "relative_path": "input/original/C题.pdf",
+      "sha256": "2c098f6ae9dd47ae965aebdec3b9facf3de6c173f999783c1012c08fc5fb9d2d",
+      "size_bytes": 354389,
+      "source_archive_member": "C题/C题.pdf"
+    },
+    "attachment1": {
+      "relative_path": "input/original/附件1.xlsx",
+      "sha256": "66b87134f5ecccd68184d3539bb1293ef039f9e0fdd955a589b9bfa7f227c377",
+      "size_bytes": 16003,
+      "source_archive_member": "C题/附件/附件1.xlsx"
+    },
+    "attachment2": {
+      "relative_path": "input/original/附件2.xlsx",
+      "sha256": "2e95fd446bfafa0d8c59577b5c2e2ea8b3f1def20dde54a3062556f4da9b4c72",
+      "size_bytes": 907128,
+      "source_archive_member": "C题/附件/附件2.xlsx"
+    },
+    "attachment3": {
+      "relative_path": "input/original/附件3.xlsx",
+      "sha256": "8a61b06c52bd0d639a1cc37c61a7d9f5b75edcbca718f64c1bd3498ec9f9d843",
+      "size_bytes": 293526,
+      "source_archive_member": "C题/附件/附件3.xlsx"
+    },
+    "result3_template": {
+      "relative_path": "input/templates/result3.xlsx",
+      "sha256": "c59da470cabd0be23f602c95c8aa9d11ec224a0cdac216b3e1f218e65d006bdc",
+      "size_bytes": 265429,
+      "source_archive_member": "C题/附件/附件5/result3.xlsx"
+    }
+  },
+  "common_hash_basis": "uploaded 02_recon.zip / tables/a1_frozen_hashes.csv"
+}

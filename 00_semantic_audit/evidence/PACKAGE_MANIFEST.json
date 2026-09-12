@@ -1,0 +1,28 @@
+{
+  "package_version": "P3_SEMANTIC_20260912_V1",
+  "source_read_only": true,
+  "reference_checks": {
+    "pass": 59,
+    "fail": 0
+  },
+  "local_common_check": "PENDING",
+  "file_sha256": {
+    "README.md": "b195fb1afbf05d6495f6639925ccddefc18e19f7e75745a297fe68ab211477f1",
+    "P3_SEMANTIC_AUDIT.md": "c2e96a9052791fa2d34ea9dc445faf2aa594cd1c5efbd21f087d272ea5cd8142",
+    "p3_open_issues.csv": "bec1427fdc57a5077fc41f14c095e9e420f225cd6792749e0dbe27bf6cbaba38",
+    "tables/p3_result3_slot_map.csv": "292242c274cb33e4965b7a4b2917833e98836c2f45bcbafb1dd4a186301be093",
+    "tables/p3_settlement_examples.csv": "db8d96c85084f547cf15ba0a52f8915d47b8c530938435a256b2b6944fe0e3c4",
+    "tables/p3_event_clock_map.csv": "dbd49ab58d962255c5a33236c89fd53f10499ec6ef41134116f81664c29e7aab",
+    "tables/p3_forecast_interpolation_map.csv": "91ff3df2a59ba19a73bfbd7f166f30408e652dda41aaf87e466770834ba9590e",
+    "scripts/p3_semantic_audit.py": "c2e09bfdf9f7bed12938d37d087fa2d196640a2ce154a4bfa54ba854abc743be",
+    "tasks/P3_SEMANTIC_START_PROMPT.md": "01e201d3656dbafe403ed558da04fb7c1587e566a8008b254594320708f30287",
+    "tasks/P3_SEMANTIC_CODEX_TASK.md": "c30070240f6625fe2db9f807886d9e86474247035506de20e86103bfc70a5ea3",
+    "contracts/p3_semantic_contract.json": "37550c5037def95db71a41ad630e807ea4d46fe6a1dbef4e1edae47f10d80083",
+    "evidence/official_source_registry.json": "b395fc2c27de669f6af4427f4805ba420c3ed8fa3fc6d03a2128f9c632c54b14",
+    "evidence/SOURCE_LOCATORS.md": "36d851dfdba33e9bbe6d9fffcf202c21597ceeb4c6bc530b6c8801ec3a53c1dc",
+    "evidence/reference_run/p3_semantic_check_results.json": "fb1f01b8923ba3f83be97f2d603993045dc34738e94894b7dfcd3cd6dd38016c",
+    "evidence/reference_run/P3_SEMANTIC_GATE.md": "1fa3a5c536098720f7b21d6317208f1aba5a70b1e4216026912f4eb3cccc9c92",
+    "evidence/reference_run/p3_semantic_checks.csv": "8a931c627c0bd684281aea6694f1ea42a02c5ba4498fb16c9e0f61d89d453610"
+  },
+  "self_hash_excluded": true
+}

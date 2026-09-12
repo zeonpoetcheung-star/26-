@@ -1,0 +1,60 @@
+﻿check_id,status,detail
+HASH_C题.pdf,PASS,SHA256=2c098f6ae9dd47ae965aebdec3b9facf3de6c173f999783c1012c08fc5fb9d2d
+HASH_附件1.xlsx,PASS,SHA256=66b87134f5ecccd68184d3539bb1293ef039f9e0fdd955a589b9bfa7f227c377
+HASH_附件2.xlsx,PASS,SHA256=2e95fd446bfafa0d8c59577b5c2e2ea8b3f1def20dde54a3062556f4da9b4c72
+HASH_附件3.xlsx,PASS,SHA256=8a61b06c52bd0d639a1cc37c61a7d9f5b75edcbca718f64c1bd3498ec9f9d843
+HASH_result3.xlsx,PASS,SHA256=c59da470cabd0be23f602c95c8aa9d11ec224a0cdac216b3e1f218e65d006bdc
+FORECAST_header,PASS,C:Z是h1..24，不是h0..23
+FORECAST_dimension,PASS,
+FORECAST_sst28_blank,PASS,索引28解析为空串
+FORECAST_blocks,PASS,正确四行日期块=365/365
+FORECAST_blank_dates,PASS,语义空日期=1095
+FORECAST_count,PASS,长表键=35040
+FORECAST_values,PASS,非法/负功率=0
+FORECAST_crossyear,PASS,目标日期跨年=40；超过最后观测边界=36
+FIXED_markers,PASS,10分钟原marker 0:10..0:00+1
+ACTUAL_markers_小区负载,PASS,
+ACTUAL_dates_小区负载,PASS,
+ACTUAL_markers_光伏发电实际功率,PASS,
+ACTUAL_dates_光伏发电实际功率,PASS,
+GEOMETRY_weights,PASS,
+GEOMETRY_576,PASS,
+TEMPLATE_sheets,PASS,
+TEMPLATE_dates_计划购电量,PASS,
+TEMPLATE_dimension_计划购电量,PASS,
+TEMPLATE_blank_计划购电量,PASS,原始模板数值区为空
+TEMPLATE_total_labels_计划购电量,PASS,
+TEMPLATE_no_version_axis_计划购电量,PASS,每天一行；没有6/12/18三条版本记录位置
+TEMPLATE_dates_调整购电量,PASS,
+TEMPLATE_dimension_调整购电量,PASS,
+TEMPLATE_blank_调整购电量,PASS,原始模板数值区为空
+TEMPLATE_total_labels_调整购电量,PASS,
+TEMPLATE_no_version_axis_调整购电量,PASS,每天一行；没有6/12/18三条版本记录位置
+TEMPLATE_known_label_conflict,PASS,
+TOY_no_adjust,PASS,actual=100; expected=100
+TOY_decrease,PASS,actual=90; expected=90
+TOY_increase,PASS,actual=175; expected=175
+TOY_cancel_all,PASS,actual=50; expected=50
+TOY_zero_plan,PASS,actual=30; expected=30
+TOY_emergency_separate,PASS,actual=140; expected=140
+TOY_price_scale,PASS,actual=180; expected=180
+TOY_zero_price,PASS,actual=0; expected=0
+TOY_repeated_final,PASS,100→150→80只按末值与0时比较
+TOY_repeated_incremental,PASS,逐次替代型敏感性，额外路径费用50
+TOY_monotone_equal,PASS,单向调整两种路径口径相同
+TOY_nonrefundable,PASS,原款不退+罚金为110，不是主口径
+TOY_no_discard_refund,PASS,最终承诺100，即使实际只取80仍付100
+TOY_negative_rejected,PASS,负的调整差可以记录，但负的最终普通购电量不可输入
+TOY_constant_power,PASS,120kW×1/6h=20kWh
+TOY_first_hour_integral,PASS,"h0=60,h1=120，首小时积分90kWh"
+TOY_first_slot_integral,PASS,首槽平均65kW，电量65/6
+TOY_integral_24h,PASS,六槽和等于梯形小时积分
+TOY_first_issue_fallback,PASS,首日无观测只用当次h1，不偷取slot1 actual
+TOY_6h_boundary,PASS,6点已完成1..36，只改37..144
+TOY_12h_boundary,PASS,12点使用S72，不用S73或名义SOC
+TOY_18h_continuation,PASS,18点预测次日18h，非提前锁定次日计划
+UNCHANGED_input/original/C题.pdf,PASS,只读输入哈希前后相同
+UNCHANGED_input/original/附件1.xlsx,PASS,只读输入哈希前后相同
+UNCHANGED_input/original/附件2.xlsx,PASS,只读输入哈希前后相同
+UNCHANGED_input/original/附件3.xlsx,PASS,只读输入哈希前后相同
+UNCHANGED_input/templates/result3.xlsx,PASS,只读输入哈希前后相同

@@ -1,0 +1,12 @@
+﻿issue_id,topic,source_gap,working_treatment,status,source_locator
+OI-01,时间标签,官方附件位置和模板文字不同,继承H-END；模板保持，另表解释物理区间,OPEN_WITH_WORKING_ASSUMPTION,source/template mapping
+OI-02,预报日期共享字符串,28是索引且解析为空,继承Common已验证四行块，不重开该项,CLOSED_IN_COMMON_VERIFY_IDENTITY_ONLY,附件3!A3:A5等
+OI-03,效率,题面只写90%,继承ηc=ηd=0.9、微网侧C/D kWh,INHERITED_WORKING_ASSUMPTION,C题.pdf p2附录1
+OI-04 / P3-S05,初始/终端库存,P3没有每日闭合要求,真实跨日连续；1月预热及终端由A-4决定,DEFER_MODEL_POLICY,C题.pdf p2附录1
+OI-06 / OI-13,整点预报与区间实际,无h0；整点不等于小时均值,主工作映射PWL逐槽积分；h0用已完成槽代理，首发行例外,OPEN_WITH_WORKING_ASSUMPTION,附件3 C:Z / C题.pdf p2附录2
+OI-07 / P3-S01,调减原价是否保留,原文未明说退款规则,主：取消部分改按50%；替代：原价照付再罚50%,OPEN_WITH_WORKING_ASSUMPTION,C题.pdf p2问题3
+OI-07 / P3-S02,多次调整基准,未写每次修改是否累计收费,主：最终vs0时结一次；逐次合同仅显式备选,OPEN_WITH_WORKING_ASSUMPTION,C题.pdf p2问题3
+OI-07 / P3-S03,交易电价时标,发行时刻与交付时段不同,P3暂按交付槽价；P4另审,OPEN_WITH_WORKING_ASSUMPTION,附件1 / C题.pdf p2问题3
+OI-07 / P3-S04,调整表写量和费用,每天一行无版本轴；EQ只写全天购电费,调整表写最终普通总量；EQ写最终总账；计划EQ仅初始报价,OPEN_WITH_EXPORT_CONVENTION,原始result3.xlsx两张A1:EQ335
+OI-11,跨日预测窗口,未来24h跨次日但任务要求当天计划,只改当日未执行量，次日只作内部前瞻,OPEN_WITH_WORKING_ASSUMPTION,C题.pdf p2问题3
+OI-12,P4未来价格可知性,不在P3-0范围,留到P4，不继承全年预知价格,DEFER_P4,C题.pdf p2问题4

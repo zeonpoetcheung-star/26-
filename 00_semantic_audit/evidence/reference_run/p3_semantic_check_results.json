@@ -1,0 +1,350 @@
+{
+  "audit_id": "P3_SEMANTIC_20260912_V1",
+  "gate": "REFERENCE_SOURCE_CHECKED_LOCAL_PENDING",
+  "run_scope": "official_source_reference",
+  "checked_at_utc": "2026-09-12T07:17:33.962167+00:00",
+  "python_executable": "/opt/pyvenv/bin/python",
+  "python_version": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "PASS": 59,
+  "FAIL": 0,
+  "blocking": 0,
+  "open_issues": [
+    "OI-01",
+    "OI-13",
+    "P3-S01",
+    "P3-S02",
+    "P3-S03",
+    "P3-S04",
+    "P3-S05"
+  ],
+  "permit_p3_1": false,
+  "permit_training_or_batch": false,
+  "summary": {
+    "official_issue_rows": 1460,
+    "official_hourly_forecasts": 35040,
+    "verified_date_blocks": 365,
+    "semantic_blank_dates": 1095,
+    "crossyear_target_date_rows": 40,
+    "outside_actual_end_rows": 36,
+    "forecast_geometry_rows": 576,
+    "result3_slot_map_rows": 144,
+    "template_sheet_dimensions": {
+      "计划购电量": "A1:EQ335",
+      "调整购电量": "A1:EQ335",
+      "充放电量": "A1:F26",
+      "紧急购电量": "A1:C11"
+    },
+    "common_local_verification": {
+      "checked": false
+    },
+    "new_fit_count": 0,
+    "lp_solve_count": 0,
+    "actual_replay_count": 0,
+    "forecast_accuracy_metrics_computed": false,
+    "workbooks_created_or_modified": 0
+  },
+  "read_only_input_hashes": {
+    "/mnt/data/p3_source_reference/input/original/C题.pdf": "2c098f6ae9dd47ae965aebdec3b9facf3de6c173f999783c1012c08fc5fb9d2d",
+    "/mnt/data/p3_source_reference/input/original/附件1.xlsx": "66b87134f5ecccd68184d3539bb1293ef039f9e0fdd955a589b9bfa7f227c377",
+    "/mnt/data/p3_source_reference/input/original/附件2.xlsx": "2e95fd446bfafa0d8c59577b5c2e2ea8b3f1def20dde54a3062556f4da9b4c72",
+    "/mnt/data/p3_source_reference/input/original/附件3.xlsx": "8a61b06c52bd0d639a1cc37c61a7d9f5b75edcbca718f64c1bd3498ec9f9d843",
+    "/mnt/data/p3_source_reference/input/templates/result3.xlsx": "c59da470cabd0be23f602c95c8aa9d11ec224a0cdac216b3e1f218e65d006bdc"
+  },
+  "checks": [
+    {
+      "check_id": "HASH_C题.pdf",
+      "status": "PASS",
+      "detail": "SHA256=2c098f6ae9dd47ae965aebdec3b9facf3de6c173f999783c1012c08fc5fb9d2d"
+    },
+    {
+      "check_id": "HASH_附件1.xlsx",
+      "status": "PASS",
+      "detail": "SHA256=66b87134f5ecccd68184d3539bb1293ef039f9e0fdd955a589b9bfa7f227c377"
+    },
+    {
+      "check_id": "HASH_附件2.xlsx",
+      "status": "PASS",
+      "detail": "SHA256=2e95fd446bfafa0d8c59577b5c2e2ea8b3f1def20dde54a3062556f4da9b4c72"
+    },
+    {
+      "check_id": "HASH_附件3.xlsx",
+      "status": "PASS",
+      "detail": "SHA256=8a61b06c52bd0d639a1cc37c61a7d9f5b75edcbca718f64c1bd3498ec9f9d843"
+    },
+    {
+      "check_id": "HASH_result3.xlsx",
+      "status": "PASS",
+      "detail": "SHA256=c59da470cabd0be23f602c95c8aa9d11ec224a0cdac216b3e1f218e65d006bdc"
+    },
+    {
+      "check_id": "FORECAST_header",
+      "status": "PASS",
+      "detail": "C:Z是h1..24，不是h0..23"
+    },
+    {
+      "check_id": "FORECAST_dimension",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "FORECAST_sst28_blank",
+      "status": "PASS",
+      "detail": "索引28解析为空串"
+    },
+    {
+      "check_id": "FORECAST_blocks",
+      "status": "PASS",
+      "detail": "正确四行日期块=365/365"
+    },
+    {
+      "check_id": "FORECAST_blank_dates",
+      "status": "PASS",
+      "detail": "语义空日期=1095"
+    },
+    {
+      "check_id": "FORECAST_count",
+      "status": "PASS",
+      "detail": "长表键=35040"
+    },
+    {
+      "check_id": "FORECAST_values",
+      "status": "PASS",
+      "detail": "非法/负功率=0"
+    },
+    {
+      "check_id": "FORECAST_crossyear",
+      "status": "PASS",
+      "detail": "目标日期跨年=40；超过最后观测边界=36"
+    },
+    {
+      "check_id": "FIXED_markers",
+      "status": "PASS",
+      "detail": "10分钟原marker 0:10..0:00+1"
+    },
+    {
+      "check_id": "ACTUAL_markers_小区负载",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "ACTUAL_dates_小区负载",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "ACTUAL_markers_光伏发电实际功率",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "ACTUAL_dates_光伏发电实际功率",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "GEOMETRY_weights",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "GEOMETRY_576",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "TEMPLATE_sheets",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "TEMPLATE_dates_计划购电量",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "TEMPLATE_dimension_计划购电量",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "TEMPLATE_blank_计划购电量",
+      "status": "PASS",
+      "detail": "原始模板数值区为空"
+    },
+    {
+      "check_id": "TEMPLATE_total_labels_计划购电量",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "TEMPLATE_no_version_axis_计划购电量",
+      "status": "PASS",
+      "detail": "每天一行；没有6/12/18三条版本记录位置"
+    },
+    {
+      "check_id": "TEMPLATE_dates_调整购电量",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "TEMPLATE_dimension_调整购电量",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "TEMPLATE_blank_调整购电量",
+      "status": "PASS",
+      "detail": "原始模板数值区为空"
+    },
+    {
+      "check_id": "TEMPLATE_total_labels_调整购电量",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "TEMPLATE_no_version_axis_调整购电量",
+      "status": "PASS",
+      "detail": "每天一行；没有6/12/18三条版本记录位置"
+    },
+    {
+      "check_id": "TEMPLATE_known_label_conflict",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "TOY_no_adjust",
+      "status": "PASS",
+      "detail": "actual=100; expected=100"
+    },
+    {
+      "check_id": "TOY_decrease",
+      "status": "PASS",
+      "detail": "actual=90; expected=90"
+    },
+    {
+      "check_id": "TOY_increase",
+      "status": "PASS",
+      "detail": "actual=175; expected=175"
+    },
+    {
+      "check_id": "TOY_cancel_all",
+      "status": "PASS",
+      "detail": "actual=50; expected=50"
+    },
+    {
+      "check_id": "TOY_zero_plan",
+      "status": "PASS",
+      "detail": "actual=30; expected=30"
+    },
+    {
+      "check_id": "TOY_emergency_separate",
+      "status": "PASS",
+      "detail": "actual=140; expected=140"
+    },
+    {
+      "check_id": "TOY_price_scale",
+      "status": "PASS",
+      "detail": "actual=180; expected=180"
+    },
+    {
+      "check_id": "TOY_zero_price",
+      "status": "PASS",
+      "detail": "actual=0; expected=0"
+    },
+    {
+      "check_id": "TOY_repeated_final",
+      "status": "PASS",
+      "detail": "100→150→80只按末值与0时比较"
+    },
+    {
+      "check_id": "TOY_repeated_incremental",
+      "status": "PASS",
+      "detail": "逐次替代型敏感性，额外路径费用50"
+    },
+    {
+      "check_id": "TOY_monotone_equal",
+      "status": "PASS",
+      "detail": "单向调整两种路径口径相同"
+    },
+    {
+      "check_id": "TOY_nonrefundable",
+      "status": "PASS",
+      "detail": "原款不退+罚金为110，不是主口径"
+    },
+    {
+      "check_id": "TOY_no_discard_refund",
+      "status": "PASS",
+      "detail": "最终承诺100，即使实际只取80仍付100"
+    },
+    {
+      "check_id": "TOY_negative_rejected",
+      "status": "PASS",
+      "detail": "负的调整差可以记录，但负的最终普通购电量不可输入"
+    },
+    {
+      "check_id": "TOY_constant_power",
+      "status": "PASS",
+      "detail": "120kW×1/6h=20kWh"
+    },
+    {
+      "check_id": "TOY_first_hour_integral",
+      "status": "PASS",
+      "detail": "h0=60,h1=120，首小时积分90kWh"
+    },
+    {
+      "check_id": "TOY_first_slot_integral",
+      "status": "PASS",
+      "detail": "首槽平均65kW，电量65/6"
+    },
+    {
+      "check_id": "TOY_integral_24h",
+      "status": "PASS",
+      "detail": "六槽和等于梯形小时积分"
+    },
+    {
+      "check_id": "TOY_first_issue_fallback",
+      "status": "PASS",
+      "detail": "首日无观测只用当次h1，不偷取slot1 actual"
+    },
+    {
+      "check_id": "TOY_6h_boundary",
+      "status": "PASS",
+      "detail": "6点已完成1..36，只改37..144"
+    },
+    {
+      "check_id": "TOY_12h_boundary",
+      "status": "PASS",
+      "detail": "12点使用S72，不用S73或名义SOC"
+    },
+    {
+      "check_id": "TOY_18h_continuation",
+      "status": "PASS",
+      "detail": "18点预测次日18h，非提前锁定次日计划"
+    },
+    {
+      "check_id": "UNCHANGED_input/original/C题.pdf",
+      "status": "PASS",
+      "detail": "只读输入哈希前后相同"
+    },
+    {
+      "check_id": "UNCHANGED_input/original/附件1.xlsx",
+      "status": "PASS",
+      "detail": "只读输入哈希前后相同"
+    },
+    {
+      "check_id": "UNCHANGED_input/original/附件2.xlsx",
+      "status": "PASS",
+      "detail": "只读输入哈希前后相同"
+    },
+    {
+      "check_id": "UNCHANGED_input/original/附件3.xlsx",
+      "status": "PASS",
+      "detail": "只读输入哈希前后相同"
+    },
+    {
+      "check_id": "UNCHANGED_input/templates/result3.xlsx",
+      "status": "PASS",
+      "detail": "只读输入哈希前后相同"
+    }
+  ]
+}

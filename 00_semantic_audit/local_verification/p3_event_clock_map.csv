@@ -1,0 +1,5 @@
+﻿issue_hour,completed_slots,soc_boundary_index,first_adjustable_slot,last_adjustable_slot,remaining_today_slots,continuation_slots,latest_observed_interval_end
+0,0,0,1,144,144,0,0:00
+6,36,36,37,144,108,36,6:00
+12,72,72,73,144,72,72,12:00
+18,108,108,109,144,36,108,18:00
