@@ -1,0 +1,4 @@
+﻿terminal_structure,initial_soc_kwh,reference_cost_yuan,increment_vs_free_yuan,note
+free_terminal,10800,12226042.07,0.0,perfect-information common-input sensitivity; internal evidence
+48h_closure_S288_eq_S0,10800,12260454.63,34412.56,perfect-information common-input sensitivity; internal evidence
+daily_closure_S144_eq_S0,10800,12291024.77,64982.7,perfect-information common-input sensitivity; internal evidence
