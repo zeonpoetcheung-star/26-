@@ -1,0 +1,76 @@
+﻿类别,复核项目,独立复算值,单位,说明/核验结论
+冻结锚点,result2.xlsx sha256,93b0bf0ab5e419cc179b78c409fcfa88616cd95572f1f958268ccf42c5086a74,hex,与 CANDIDATE_FREEZE_MANIFEST.json 一致
+冻结锚点,result2.xlsx size,574581,byte,一致
+冻结锚点,KEY_RESULTS.csv sha256,17981f7681d1b1b75b1ecb1f3c40b71cfab119920bda181ee32b058a01bad3f5,hex,与 manifest 一致
+核心账本复算,planned_purchase_kwh,21803694.9364317581,kWh/元,Candidate 标注 21803694.9364 ; 差 +3.176e-05
+核心账本复算,emergency_purchase_kwh,106752.9776603876,kWh/元,Candidate 标注 106752.9777 ; 差 -3.961e-05
+核心账本复算,plan_cost_yuan,13350598.3430019915,元,Candidate 标注 13350598.343 ; 差 +1.991e-06
+核心账本复算,emergency_cost_yuan,626124.8105421517,元,Candidate 标注 626124.8105 ; 差 +4.215e-05
+核心账本复算,total_cost_yuan,13976723.1535441428,元,Candidate 标注 13976723.153544 ; 差 +1.434e-07
+核心账本复算,unused_planned_grid_kwh,1294262.0266719619,kWh/元,Candidate 标注 1294262.0267 ; 差 -2.804e-05
+核心账本复算,pv_curtailment_kwh,1469770.7405228401,kWh/元,Candidate 标注 1469770.7405 ; 差 +2.284e-05
+核心账本复算,initial_soc_kwh,9265.2592720741,kWh/元,Candidate 标注 9265.259272 ; 差 +7.408e-08
+核心账本复算,final_soc_kwh,8752.8152978073,kWh/元,Candidate 标注 8752.815298 ; 差 -1.927e-07
+核心账本复算,soc_min_kwh,1200.0,-,独立复算
+核心账本复算,soc_max_kwh,10800.0,-,独立复算
+核心账本复算,emergency_slot_count,681,-,独立复算
+核心账本复算,emergency_event_count,208,-,独立复算
+核心账本复算,total_cost_identity_residual,0.000e+00,元,plan+emergency=total
+核心账本复算,policy_comparison_MAIN_vs_recompute,max_abs_diff=3.725e-09,元/kWh,15 项字段
+result2一致性,计划购电量页 slot/EP/EQ 与canonical最大差,1.455e-11,kWh/元,"335x147, 334日期x144槽"
+result2一致性,充放电量页 charge/discharge 最大差,1.819e-12,kWh,2004行=334x6
+result2一致性,充放电量页 0:00/24:00 SOC 最大差,1.819e-12,kWh,各334值
+result2一致性,紧急购电量页 非零行数 vs canonical 事件数,208 vs 208,行,排序后逐条比对
+result2一致性,紧急购电量页 事件总量,106752.977660,kWh,canonical 106752.977660
+指定日期一致性,2025-03-20 plan/EP/EQ 最大差,1.455e-11,kWh/元,逐值比对
+指定日期一致性,2025-06-21 plan/EP/EQ 最大差,7.276e-12,kWh/元,逐值比对
+指定日期一致性,2025-09-23 plan/EP/EQ 最大差,2.274e-13,kWh/元,逐值比对
+指定日期一致性,2025-12-21 plan/EP/EQ 最大差,2.274e-13,kWh/元,逐值比对
+物理抽查,"SOC within [1200,10800]",0.000e+00,kWh,容差 0e+00 -> PASS
+物理抽查,charge <= 5000/6,0.000e+00,kWh,容差 1e-09 -> PASS
+物理抽查,discharge <= 5000/6,0.000e+00,kWh,容差 1e-09 -> PASS
+物理抽查,"charge,discharge >= 0",0.000e+00,kWh,容差 0e+00 -> PASS
+物理抽查,SOC recursion S'=S+0.9C-D/0.9,5.457e-12,kWh,容差 1e-09 -> PASS
+物理抽查,cross-slot continuity S_{t}=S_{t-1},0.000e+00,kWh,容差 1e-09 -> PASS
+物理抽查,cross-day continuity,0.000e+00,kWh,容差 1e-09 -> PASS
+物理抽查,no daily reset to 6000 (#days starting at 6000),0.000e+00,kWh,容差 0e+00 -> PASS
+物理抽查,"no material same-slot C&D (min(C,D)=(x))",0.000e+00,kWh,容差 1e-06 -> PASS
+物理抽查,grid_used <= grid_plan / used >= 0,0.000e+00,kWh,容差 1e-09 -> PASS
+物理抽查,unused >= 0,-0.000e+00,kWh,容差 0e+00 -> PASS
+物理抽查,emergency >= 0,0.000e+00,kWh,容差 0e+00 -> PASS
+物理抽查,spill >= 0,0.000e+00,kWh,容差 0e+00 -> PASS
+物理抽查,energy balance used+PV+dis+emg = load+chg+spill,4.547e-13,kWh,容差 1e-09 -> PASS
+物理抽查,controller: charge,2.103e-12,kWh,容差 1e-09 -> PASS
+物理抽查,controller: discharge,4.583e-13,kWh,容差 1e-09 -> PASS
+物理抽查,controller: emergency,4.263e-13,kWh,容差 1e-09 -> PASS
+物理抽查,controller: unused,2.274e-12,kWh,容差 1e-09 -> PASS
+物理抽查,controller: spill,2.288e-12,kWh,容差 1e-09 -> PASS
+物理抽查,controller: SOC',5.457e-12,kWh,容差 1e-09 -> PASS
+物理抽查,预热段 Jan-1 0:00 SOC / 结束 SOC,6000.000000 -> 9265.259272,kWh,Jan-1 零计划、无紧急、无充放；末端=正式段起点
+信息边界,fit_date<target 字面违规,6912 行 / 48 天（重拟合日 fit=decision=target）,行,同批行 train_target_max=target-1，训练窗严格早于目标日 -> 非泄漏
+信息边界,train_target_max<=target-1 违规数,0,行,决策性无泄漏判据
+信息边界,feature_max<=target-1 违规数,0,行,288 个 NaT 均为 2025-01-01（首日无滞后特征）
+信息边界,selector 打分窗完整性(28日窗),rows=8064 / dates=28 / 全部 decision==target,行,score_n_days==28 的天数 302；首个满窗日=2025-03-05=首次采用 LIGHTGBM 日
+信息边界,selector score_target_max<=d-1 / start=d-28,viol 1/28,行,"365 天决策, 首次采用 2025-03-05"
+信息边界,计划层144槽冻结值==实际执行值,0.000e+00,kWh,1032 LP 全最优
+预测指标复算,SELECTED q50_mae_kw,285.715991056,,Candidate 285.716 ; 相对差 3.13e-08
+预测指标复算,SELECTED q50_rmse_kw,413.299976827,,Candidate 413.3 ; 相对差 5.61e-08
+预测指标复算,SELECTED q80_price_weighted_pinball_yuan,13.322976980,,Candidate 13.322977 ; 相对差 1.48e-09
+预测指标复算,SELECTED q80_empirical_coverage,0.777486693,,Candidate 0.777487 ; 相对差 3.95e-07
+预测指标复算,FAIR330 BASELINE q50_mae_kw,312.563685117,,Candidate 312.563685 ; 相对差 3.74e-10
+预测指标复算,FAIR330 BASELINE q50_rmse_kw,459.038862906,,Candidate 459.038863 ; 相对差 2.05e-10
+预测指标复算,FAIR330 BASELINE q80_price_weighted_pinball_yuan,14.749597905,,Candidate 14.749597905 ; 相对差 1.83e-11
+预测指标复算,FAIR330 LIGHTGBM q50_mae_kw,285.256600736,,Candidate 285.256601 ; 相对差 9.24e-10
+预测指标复算,FAIR330 LIGHTGBM q50_rmse_kw,413.203464086,,Candidate 413.203464 ; 相对差 2.09e-10
+预测指标复算,FAIR330 LIGHTGBM q80_price_weighted_pinball_yuan,13.265610351,,Candidate 13.265610351 ; 相对差 1.61e-11
+政策比较,MAIN,13976723.153544,元,与 KEY_RESULTS/report 一致
+政策比较,BASELINE_ONLY_Q80,14125271.8116,元,与 KEY_RESULTS/report 一致
+政策比较,HYBRID_Q50,15186372.8484,元,与 KEY_RESULTS/report 一致
+政策比较,SAA,14110994.83,元,历史政策结果，仅核报告一致性
+政策比较,EWMA,14008155.92,元,历史政策结果，仅核报告一致性
+政策比较,HARMONIC_EWMA,14002043.92,元,历史政策结果，仅核报告一致性
+政策比较,CAUSAL_MPC,14936525.41,元,历史政策结果，仅核报告一致性
+政策比较,完全信息参考（下界）,12226656.677843,元,CERTIFIED_OPTIMAL ; soc_end 1200
+决策链一致性,LP 需求 = Q80 分位数/6,3.411e-13,kWh,计划层由 Q80 风险分位数驱动（非中位数）
+决策链一致性,计划层分支 == selector 选择,0 处不一致,行,共 96192 行
+决策链一致性,前144槽冻结计划 == 实际执行,0.000e+00,kWh,0 表示逐值一致
