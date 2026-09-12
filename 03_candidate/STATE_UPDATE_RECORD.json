@@ -1,0 +1,34 @@
+{
+  "record_type": "非业务阶段状态更新，排除于科学源文件冻结清单",
+  "state_path": "A_route/CURRENT_STATE.md",
+  "single_existing_state_file": true,
+  "updated_at": "2026-09-12T21:54:04+08:00",
+  "before_sha256": "33355414e62b2572122be59c4461c8d5fb939cce0706815296ae9fea84e00939",
+  "after_sha256": "572e93d1e327b3dd3f3ae76f171ec1e0594a90cdcfd43c35dff17a6cbb18d05c",
+  "candidate_gate": "PASS_P3_CANDIDATE_FREEZE_WITH_OPEN_ISSUES",
+  "manifest_path": "A_route/problem3/03_candidate/CANDIDATE_FREEZE_MANIFEST.json",
+  "manifest_sha256": "102e97cbc8af97a94e38056bfb27c2504c674f784cbc062973937f9845f9abcc",
+  "manifest_verification_before_update": "PASS_P3_EXISTING_FREEZE_VERIFICATION",
+  "candidate_freeze_checks": {"PASS": 302, "FAIL": 0, "blocking": 0},
+  "local_handoff_checks": {"PASS": 436, "FAIL": 0, "blocking": 0},
+  "modified_scope": "第2行的P3阶段摘要，以及P3小节中原第13至17行；其余原文保持不变。",
+  "preserved_scope": "Common、P1、P2、P3两个00审计与01_model_plan条目、目录规则及受保护文件约定。",
+  "changes": [
+    {
+      "before_start_line": 2,
+      "after_start_line": 2,
+      "old": "当前阶段：Problem 3｜A-5 Batch Run — DESIGN_READY / 待本地实施与运行。",
+      "new": "当前阶段：Problem 3｜A-6 Candidate Freeze — PASS_P3_CANDIDATE_FREEZE_WITH_OPEN_ISSUES。"
+    },
+    {
+      "before_start_line": 13,
+      "after_start_line": 13,
+      "old": "- 02_batch_run：设计已交付，正式运行NOT_RUN；用户已授权Codex实现→Preflight→连续Pilot→12政策Batch→独立验证。\n- 本轮唯一算法增量：P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218，固定五点部分调整；原11政策不改。\n- 当前无P3正式年度费用、无已生成result3。\n- 下一步只执行 02_batch_run/tasks/P3_BATCH_START_PROMPT.md。\n- Batch完成后停止；不自动进入03_candidate、04_review、05_final。",
+      "new": "- 02_batch_run：PASS_P3_BATCH_WITH_OPEN_ISSUES；12政策各334天完成，MAIN为48096槽，独立检查408986 PASS / 0 FAIL / blocking 0。\n- 03_candidate：PASS_P3_CANDIDATE_FREEZE_WITH_OPEN_ISSUES；唯一候选P3_MAIN_MEAN_ROLLOUT_061218，PARTIAL不替换MAIN；总费用13741771.83363791元。\n- Candidate冻结检查302 PASS / 0 FAIL；本地交接436 PASS / 0 FAIL；24行指定10分钟表及格式修复链已核对。142个上传文件指纹通过；冻结4281文件，源文件变化0。\n- result3.xlsx保留02_batch_run原件，SHA256：4d63a8e740d872c71994d75bdf42865fc3e595f75968ced03e3c968870d8ffa8。\n- 冻结清单：problem3/03_candidate/CANDIDATE_FREEZE_MANIFEST.json；SHA256：102e97cbc8af97a94e38056bfb27c2504c674f784cbc062973937f9845f9abcc；生成后独立执行--verify-only通过。\n- 仅按用户授权跳过02_batch_run/scripts/node_modules这一外部运行库目录联接的递归，联接本身与safe_join不变，原阻塞证据保留；本轮新增拟合、LP、回放、工作簿导出及复制均为0。\n- 当前READY_FOR_P3_REVIEW=true，14项工作假设/限制保留，blocking 0。停在A-6，下一步等待用户明确授权A-7；未进入04_review或05_final。"
+    }
+  ],
+  "scientific_manifest_modified": false,
+  "historical_failure_overwritten": false,
+  "review_started": false,
+  "final_started": false
+}

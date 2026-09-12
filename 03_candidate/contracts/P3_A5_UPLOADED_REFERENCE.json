@@ -1,0 +1,859 @@
+{
+  "schema": "P3_A6_INPUT_REFERENCE_V1",
+  "scope": "six_user_uploaded_A5_archives_only_not_full_local_logs",
+  "file_count": 142,
+  "files": [
+    {
+      "path": "contracts/P3_BATCH_SPEC.json",
+      "size_bytes": 18594,
+      "sha256": "4d2f0b1230fdcb17f44eb783feca44958b12bdfb01251d5be0b0ce36cc4eb44e",
+      "source_archive": "contracts.zip"
+    },
+    {
+      "path": "contracts/P3_POLICY_MATRIX.json",
+      "size_bytes": 3255,
+      "sha256": "d057fa22b1d7bfbeb13e9a1a0dc23d5dacbd813407605ef55b8d0c33742a3be5",
+      "source_archive": "contracts.zip"
+    },
+    {
+      "path": "evidence/BATCH_SUPPORT_SELFTEST.json",
+      "size_bytes": 2981,
+      "sha256": "db161409505c8c9bfc2d48b7e2bd4521d367025e87a513c1ba305af6d88c290d",
+      "source_archive": "evidence(1).zip"
+    },
+    {
+      "path": "evidence/DESIGN_STATUS.json",
+      "size_bytes": 447,
+      "sha256": "9a1d814913a2f83c674d5183bf8924fe66f8638762302746a315115353642f70",
+      "source_archive": "evidence(1).zip"
+    },
+    {
+      "path": "evidence/PACKAGE_MANIFEST.json",
+      "size_bytes": 2889,
+      "sha256": "0849db14ec4ce387d562e738406e77469f4d0a94def677e0aef50bd9debe3664",
+      "source_archive": "evidence(1).zip"
+    },
+    {
+      "path": "evidence/README.md",
+      "size_bytes": 695,
+      "sha256": "3e3733b533df9dd279987565dc6ac295b1ec41deb79d7f141279f2c85a06a205",
+      "source_archive": "evidence(1).zip"
+    },
+    {
+      "path": "evidence/REFERENCE_ROLLOUT_EQUIVALENCE.json",
+      "size_bytes": 4562,
+      "sha256": "b32703e4469c3f0e502c6790b03e54c36654953157e22cd94e28f79728c1b391",
+      "source_archive": "evidence(1).zip"
+    },
+    {
+      "path": "evidence/UPSTREAM_SOURCE_VERIFICATION.json",
+      "size_bytes": 1803,
+      "sha256": "3b8448d47030bb992dd180121e77892fb06beb8a958c16dc2dcbd0e29d465d5d",
+      "source_archive": "evidence(1).zip"
+    },
+    {
+      "path": "reports/p3_batch_decision.json",
+      "size_bytes": 865,
+      "sha256": "25af686f74fd73b2c6cc88755f6946b6f77975fce01c2e231ece619d54b599d5",
+      "source_archive": "reports(1).zip"
+    },
+    {
+      "path": "reports/P3_EXPORT_FORMAT_CORRECTION.md",
+      "size_bytes": 2182,
+      "sha256": "d575bc542f2cc7c9a3fbfbdd978cffdd5222ae1854ad9449f65940b26a36f60d",
+      "source_archive": "reports(1).zip"
+    },
+    {
+      "path": "reports/P3_EXTENSION_REPORT.md",
+      "size_bytes": 1272,
+      "sha256": "593124f46e2118ff322741f70171ce6dafcbcbebcd0856ba74d7fd7ec4eea1df",
+      "source_archive": "reports(1).zip"
+    },
+    {
+      "path": "reports/P3_FORECAST_REPORT.md",
+      "size_bytes": 1762,
+      "sha256": "dc8fc900ae051b46689efa3d6ec83163d7190a3296fd4701308d791fea12cf7b",
+      "source_archive": "reports(1).zip"
+    },
+    {
+      "path": "reports/P3_GATE.md",
+      "size_bytes": 882,
+      "sha256": "c0aadbd8adf67b28b5c82ac488e2134cfcf23f9417c3ca70d39a22cbb0792cbd",
+      "source_archive": "reports(1).zip"
+    },
+    {
+      "path": "reports/P3_RUN_REPORT.md",
+      "size_bytes": 3606,
+      "sha256": "46a58751eb5d8ba242890bd8524a3d25b4b59754240068fe4d459bd07ce0b1b3",
+      "source_archive": "reports(1).zip"
+    },
+    {
+      "path": "reports/P3_SETTLEMENT_AND_TIME_NOTE.md",
+      "size_bytes": 964,
+      "sha256": "34c444d04e1120c059d023510039264546584426dbdfe8959bb9a8a45678a6d1",
+      "source_archive": "reports(1).zip"
+    },
+    {
+      "path": "reports/P3_VALIDATION_REPORT.md",
+      "size_bytes": 2039,
+      "sha256": "3a91126aef43e2fbb81e0e6eebcf2435dac05e8d5ccf33d2b30c1d667addcbc3",
+      "source_archive": "reports(1).zip"
+    },
+    {
+      "path": "results/p3_actual_schedule.csv",
+      "size_bytes": 13683240,
+      "sha256": "3977b598efbdfc08ae7ac7ede862862d6b365ee3913d177edcbca974ac9e59d0",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/p3_daily_summary.csv",
+      "size_bytes": 1678746,
+      "sha256": "ed47323b5b769fc896376d78c02654a6d8cb04f129abcc817e2ccadec751c0e1",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/p3_decision_ledger.csv",
+      "size_bytes": 3987510,
+      "sha256": "cd4bf35038b1c10cc619a3a9ae12d2ee77964fcac8737c83c5eced2b0fabfb0d",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/p3_emergency_events.csv",
+      "size_bytes": 259415,
+      "sha256": "889766d70b40e3765361e0f8b9e2f803fdadd1953b8a430b74db763dbaf69481",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/p3_final_commitment.csv",
+      "size_bytes": 4450980,
+      "sha256": "29044a4a996a235748045cdf6f0e52a3fa6a4d9c115ae9df1a3518efc04f4e21",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/p3_forecast_ledger.csv",
+      "size_bytes": 119364739,
+      "sha256": "ad3be02f619f234f478b2f5d8f5034600eb969eff12298faabf07461fd05c070",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/p3_initial_plan.csv",
+      "size_bytes": 4097650,
+      "sha256": "15902a05bafc0d73a98030c8acce78f5614f8a9760732dd572411ba4878ff34b",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/p3_load_fit_log.csv",
+      "size_bytes": 847225,
+      "sha256": "bd30eafb69793c2087e39e368d44094ae4dde3425ceee84efb0d4d95403b03aa",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/p3_residual_path_registry.csv",
+      "size_bytes": 433930,
+      "sha256": "ead0c3117544641146d3c541493168d97cb665e9a7b415083face9c54be12ba5",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/p3_scenario_membership.csv",
+      "size_bytes": 12059500,
+      "sha256": "e7536ec74c2093d9ecc3026f39156835b4c0a4b6f3d770f9dc55bcfe96b0912a",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/p3_scenario_quantile_diagnostics.csv",
+      "size_bytes": 49544031,
+      "sha256": "8cd7e9fb0540f1f25353d5202077c3a8761cb58c44938b6c6829eb49eb1d6377",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/p3_settlement_ledger.csv",
+      "size_bytes": 5871642,
+      "sha256": "3aa9d65e4d222a9de35b49b5c6ff4744065643994378f53cdbcf6d37e73c045a",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MAIN_MEAN_ROLLOUT_061218/p3_actual_schedule.csv",
+      "size_bytes": 13683240,
+      "sha256": "3977b598efbdfc08ae7ac7ede862862d6b365ee3913d177edcbca974ac9e59d0",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MAIN_MEAN_ROLLOUT_061218/p3_candidate_scores.csv",
+      "size_bytes": 10319655,
+      "sha256": "73d717dca29490f2fb6b36ae146aaa56f997af3ae125c1f1e34298049140c05e",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MAIN_MEAN_ROLLOUT_061218/p3_commitment_versions.csv",
+      "size_bytes": 10869640,
+      "sha256": "c6837b390c96b0a8f0962713db3fa382fc7a776f9204684ccd9bf3bfb73cdc3d",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MAIN_MEAN_ROLLOUT_061218/p3_decision_ledger.csv",
+      "size_bytes": 3987510,
+      "sha256": "cd4bf35038b1c10cc619a3a9ae12d2ee77964fcac8737c83c5eced2b0fabfb0d",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MAIN_MEAN_ROLLOUT_061218/p3_final_commitment.csv",
+      "size_bytes": 4450980,
+      "sha256": "29044a4a996a235748045cdf6f0e52a3fa6a4d9c115ae9df1a3518efc04f4e21",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MAIN_MEAN_ROLLOUT_061218/p3_initial_plan.csv",
+      "size_bytes": 4097650,
+      "sha256": "15902a05bafc0d73a98030c8acce78f5614f8a9760732dd572411ba4878ff34b",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MAIN_MEAN_ROLLOUT_061218/p3_settlement_ledger.csv",
+      "size_bytes": 5871642,
+      "sha256": "3aa9d65e4d222a9de35b49b5c6ff4744065643994378f53cdbcf6d37e73c045a",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_06/p3_actual_schedule.csv",
+      "size_bytes": 13250681,
+      "sha256": "52622ff257f9d2cbc5622b9a89fa9b42e90799d015bcacf6b0b4d881c6279411",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_06/p3_candidate_scores.csv",
+      "size_bytes": 4594154,
+      "sha256": "9d83ee17e114cb20a4f75d3176522ec02087ad578b6988b18bc2d7b50f370b2b",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_06/p3_commitment_versions.csv",
+      "size_bytes": 6602510,
+      "sha256": "3a706845739418386291803c75476efd312e551e60b907980ab1285dfd5bb325",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_06/p3_decision_ledger.csv",
+      "size_bytes": 3888644,
+      "sha256": "f760d7a27c4496cca26c29325d3550f461150ceaa51eaceeec7f8ad0e1182c6b",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_06/p3_final_commitment.csv",
+      "size_bytes": 4009258,
+      "sha256": "120757f6d19822e0f6ea5c6056b5da9bb653b8a72bd913c1edf559225f9e643c",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_06/p3_initial_plan.csv",
+      "size_bytes": 3664818,
+      "sha256": "cb6540c15780522bd7247c6d3a7a5f70a96a3139952088093281e67c1f1170cb",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_06/p3_settlement_ledger.csv",
+      "size_bytes": 5440554,
+      "sha256": "35ce50b196f9e7f4973e6e9bf9113fed722a7129498390b0134c3760b2bd1b32",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_0612/p3_actual_schedule.csv",
+      "size_bytes": 13342532,
+      "sha256": "43d380380369d078f3f55f499657dbb662b50873973a77b8bc3b53200d7e002d",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_0612/p3_candidate_scores.csv",
+      "size_bytes": 7671654,
+      "sha256": "658e3b9b7daad4ce385a91c472afcba59d2d07eeea2a3ee1b4771114dac755bf",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_0612/p3_commitment_versions.csv",
+      "size_bytes": 8915401,
+      "sha256": "330297afa9da4c4e400ce6f8482e1dbf648d119cfe048bf1e847034ad706cf6d",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_0612/p3_decision_ledger.csv",
+      "size_bytes": 3934602,
+      "sha256": "28788134841314ebe6b90f6ad1175cba7c6e18b9bedd8acd282a5a5684b2ef41",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_0612/p3_final_commitment.csv",
+      "size_bytes": 4111581,
+      "sha256": "e86af511e7c5cd318ba7d69047f5da0dcdbc79806089d12e0ea2ab6efc6a47ac",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_0612/p3_initial_plan.csv",
+      "size_bytes": 3760985,
+      "sha256": "fd2042d86cd886cfd259dee4fe7e3dfb470e5e2b1fb60a848b2b3f578bd23958",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_0612/p3_settlement_ledger.csv",
+      "size_bytes": 5533385,
+      "sha256": "7b9f434519e7268963b0598e75efbf01cf1364083499c7b2d955397cedf3a13e",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_0618/p3_actual_schedule.csv",
+      "size_bytes": 13347838,
+      "sha256": "779203269c0870e89fbb7a291444fa1f0b6b4cd0825db3fb5630f2e3fd31ae34",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_0618/p3_candidate_scores.csv",
+      "size_bytes": 7271746,
+      "sha256": "06d167f5a2c23e98c9fdb9d2e9deac5a00ece7e39ddb5e1a805544533101478a",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_0618/p3_commitment_versions.csv",
+      "size_bytes": 7882841,
+      "sha256": "05d41146f04466c937b8ca97705d9574642d0596301caaedcd62242aecbfec34",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_0618/p3_decision_ledger.csv",
+      "size_bytes": 3934847,
+      "sha256": "1c5e1476762dd8e918ae25c349567ea47023161f3fa61378ac9d7a28623d076b",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_0618/p3_final_commitment.csv",
+      "size_bytes": 4106240,
+      "sha256": "c4ada875331422b25503f9bf9627e51d4191f9fb8fb0341b7d7d2dbe939f1ca3",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_0618/p3_initial_plan.csv",
+      "size_bytes": 3760977,
+      "sha256": "bbded5b035a7a7f3ce4cdbba8efef0b347c8beb2db691e0027e80d281e6b1355",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_0618/p3_settlement_ledger.csv",
+      "size_bytes": 5536666,
+      "sha256": "7b599edf9a5b0ef49774c7f3f0e8a01b9d58a84fd2646123f114a4a022246e94",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_12/p3_actual_schedule.csv",
+      "size_bytes": 13214520,
+      "sha256": "84c12c860586e80a8a2bb9155052c4d312c6c1dc65849ad56c721823967de72b",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_12/p3_candidate_scores.csv",
+      "size_bytes": 4585289,
+      "sha256": "7c7b11cfcb0bb9c854259d4d15fe1ea7125c2d9324365e0a941d5099c2f6aae0",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_12/p3_commitment_versions.csv",
+      "size_bytes": 5711729,
+      "sha256": "232da402d103d0c9ca59433f2e02e4687a6cb7c49a0cad2274d09174cf3d4c8e",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_12/p3_decision_ledger.csv",
+      "size_bytes": 3888203,
+      "sha256": "863b55891ddfe8041c37a9361ea4f5b571f6f162fae795b5bee383f464d3f9d6",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_12/p3_final_commitment.csv",
+      "size_bytes": 3983256,
+      "sha256": "d9001e550746ce3cec01eb889882fb9e187872581caa1629e8cc133f7cd9852e",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_12/p3_initial_plan.csv",
+      "size_bytes": 3664793,
+      "sha256": "77f84b69bbbdf68cc495685bfaedd7551698a24f7e80a6b3719dc3828304c675",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_12/p3_settlement_ledger.csv",
+      "size_bytes": 5412291,
+      "sha256": "3ea3cc35acc8cf8a782d30777fc1b65f1b3e0099a2f86019be0d2ec862b4c917",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_1218/p3_actual_schedule.csv",
+      "size_bytes": 13314756,
+      "sha256": "34b2687bde6f4e01626acfba86528110325b25c4cfe7ce4354c37e9fdd650b49",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_1218/p3_candidate_scores.csv",
+      "size_bytes": 7219547,
+      "sha256": "8fc3d0a1756a1407ab93e7a509236d072048227713465c6d3e25de96d426b5de",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_1218/p3_commitment_versions.csv",
+      "size_bytes": 6968722,
+      "sha256": "213d224f786e5da9d683a476f5c2249a4f4e56154c705f267ff2296746e4613c",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_1218/p3_decision_ledger.csv",
+      "size_bytes": 3934446,
+      "sha256": "5517fc2fa5cce550a2575e7ba5d9f4ca884c6f377957bc6bb72f96bb0b2d09e9",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_1218/p3_final_commitment.csv",
+      "size_bytes": 4082394,
+      "sha256": "e18e14ca1ce988b44e02a1e74dbb7f621b1f6aa48b3793e5fc7bb7aec8a4562c",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_1218/p3_initial_plan.csv",
+      "size_bytes": 3760976,
+      "sha256": "364c0be195b8e2aab7b5fbd7d72734f69a6d5a16eb20797846ad1cc94dd8da06",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_1218/p3_settlement_ledger.csv",
+      "size_bytes": 5510292,
+      "sha256": "03665de209afd8fa9ed7000563221a56ba17030c462e46a37e84aba96e0cee42",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_18/p3_actual_schedule.csv",
+      "size_bytes": 13176435,
+      "sha256": "c8b411a42e5665cccd5d6a43795af762e9f52749d0855e730f31842346714bcd",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_18/p3_candidate_scores.csv",
+      "size_bytes": 4155444,
+      "sha256": "5972097c0f9fa2d12fc41fe6ea277e546aa8cc4117649521b0f7db996be15956",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_18/p3_commitment_versions.csv",
+      "size_bytes": 4702456,
+      "sha256": "678c11a23ea9a22ecb59fb91cfdf872766d3f0a4f36950858e7019146fb00447",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_18/p3_decision_ledger.csv",
+      "size_bytes": 3888607,
+      "sha256": "e84f8c20160383aa6bb167ee091f91531e9d19ecbe19209d0f17c134faef0d6c",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_18/p3_final_commitment.csv",
+      "size_bytes": 3915857,
+      "sha256": "59cb48b555b9f1aefb1cf98e96609deab17820a6ae57a6c4a0ab79b0f2912c7f",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_18/p3_initial_plan.csv",
+      "size_bytes": 3664793,
+      "sha256": "ff72d638f4a7567e47a346ecb98520c81cc05d01e0533d1b702e0672f0465cb4",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_18/p3_settlement_ledger.csv",
+      "size_bytes": 5360538,
+      "sha256": "23cd9abe297f8ca0ee4b4ef1febfb0c68fa71f028c2089872e18bd2b45bae890",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_NONE/p3_actual_schedule.csv",
+      "size_bytes": 13249714,
+      "sha256": "a77d201c1e7594931a0b0c1ba1ded4d2383be048c69aab3eadb0b2afb86813a0",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_NONE/p3_candidate_scores.csv",
+      "size_bytes": 1518913,
+      "sha256": "d619eea33147187da665b963566a79d214f1be5cbdf85dcf2c5bc8ddb41fb36d",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_NONE/p3_commitment_versions.csv",
+      "size_bytes": 3710175,
+      "sha256": "c1d69a0263ef055f3e652f29e6fb1e9455a555a3142cd6f46c5df13c16bab623",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_NONE/p3_decision_ledger.csv",
+      "size_bytes": 3847704,
+      "sha256": "a3e378264558f2b790c0c77ccdd277e83e47d733020befe4682c0accbef3c697",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_NONE/p3_final_commitment.csv",
+      "size_bytes": 3993428,
+      "sha256": "5578dc0487cde5fd1fa542a40e423fc1bbaac6c6510e687a8cf6c47b8b6c024a",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_NONE/p3_initial_plan.csv",
+      "size_bytes": 3761029,
+      "sha256": "860dd2be6c6c3b43df50c5832c24955383f850c7e75a41d28f36b84a6636d9c7",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_MEAN_ROLLOUT_NONE/p3_settlement_ledger.csv",
+      "size_bytes": 5443679,
+      "sha256": "7121869a1a1ac5542ebab374ce867a77027cb3a6e934cb6ba1d2ab7869d9b06f",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_NO_PREFIX_061218/p3_actual_schedule.csv",
+      "size_bytes": 13270409,
+      "sha256": "65b65d6006160c3b709c14a5b2170bdefd41cd709e422fd32c30358561937076",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_NO_PREFIX_061218/p3_candidate_scores.csv",
+      "size_bytes": 9923443,
+      "sha256": "f451fdcb1cd9d992eb5bae29c30b0905c5b3da7fcdebcdde6b471005ecd3d384",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_NO_PREFIX_061218/p3_commitment_versions.csv",
+      "size_bytes": 9909911,
+      "sha256": "92b9006863a75b24570f86fb7f3556874a4448d9a09ab8464757ed9f94c9f898",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_NO_PREFIX_061218/p3_decision_ledger.csv",
+      "size_bytes": 3980895,
+      "sha256": "47ff44971a52ebefad728739d0b573105ec9c9cc6644b51595e98ca592efe90d",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_NO_PREFIX_061218/p3_final_commitment.csv",
+      "size_bytes": 4040439,
+      "sha256": "8010338b90fb10efa07a677a2c7c93205821bd6abd7a3d7acbfff65c828802f4",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_NO_PREFIX_061218/p3_initial_plan.csv",
+      "size_bytes": 3712890,
+      "sha256": "9ed953454f0f9c18f1e214189fc7016d57b96ba39b564f22b6745a64948434d0",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_NO_PREFIX_061218/p3_settlement_ledger.csv",
+      "size_bytes": 5466751,
+      "sha256": "64460ed64c843718edb65cc4579e59ecefd3f675d1c81e3f86e1b8bf8a8d817e",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218/p3_actual_schedule.csv",
+      "size_bytes": 14176162,
+      "sha256": "f9a1245905e902a90125039d90c97852aab90008a72027ad11b940b58ccfa1f1",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218/p3_candidate_scores.csv",
+      "size_bytes": 23220542,
+      "sha256": "1f82f8e71691f88d77694489a6414d40915ac789dbc65de0bd971a24fbd491df",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218/p3_commitment_versions.csv",
+      "size_bytes": 12096457,
+      "sha256": "7da664222f9d713b69af3eee47d1754eb04cb752cc36cb02ee18cd4abd1bdb33",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218/p3_decision_ledger.csv",
+      "size_bytes": 4001188,
+      "sha256": "bfdaa9f1c8206ce57308903a0d579eccee0f13fcbb86725f7332fc96ac66b801",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218/p3_final_commitment.csv",
+      "size_bytes": 4937034,
+      "sha256": "6e94743532e9e6d30107777765b51c67eb69c5d1e6d043e9cc5fb9b25bb22945",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218/p3_initial_plan.csv",
+      "size_bytes": 4578615,
+      "sha256": "754bc444ef718103c5d02cd512c1ea5ab5854d22ed7c0713868252831edd1dc0",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218/p3_settlement_ledger.csv",
+      "size_bytes": 6362392,
+      "sha256": "08544d9f3b9058e6117c0568fbc76da1cbdfdc1141ab0f662f773fbd1fa72b70",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_ROBUST_WORST_061218/p3_actual_schedule.csv",
+      "size_bytes": 13500953,
+      "sha256": "71c693babd0f5215412d3bbec4ce7cc9fc8868e4d975010d5878233b0fae9f38",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_ROBUST_WORST_061218/p3_candidate_scores.csv",
+      "size_bytes": 10944692,
+      "sha256": "bdb981984dcbf180eac55590d9c1c4ea83b2a8c25501c99fde8acdf4357cbedb",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_ROBUST_WORST_061218/p3_commitment_versions.csv",
+      "size_bytes": 10333299,
+      "sha256": "7b11380edd560efca09b6b7dc5a6feca516a5abec0876d641bb631034a566c85",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_ROBUST_WORST_061218/p3_decision_ledger.csv",
+      "size_bytes": 3981462,
+      "sha256": "677e59de15561377713979bae3633cf1adb09bbd5f11d5935dbb47efaace0cfb",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_ROBUST_WORST_061218/p3_final_commitment.csv",
+      "size_bytes": 4290018,
+      "sha256": "87705e1faed3ad280b48f3839bd4c7abb6d0643a27100ad833778357bba82460",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_ROBUST_WORST_061218/p3_initial_plan.csv",
+      "size_bytes": 3897310,
+      "sha256": "74866d2558db5a187a17a42ad5e5ac43dfb118b9beccaf4f87814c7ddb054c8c",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_ROBUST_WORST_061218/p3_settlement_ledger.csv",
+      "size_bytes": 5719230,
+      "sha256": "dc5c738ff9897d03791514af911264501823a0ca3feafe4cb7573fb7b392e838",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_ZERO_TERMINAL_061218/p3_actual_schedule.csv",
+      "size_bytes": 13491170,
+      "sha256": "6ddcd09fc35a4f83348ce336b536c0c3d708b8e24a5a078cb72f4ad44cc5d3f8",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_ZERO_TERMINAL_061218/p3_candidate_scores.csv",
+      "size_bytes": 9544311,
+      "sha256": "420c62c6fbef6d569f4e0e7723a4bf1425f1b386c2e0e875cbc875ec4ac3deb3",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_ZERO_TERMINAL_061218/p3_commitment_versions.csv",
+      "size_bytes": 10389660,
+      "sha256": "d0c0c6ce312952e7e6439f5010473dbb1a9e021870e7f64fec60e4a1bb9ca1f7",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_ZERO_TERMINAL_061218/p3_decision_ledger.csv",
+      "size_bytes": 3958142,
+      "sha256": "d98f346c10da8b0311d12aac573abe9131fceaa83742f2a685b6345876a64546",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_ZERO_TERMINAL_061218/p3_final_commitment.csv",
+      "size_bytes": 4258716,
+      "sha256": "dfeb6e3efdc97a25b9d6426447ac3a65ace7f23763fc078cab67fda16f7902ec",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_ZERO_TERMINAL_061218/p3_initial_plan.csv",
+      "size_bytes": 3905669,
+      "sha256": "9487cca276cf9d0f3563119ec40a9ac0a551eb1bc97b776a4e6c87b35342417c",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/policies/P3_ZERO_TERMINAL_061218/p3_settlement_ledger.csv",
+      "size_bytes": 5679272,
+      "sha256": "04534f42de77e8843cd15378f5391762e76494b036b8a775e00a5fb872ab34dd",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/result3.xlsx",
+      "size_bytes": 892881,
+      "sha256": "4d63a8e740d872c71994d75bdf42865fc3e595f75968ced03e3c968870d8ffa8",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "results/result3.xlsx.inspect.ndjson",
+      "size_bytes": 40615407,
+      "sha256": "84ba82e43f07b28977d0cac3c2f2bfd0a1030d68f0d533360529c50af11e7090",
+      "source_archive": "results.zip"
+    },
+    {
+      "path": "scripts/p3_batch_support.py",
+      "size_bytes": 10068,
+      "sha256": "24313f7f4fc679946961b42a62fcbd9e17d0e7098ad7d1e762c628f5a434552f",
+      "source_archive": "scripts.zip"
+    },
+    {
+      "path": "scripts/p3_causality.py",
+      "size_bytes": 8407,
+      "sha256": "978843bcea0aefa7f45981aee752be0f8cd624eb8c4991b16f5f0f48f73335de",
+      "source_archive": "scripts.zip"
+    },
+    {
+      "path": "scripts/p3_data.py",
+      "size_bytes": 4323,
+      "sha256": "68dd08f06d0610d708c2ae1f64136dfebde729783976053a7d96d25d722a6be8",
+      "source_archive": "scripts.zip"
+    },
+    {
+      "path": "scripts/p3_dispatch.py",
+      "size_bytes": 9085,
+      "sha256": "ff164bb0e4cdb342a567a2419083868d597c9539705dd86e391caa5213446788",
+      "source_archive": "scripts.zip"
+    },
+    {
+      "path": "scripts/p3_export.py",
+      "size_bytes": 7663,
+      "sha256": "e232371a2b2e95df3676b976955aa0e491d11fb45db5f7c833323746bcbd0c9c",
+      "source_archive": "scripts.zip"
+    },
+    {
+      "path": "scripts/p3_export_workbook.mjs",
+      "size_bytes": 2956,
+      "sha256": "ae27e015bcd967bf825120a40cea0a2bdd59547fe58d05d94e89caaaeaab310c",
+      "source_archive": "scripts.zip"
+    },
+    {
+      "path": "scripts/p3_forecast.py",
+      "size_bytes": 10989,
+      "sha256": "b73185c4539b9629a8a1c0cd67fa926051d1afc131b051e3fc1ba752f9b7da77",
+      "source_archive": "scripts.zip"
+    },
+    {
+      "path": "scripts/p3_independent.py",
+      "size_bytes": 57940,
+      "sha256": "c9ddd6451db627af620b24265f80f5eba750f17526081aaeb60192c7a1fb394a",
+      "source_archive": "scripts.zip"
+    },
+    {
+      "path": "scripts/p3_io.py",
+      "size_bytes": 6072,
+      "sha256": "d0c09d6ca7e0b1ea8c4ed10de0dcbeafc8677b5209ff418d6db863dab3d6e11b",
+      "source_archive": "scripts.zip"
+    },
+    {
+      "path": "scripts/p3_preflight.py",
+      "size_bytes": 5121,
+      "sha256": "8e9d49272387a09fb61de2e3a2e71b6ed7069f7276bf9d6850a2d3f082d45920",
+      "source_archive": "scripts.zip"
+    },
+    {
+      "path": "scripts/p3_reporting.py",
+      "size_bytes": 20199,
+      "sha256": "f3268329a9130224cd6f0678defb63da12d21a95aa8a4199b4686d211159d279",
+      "source_archive": "scripts.zip"
+    },
+    {
+      "path": "scripts/run_p3_batch.py",
+      "size_bytes": 13178,
+      "sha256": "ea73c5bd10be6e814679ccc969e0ffa8e3681d870de947450b2c8daf8bd411b7",
+      "source_archive": "scripts.zip"
+    },
+    {
+      "path": "scripts/test_p3_batch_support.py",
+      "size_bytes": 9490,
+      "sha256": "74429e68a9f71f5a4a010bf45d8cc37bdec1c9e0ab469f329b67488a5e68665e",
+      "source_archive": "scripts.zip"
+    },
+    {
+      "path": "scripts/validate_p3_batch.py",
+      "size_bytes": 30759,
+      "sha256": "8be6dff8f7cce5a644a8481a4f453a61e6818e5e5b554f5c9bc188efdc91013f",
+      "source_archive": "scripts.zip"
+    },
+    {
+      "path": "tables/p3_component_ablation.csv",
+      "size_bytes": 2761,
+      "sha256": "de724c3ffc5154727bbeb52888ebb452b2fbb75022168adefbaac23944574c4a",
+      "source_archive": "tables(1).zip"
+    },
+    {
+      "path": "tables/p3_endpoint_fairness.csv",
+      "size_bytes": 1599,
+      "sha256": "a9cd694cf52dc70b77f2e735cf89c1657c6bfce773671ed73e81c24b9c72bcbd",
+      "source_archive": "tables(1).zip"
+    },
+    {
+      "path": "tables/p3_forecast_metrics.csv",
+      "size_bytes": 54650,
+      "sha256": "aeb0c6c7382c864c563635a9f479e623d03850e10b0396be4af8d646b8f5c9d6",
+      "source_archive": "tables(1).zip"
+    },
+    {
+      "path": "tables/p3_monthly_cost_summary.csv",
+      "size_bytes": 56092,
+      "sha256": "675ae85e982dc9c8fa4d053ef557af8f32e1b455e1803b4b03f1261c461bd117",
+      "source_archive": "tables(1).zip"
+    },
+    {
+      "path": "tables/p3_opportunity_comparison.csv",
+      "size_bytes": 4595,
+      "sha256": "3f231c1ea1c01353c31a8c9fe707c7a587611fc635fab2bafa19fe7c3883eb17",
+      "source_archive": "tables(1).zip"
+    },
+    {
+      "path": "tables/p3_output_mapping_audit.csv",
+      "size_bytes": 10066548,
+      "sha256": "9827a855bbe3c69c07f9b52d0bad80b7e7e9fc0aa7bcb6047e429ea0653f718f",
+      "source_archive": "tables(1).zip"
+    },
+    {
+      "path": "tables/p3_partial_adjustment_summary.csv",
+      "size_bytes": 167268,
+      "sha256": "16bee6d43d0192bff823f302c5da4c01e642adc020dc8ba07307dead0772648e",
+      "source_archive": "tables(1).zip"
+    },
+    {
+      "path": "tables/p3_partial_alpha_frequency.csv",
+      "size_bytes": 861,
+      "sha256": "ee4f1aef75ea311a48b67ee3d8f87e850f5c3cdeb44d3548a6dc95f531b4900a",
+      "source_archive": "tables(1).zip"
+    },
+    {
+      "path": "tables/p3_policy_comparison.csv",
+      "size_bytes": 6740,
+      "sha256": "87284140250db62f9c627bd2b949e2be79e3361ad13eb91a53856c44813f0103",
+      "source_archive": "tables(1).zip"
+    },
+    {
+      "path": "tables/p3_proxy_rollout_gap.csv",
+      "size_bytes": 4257627,
+      "sha256": "eb14eddfdb08a0e7a61de344b86246d163c973fd4291b56d352ef7cf28c3d4c5",
+      "source_archive": "tables(1).zip"
+    },
+    {
+      "path": "tables/p3_specified_daily_summary.csv",
+      "size_bytes": 2154,
+      "sha256": "e9a2ea8c61f75295b41c91d7f13a9ffcc3c454908bc445c73b007fcb816a3a83",
+      "source_archive": "tables(1).zip"
+    },
+    {
+      "path": "tables/p3_specified_purchase_intervals.csv",
+      "size_bytes": 3901,
+      "sha256": "e5082d1ff165b82a9c4ef32bc260f887149744d23130b4e6bf398b129274cf3d",
+      "source_archive": "tables(1).zip"
+    },
+    {
+      "path": "tables/p3_storage_4h_summary.csv",
+      "size_bytes": 241061,
+      "sha256": "a56559e7cd9632bb7c32bdc6ba1ea76bc94f45c74b40fbaaba865ee852ee4a2c",
+      "source_archive": "tables(1).zip"
+    },
+    {
+      "path": "tables/p3_validation_checks.csv",
+      "size_bytes": 37101019,
+      "sha256": "13f478a34133b8f2a645d85af129b273a0366a25c94994cf34ccd28fb9703f1a",
+      "source_archive": "tables(1).zip"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "scope": "delivery_package_only_not_local_candidate_freeze",
+  "file_count_excluding_this_manifest": 12,
+  "files": [
+    {
+      "path": "03_candidate/CLAIMS_AND_LIMITATIONS.md",
+      "size_bytes": 4555,
+      "sha256": "3f244f37e7079ef107d79813602e60d0da7b92fe80650aa95a7dcfe5295db019"
+    },
+    {
+      "path": "03_candidate/P3_CANDIDATE_DECISION.md",
+      "size_bytes": 3376,
+      "sha256": "bb56c562f6ec0e8f94a3ceb021e63b2dc9634e90104fa7fb81db0622e6a253d5"
+    },
+    {
+      "path": "03_candidate/README.md",
+      "size_bytes": 2966,
+      "sha256": "21aea7b55765b63c11e3166e41454a56608a4466b3466272f69981b236faf0d1"
+    },
+    {
+      "path": "03_candidate/README_FOR_REVIEW.md",
+      "size_bytes": 2708,
+      "sha256": "ee0e9a1df9371b395e51ba2a56b5a8f8a00aa3c0bb1ce6659076ef7061f645ec"
+    },
+    {
+      "path": "03_candidate/contracts/P3_A5_UPLOADED_REFERENCE.json",
+      "size_bytes": 32974,
+      "sha256": "19edd14a92146002a8b0b27f369b7a000fb3382eafcdaf55f3531c1fc4a8c5a2"
+    },
+    {
+      "path": "03_candidate/contracts/P3_CANDIDATE_SPEC.json",
+      "size_bytes": 3589,
+      "sha256": "bde9230b7169c24844602c1c8684399db4e92621b934a54bc1dd59b0ebabf533"
+    },
+    {
+      "path": "03_candidate/evidence/DEFENSIVE_SELFTEST.json",
+      "size_bytes": 464,
+      "sha256": "1f58ad93b365ba5feacf5d790a445a6930431496c0986797be0e08b34b6b2a1a"
+    },
+    {
+      "path": "03_candidate/evidence/PACKAGE_SELFTEST.json",
+      "size_bytes": 41615,
+      "sha256": "95464947d92c4f88fd10b5933fa2b724ba28116fbca4f409b2775c78722dd1c9"
+    },
+    {
+      "path": "03_candidate/evidence/SPECIFIED_24_WORKBOOK_SNAPSHOT_CHECK.json",
+      "size_bytes": 10029,
+      "sha256": "49ac70b38bb5f02fc504c41e9a7ba6d502f11106ba5acff43a7783191a82e2bf"
+    },
+    {
+      "path": "03_candidate/scripts/freeze_p3_candidate.py",
+      "size_bytes": 26905,
+      "sha256": "417a3bf62467918f1f038a348a7a1a002730765a6d6d9643df0c9b62b53c5194"
+    },
+    {
+      "path": "03_candidate/tasks/P3_CANDIDATE_CODEX_TASK.md",
+      "size_bytes": 6070,
+      "sha256": "1add8d8bd334eeec7c652b6e6284f96b60328704daa4dc8618a9b20f2ab60204"
+    },
+    {
+      "path": "03_candidate/tasks/P3_CANDIDATE_START_PROMPT.md",
+      "size_bytes": 1318,
+      "sha256": "36b794c5530a50956d564f1e66e219fa6ac1fbe6ab388e5ce4b5b4630de912af"
+    }
+  ]
+}

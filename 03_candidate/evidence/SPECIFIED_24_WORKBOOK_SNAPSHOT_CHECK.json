@@ -1,0 +1,441 @@
+{
+  "scope": "uploaded_snapshot_not_local_candidate_gate",
+  "workbook_sha256": "4d63a8e740d872c71994d75bdf42865fc3e595f75968ced03e3c968870d8ffa8",
+  "cell_count": 48,
+  "mismatch_count": 0,
+  "max_difference": 1.1368683772161603e-13,
+  "cells": [
+    {
+      "sheet": "计划购电量",
+      "cell": "BJ49",
+      "date": "2025-03-20",
+      "slot_id": "61",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "BJ49",
+      "date": "2025-03-20",
+      "slot_id": "61",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "BV49",
+      "date": "2025-03-20",
+      "slot_id": "73",
+      "csv": 606.7354236111108,
+      "workbook": 606.7354236111108,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "BV49",
+      "date": "2025-03-20",
+      "slot_id": "73",
+      "csv": 499.141675332237,
+      "workbook": 499.14167533223696,
+      "abs_difference": 5.684341886080802e-14
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "CH49",
+      "date": "2025-03-20",
+      "slot_id": "85",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "CH49",
+      "date": "2025-03-20",
+      "slot_id": "85",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "CT49",
+      "date": "2025-03-20",
+      "slot_id": "97",
+      "csv": 679.4145069444444,
+      "workbook": 679.4145069444444,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "CT49",
+      "date": "2025-03-20",
+      "slot_id": "97",
+      "csv": 537.9395241232007,
+      "workbook": 537.9395241232007,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "DF49",
+      "date": "2025-03-20",
+      "slot_id": "109",
+      "csv": 715.1459833333334,
+      "workbook": 715.1459833333336,
+      "abs_difference": 1.1368683772161603e-13
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "DF49",
+      "date": "2025-03-20",
+      "slot_id": "109",
+      "csv": 715.1459833333334,
+      "workbook": 715.1459833333336,
+      "abs_difference": 1.1368683772161603e-13
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "DR49",
+      "date": "2025-03-20",
+      "slot_id": "121",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "DR49",
+      "date": "2025-03-20",
+      "slot_id": "121",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "BJ142",
+      "date": "2025-06-21",
+      "slot_id": "61",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "BJ142",
+      "date": "2025-06-21",
+      "slot_id": "61",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "BV142",
+      "date": "2025-06-21",
+      "slot_id": "73",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "BV142",
+      "date": "2025-06-21",
+      "slot_id": "73",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "CH142",
+      "date": "2025-06-21",
+      "slot_id": "85",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "CH142",
+      "date": "2025-06-21",
+      "slot_id": "85",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "CT142",
+      "date": "2025-06-21",
+      "slot_id": "97",
+      "csv": 262.7690124999999,
+      "workbook": 262.7690124999999,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "CT142",
+      "date": "2025-06-21",
+      "slot_id": "97",
+      "csv": 262.7690124999999,
+      "workbook": 262.7690124999999,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "DF142",
+      "date": "2025-06-21",
+      "slot_id": "109",
+      "csv": 198.45849166666704,
+      "workbook": 198.45849166666704,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "DF142",
+      "date": "2025-06-21",
+      "slot_id": "109",
+      "csv": 198.45849166666704,
+      "workbook": 198.45849166666704,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "DR142",
+      "date": "2025-06-21",
+      "slot_id": "121",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "DR142",
+      "date": "2025-06-21",
+      "slot_id": "121",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "BJ236",
+      "date": "2025-09-23",
+      "slot_id": "61",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "BJ236",
+      "date": "2025-09-23",
+      "slot_id": "61",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "BV236",
+      "date": "2025-09-23",
+      "slot_id": "73",
+      "csv": 451.1764083333337,
+      "workbook": 451.17640833333365,
+      "abs_difference": 5.684341886080802e-14
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "BV236",
+      "date": "2025-09-23",
+      "slot_id": "73",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "CH236",
+      "date": "2025-09-23",
+      "slot_id": "85",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "CH236",
+      "date": "2025-09-23",
+      "slot_id": "85",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "CT236",
+      "date": "2025-09-23",
+      "slot_id": "97",
+      "csv": 634.2760388888887,
+      "workbook": 634.2760388888887,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "CT236",
+      "date": "2025-09-23",
+      "slot_id": "97",
+      "csv": 600.1812239573001,
+      "workbook": 600.1812239573001,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "DF236",
+      "date": "2025-09-23",
+      "slot_id": "109",
+      "csv": 778.57795,
+      "workbook": 778.57795,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "DF236",
+      "date": "2025-09-23",
+      "slot_id": "109",
+      "csv": 778.358037798819,
+      "workbook": 778.358037798819,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "DR236",
+      "date": "2025-09-23",
+      "slot_id": "121",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "DR236",
+      "date": "2025-09-23",
+      "slot_id": "121",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "BJ325",
+      "date": "2025-12-21",
+      "slot_id": "61",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "BJ325",
+      "date": "2025-12-21",
+      "slot_id": "61",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "BV325",
+      "date": "2025-12-21",
+      "slot_id": "73",
+      "csv": 1047.6567819444444,
+      "workbook": 1047.6567819444444,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "BV325",
+      "date": "2025-12-21",
+      "slot_id": "73",
+      "csv": 980.0030762212119,
+      "workbook": 980.003076221212,
+      "abs_difference": 1.1368683772161603e-13
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "CH325",
+      "date": "2025-12-21",
+      "slot_id": "85",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "CH325",
+      "date": "2025-12-21",
+      "slot_id": "85",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "CT325",
+      "date": "2025-12-21",
+      "slot_id": "97",
+      "csv": 861.7664000000004,
+      "workbook": 861.7664000000003,
+      "abs_difference": 1.1368683772161603e-13
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "CT325",
+      "date": "2025-12-21",
+      "slot_id": "97",
+      "csv": 861.7664000000004,
+      "workbook": 861.7664000000003,
+      "abs_difference": 1.1368683772161603e-13
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "DF325",
+      "date": "2025-12-21",
+      "slot_id": "109",
+      "csv": 750.3022666666654,
+      "workbook": 750.3022666666654,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "DF325",
+      "date": "2025-12-21",
+      "slot_id": "109",
+      "csv": 750.3022666666654,
+      "workbook": 750.3022666666654,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "计划购电量",
+      "cell": "DR325",
+      "date": "2025-12-21",
+      "slot_id": "121",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    },
+    {
+      "sheet": "调整购电量",
+      "cell": "DR325",
+      "date": "2025-12-21",
+      "slot_id": "121",
+      "csv": 0.0,
+      "workbook": 0,
+      "abs_difference": 0.0
+    }
+  ]
+}

@@ -1,0 +1,1553 @@
+{
+  "gate": "PASS_P3_CANDIDATE_FREEZE_WITH_OPEN_ISSUES",
+  "candidate_id": "P3_MAIN_MEAN_ROLLOUT_061218",
+  "PASS": 302,
+  "FAIL": 0,
+  "blocking": 0,
+  "scope": "identity+finite bookkeeping+freeze only; not independent A7 review",
+  "new_model_fits": 0,
+  "new_lp_calls": 0,
+  "new_policy_replays": 0,
+  "new_workbook_exports": 0,
+  "new_workbook_copies": 0,
+  "source_modifications": 0,
+  "main_recomputed_totals": {
+    "retained_cost_yuan": 13058408.059413994,
+    "increase_cost_yuan": 177115.2379925167,
+    "cancellation_cost_yuan": 320320.9492871611,
+    "emergency_cost_yuan": 185927.58694423895,
+    "total_cost_yuan": 13741771.83363791,
+    "g0_kwh": 22218815.97060613,
+    "a_kwh": 21335764.508569665,
+    "grid_used_kwh": 20484334.05551606,
+    "grid_unused_kwh": 851430.4530536049,
+    "pv_curtailment_kwh": 1392685.2229671348,
+    "charge_bus_kwh": 6300592.135378614,
+    "discharge_bus_kwh": 5110187.358717544,
+    "emergency_kwh": 37945.43907881185
+  },
+  "source_file_count": 4253,
+  "batch_validation_counts_inherited": {
+    "PASS": 408986,
+    "NOT_APPLICABLE": 1735,
+    "FAIL": 0
+  },
+  "checks": [
+    {
+      "check_id": "SINGLE_AUTHORIZED_JUNCTION_REGISTERED",
+      "status": "PASS",
+      "detail": "A_route/problem3/02_batch_run/scripts/node_modules"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:contracts/P3_BATCH_SPEC.json",
+      "status": "PASS",
+      "detail": "4d2f0b1230fdcb17f44eb783feca44958b12bdfb01251d5be0b0ce36cc4eb44e"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:contracts/P3_POLICY_MATRIX.json",
+      "status": "PASS",
+      "detail": "d057fa22b1d7bfbeb13e9a1a0dc23d5dacbd813407605ef55b8d0c33742a3be5"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:evidence/BATCH_SUPPORT_SELFTEST.json",
+      "status": "PASS",
+      "detail": "db161409505c8c9bfc2d48b7e2bd4521d367025e87a513c1ba305af6d88c290d"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:evidence/DESIGN_STATUS.json",
+      "status": "PASS",
+      "detail": "9a1d814913a2f83c674d5183bf8924fe66f8638762302746a315115353642f70"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:evidence/PACKAGE_MANIFEST.json",
+      "status": "PASS",
+      "detail": "0849db14ec4ce387d562e738406e77469f4d0a94def677e0aef50bd9debe3664"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:evidence/README.md",
+      "status": "PASS",
+      "detail": "3e3733b533df9dd279987565dc6ac295b1ec41deb79d7f141279f2c85a06a205"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:evidence/REFERENCE_ROLLOUT_EQUIVALENCE.json",
+      "status": "PASS",
+      "detail": "b32703e4469c3f0e502c6790b03e54c36654953157e22cd94e28f79728c1b391"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:evidence/UPSTREAM_SOURCE_VERIFICATION.json",
+      "status": "PASS",
+      "detail": "3b8448d47030bb992dd180121e77892fb06beb8a958c16dc2dcbd0e29d465d5d"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:reports/p3_batch_decision.json",
+      "status": "PASS",
+      "detail": "25af686f74fd73b2c6cc88755f6946b6f77975fce01c2e231ece619d54b599d5"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:reports/P3_EXPORT_FORMAT_CORRECTION.md",
+      "status": "PASS",
+      "detail": "d575bc542f2cc7c9a3fbfbdd978cffdd5222ae1854ad9449f65940b26a36f60d"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:reports/P3_EXTENSION_REPORT.md",
+      "status": "PASS",
+      "detail": "593124f46e2118ff322741f70171ce6dafcbcbebcd0856ba74d7fd7ec4eea1df"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:reports/P3_FORECAST_REPORT.md",
+      "status": "PASS",
+      "detail": "dc8fc900ae051b46689efa3d6ec83163d7190a3296fd4701308d791fea12cf7b"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:reports/P3_GATE.md",
+      "status": "PASS",
+      "detail": "c0aadbd8adf67b28b5c82ac488e2134cfcf23f9417c3ca70d39a22cbb0792cbd"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:reports/P3_RUN_REPORT.md",
+      "status": "PASS",
+      "detail": "46a58751eb5d8ba242890bd8524a3d25b4b59754240068fe4d459bd07ce0b1b3"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:reports/P3_SETTLEMENT_AND_TIME_NOTE.md",
+      "status": "PASS",
+      "detail": "34c444d04e1120c059d023510039264546584426dbdfe8959bb9a8a45678a6d1"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:reports/P3_VALIDATION_REPORT.md",
+      "status": "PASS",
+      "detail": "3a91126aef43e2fbb81e0e6eebcf2435dac05e8d5ccf33d2b30c1d667addcbc3"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/p3_actual_schedule.csv",
+      "status": "PASS",
+      "detail": "3977b598efbdfc08ae7ac7ede862862d6b365ee3913d177edcbca974ac9e59d0"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/p3_daily_summary.csv",
+      "status": "PASS",
+      "detail": "ed47323b5b769fc896376d78c02654a6d8cb04f129abcc817e2ccadec751c0e1"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/p3_decision_ledger.csv",
+      "status": "PASS",
+      "detail": "cd4bf35038b1c10cc619a3a9ae12d2ee77964fcac8737c83c5eced2b0fabfb0d"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/p3_emergency_events.csv",
+      "status": "PASS",
+      "detail": "889766d70b40e3765361e0f8b9e2f803fdadd1953b8a430b74db763dbaf69481"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/p3_final_commitment.csv",
+      "status": "PASS",
+      "detail": "29044a4a996a235748045cdf6f0e52a3fa6a4d9c115ae9df1a3518efc04f4e21"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/p3_forecast_ledger.csv",
+      "status": "PASS",
+      "detail": "ad3be02f619f234f478b2f5d8f5034600eb969eff12298faabf07461fd05c070"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/p3_initial_plan.csv",
+      "status": "PASS",
+      "detail": "15902a05bafc0d73a98030c8acce78f5614f8a9760732dd572411ba4878ff34b"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/p3_load_fit_log.csv",
+      "status": "PASS",
+      "detail": "bd30eafb69793c2087e39e368d44094ae4dde3425ceee84efb0d4d95403b03aa"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/p3_residual_path_registry.csv",
+      "status": "PASS",
+      "detail": "ead0c3117544641146d3c541493168d97cb665e9a7b415083face9c54be12ba5"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/p3_scenario_membership.csv",
+      "status": "PASS",
+      "detail": "e7536ec74c2093d9ecc3026f39156835b4c0a4b6f3d770f9dc55bcfe96b0912a"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/p3_scenario_quantile_diagnostics.csv",
+      "status": "PASS",
+      "detail": "8cd7e9fb0540f1f25353d5202077c3a8761cb58c44938b6c6829eb49eb1d6377"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/p3_settlement_ledger.csv",
+      "status": "PASS",
+      "detail": "3aa9d65e4d222a9de35b49b5c6ff4744065643994378f53cdbcf6d37e73c045a"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MAIN_MEAN_ROLLOUT_061218/p3_actual_schedule.csv",
+      "status": "PASS",
+      "detail": "3977b598efbdfc08ae7ac7ede862862d6b365ee3913d177edcbca974ac9e59d0"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MAIN_MEAN_ROLLOUT_061218/p3_candidate_scores.csv",
+      "status": "PASS",
+      "detail": "73d717dca29490f2fb6b36ae146aaa56f997af3ae125c1f1e34298049140c05e"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MAIN_MEAN_ROLLOUT_061218/p3_commitment_versions.csv",
+      "status": "PASS",
+      "detail": "c6837b390c96b0a8f0962713db3fa382fc7a776f9204684ccd9bf3bfb73cdc3d"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MAIN_MEAN_ROLLOUT_061218/p3_decision_ledger.csv",
+      "status": "PASS",
+      "detail": "cd4bf35038b1c10cc619a3a9ae12d2ee77964fcac8737c83c5eced2b0fabfb0d"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MAIN_MEAN_ROLLOUT_061218/p3_final_commitment.csv",
+      "status": "PASS",
+      "detail": "29044a4a996a235748045cdf6f0e52a3fa6a4d9c115ae9df1a3518efc04f4e21"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MAIN_MEAN_ROLLOUT_061218/p3_initial_plan.csv",
+      "status": "PASS",
+      "detail": "15902a05bafc0d73a98030c8acce78f5614f8a9760732dd572411ba4878ff34b"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MAIN_MEAN_ROLLOUT_061218/p3_settlement_ledger.csv",
+      "status": "PASS",
+      "detail": "3aa9d65e4d222a9de35b49b5c6ff4744065643994378f53cdbcf6d37e73c045a"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_06/p3_actual_schedule.csv",
+      "status": "PASS",
+      "detail": "52622ff257f9d2cbc5622b9a89fa9b42e90799d015bcacf6b0b4d881c6279411"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_06/p3_candidate_scores.csv",
+      "status": "PASS",
+      "detail": "9d83ee17e114cb20a4f75d3176522ec02087ad578b6988b18bc2d7b50f370b2b"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_06/p3_commitment_versions.csv",
+      "status": "PASS",
+      "detail": "3a706845739418386291803c75476efd312e551e60b907980ab1285dfd5bb325"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_06/p3_decision_ledger.csv",
+      "status": "PASS",
+      "detail": "f760d7a27c4496cca26c29325d3550f461150ceaa51eaceeec7f8ad0e1182c6b"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_06/p3_final_commitment.csv",
+      "status": "PASS",
+      "detail": "120757f6d19822e0f6ea5c6056b5da9bb653b8a72bd913c1edf559225f9e643c"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_06/p3_initial_plan.csv",
+      "status": "PASS",
+      "detail": "cb6540c15780522bd7247c6d3a7a5f70a96a3139952088093281e67c1f1170cb"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_06/p3_settlement_ledger.csv",
+      "status": "PASS",
+      "detail": "35ce50b196f9e7f4973e6e9bf9113fed722a7129498390b0134c3760b2bd1b32"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_0612/p3_actual_schedule.csv",
+      "status": "PASS",
+      "detail": "43d380380369d078f3f55f499657dbb662b50873973a77b8bc3b53200d7e002d"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_0612/p3_candidate_scores.csv",
+      "status": "PASS",
+      "detail": "658e3b9b7daad4ce385a91c472afcba59d2d07eeea2a3ee1b4771114dac755bf"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_0612/p3_commitment_versions.csv",
+      "status": "PASS",
+      "detail": "330297afa9da4c4e400ce6f8482e1dbf648d119cfe048bf1e847034ad706cf6d"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_0612/p3_decision_ledger.csv",
+      "status": "PASS",
+      "detail": "28788134841314ebe6b90f6ad1175cba7c6e18b9bedd8acd282a5a5684b2ef41"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_0612/p3_final_commitment.csv",
+      "status": "PASS",
+      "detail": "e86af511e7c5cd318ba7d69047f5da0dcdbc79806089d12e0ea2ab6efc6a47ac"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_0612/p3_initial_plan.csv",
+      "status": "PASS",
+      "detail": "fd2042d86cd886cfd259dee4fe7e3dfb470e5e2b1fb60a848b2b3f578bd23958"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_0612/p3_settlement_ledger.csv",
+      "status": "PASS",
+      "detail": "7b9f434519e7268963b0598e75efbf01cf1364083499c7b2d955397cedf3a13e"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_0618/p3_actual_schedule.csv",
+      "status": "PASS",
+      "detail": "779203269c0870e89fbb7a291444fa1f0b6b4cd0825db3fb5630f2e3fd31ae34"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_0618/p3_candidate_scores.csv",
+      "status": "PASS",
+      "detail": "06d167f5a2c23e98c9fdb9d2e9deac5a00ece7e39ddb5e1a805544533101478a"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_0618/p3_commitment_versions.csv",
+      "status": "PASS",
+      "detail": "05d41146f04466c937b8ca97705d9574642d0596301caaedcd62242aecbfec34"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_0618/p3_decision_ledger.csv",
+      "status": "PASS",
+      "detail": "1c5e1476762dd8e918ae25c349567ea47023161f3fa61378ac9d7a28623d076b"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_0618/p3_final_commitment.csv",
+      "status": "PASS",
+      "detail": "c4ada875331422b25503f9bf9627e51d4191f9fb8fb0341b7d7d2dbe939f1ca3"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_0618/p3_initial_plan.csv",
+      "status": "PASS",
+      "detail": "bbded5b035a7a7f3ce4cdbba8efef0b347c8beb2db691e0027e80d281e6b1355"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_0618/p3_settlement_ledger.csv",
+      "status": "PASS",
+      "detail": "7b599edf9a5b0ef49774c7f3f0e8a01b9d58a84fd2646123f114a4a022246e94"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_12/p3_actual_schedule.csv",
+      "status": "PASS",
+      "detail": "84c12c860586e80a8a2bb9155052c4d312c6c1dc65849ad56c721823967de72b"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_12/p3_candidate_scores.csv",
+      "status": "PASS",
+      "detail": "7c7b11cfcb0bb9c854259d4d15fe1ea7125c2d9324365e0a941d5099c2f6aae0"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_12/p3_commitment_versions.csv",
+      "status": "PASS",
+      "detail": "232da402d103d0c9ca59433f2e02e4687a6cb7c49a0cad2274d09174cf3d4c8e"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_12/p3_decision_ledger.csv",
+      "status": "PASS",
+      "detail": "863b55891ddfe8041c37a9361ea4f5b571f6f162fae795b5bee383f464d3f9d6"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_12/p3_final_commitment.csv",
+      "status": "PASS",
+      "detail": "d9001e550746ce3cec01eb889882fb9e187872581caa1629e8cc133f7cd9852e"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_12/p3_initial_plan.csv",
+      "status": "PASS",
+      "detail": "77f84b69bbbdf68cc495685bfaedd7551698a24f7e80a6b3719dc3828304c675"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_12/p3_settlement_ledger.csv",
+      "status": "PASS",
+      "detail": "3ea3cc35acc8cf8a782d30777fc1b65f1b3e0099a2f86019be0d2ec862b4c917"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_1218/p3_actual_schedule.csv",
+      "status": "PASS",
+      "detail": "34b2687bde6f4e01626acfba86528110325b25c4cfe7ce4354c37e9fdd650b49"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_1218/p3_candidate_scores.csv",
+      "status": "PASS",
+      "detail": "8fc3d0a1756a1407ab93e7a509236d072048227713465c6d3e25de96d426b5de"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_1218/p3_commitment_versions.csv",
+      "status": "PASS",
+      "detail": "213d224f786e5da9d683a476f5c2249a4f4e56154c705f267ff2296746e4613c"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_1218/p3_decision_ledger.csv",
+      "status": "PASS",
+      "detail": "5517fc2fa5cce550a2575e7ba5d9f4ca884c6f377957bc6bb72f96bb0b2d09e9"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_1218/p3_final_commitment.csv",
+      "status": "PASS",
+      "detail": "e18e14ca1ce988b44e02a1e74dbb7f621b1f6aa48b3793e5fc7bb7aec8a4562c"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_1218/p3_initial_plan.csv",
+      "status": "PASS",
+      "detail": "364c0be195b8e2aab7b5fbd7d72734f69a6d5a16eb20797846ad1cc94dd8da06"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_1218/p3_settlement_ledger.csv",
+      "status": "PASS",
+      "detail": "03665de209afd8fa9ed7000563221a56ba17030c462e46a37e84aba96e0cee42"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_18/p3_actual_schedule.csv",
+      "status": "PASS",
+      "detail": "c8b411a42e5665cccd5d6a43795af762e9f52749d0855e730f31842346714bcd"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_18/p3_candidate_scores.csv",
+      "status": "PASS",
+      "detail": "5972097c0f9fa2d12fc41fe6ea277e546aa8cc4117649521b0f7db996be15956"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_18/p3_commitment_versions.csv",
+      "status": "PASS",
+      "detail": "678c11a23ea9a22ecb59fb91cfdf872766d3f0a4f36950858e7019146fb00447"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_18/p3_decision_ledger.csv",
+      "status": "PASS",
+      "detail": "e84f8c20160383aa6bb167ee091f91531e9d19ecbe19209d0f17c134faef0d6c"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_18/p3_final_commitment.csv",
+      "status": "PASS",
+      "detail": "59cb48b555b9f1aefb1cf98e96609deab17820a6ae57a6c4a0ab79b0f2912c7f"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_18/p3_initial_plan.csv",
+      "status": "PASS",
+      "detail": "ff72d638f4a7567e47a346ecb98520c81cc05d01e0533d1b702e0672f0465cb4"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_18/p3_settlement_ledger.csv",
+      "status": "PASS",
+      "detail": "23cd9abe297f8ca0ee4b4ef1febfb0c68fa71f028c2089872e18bd2b45bae890"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_NONE/p3_actual_schedule.csv",
+      "status": "PASS",
+      "detail": "a77d201c1e7594931a0b0c1ba1ded4d2383be048c69aab3eadb0b2afb86813a0"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_NONE/p3_candidate_scores.csv",
+      "status": "PASS",
+      "detail": "d619eea33147187da665b963566a79d214f1be5cbdf85dcf2c5bc8ddb41fb36d"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_NONE/p3_commitment_versions.csv",
+      "status": "PASS",
+      "detail": "c1d69a0263ef055f3e652f29e6fb1e9455a555a3142cd6f46c5df13c16bab623"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_NONE/p3_decision_ledger.csv",
+      "status": "PASS",
+      "detail": "a3e378264558f2b790c0c77ccdd277e83e47d733020befe4682c0accbef3c697"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_NONE/p3_final_commitment.csv",
+      "status": "PASS",
+      "detail": "5578dc0487cde5fd1fa542a40e423fc1bbaac6c6510e687a8cf6c47b8b6c024a"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_NONE/p3_initial_plan.csv",
+      "status": "PASS",
+      "detail": "860dd2be6c6c3b43df50c5832c24955383f850c7e75a41d28f36b84a6636d9c7"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_MEAN_ROLLOUT_NONE/p3_settlement_ledger.csv",
+      "status": "PASS",
+      "detail": "7121869a1a1ac5542ebab374ce867a77027cb3a6e934cb6ba1d2ab7869d9b06f"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_NO_PREFIX_061218/p3_actual_schedule.csv",
+      "status": "PASS",
+      "detail": "65b65d6006160c3b709c14a5b2170bdefd41cd709e422fd32c30358561937076"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_NO_PREFIX_061218/p3_candidate_scores.csv",
+      "status": "PASS",
+      "detail": "f451fdcb1cd9d992eb5bae29c30b0905c5b3da7fcdebcdde6b471005ecd3d384"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_NO_PREFIX_061218/p3_commitment_versions.csv",
+      "status": "PASS",
+      "detail": "92b9006863a75b24570f86fb7f3556874a4448d9a09ab8464757ed9f94c9f898"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_NO_PREFIX_061218/p3_decision_ledger.csv",
+      "status": "PASS",
+      "detail": "47ff44971a52ebefad728739d0b573105ec9c9cc6644b51595e98ca592efe90d"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_NO_PREFIX_061218/p3_final_commitment.csv",
+      "status": "PASS",
+      "detail": "8010338b90fb10efa07a677a2c7c93205821bd6abd7a3d7acbfff65c828802f4"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_NO_PREFIX_061218/p3_initial_plan.csv",
+      "status": "PASS",
+      "detail": "9ed953454f0f9c18f1e214189fc7016d57b96ba39b564f22b6745a64948434d0"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_NO_PREFIX_061218/p3_settlement_ledger.csv",
+      "status": "PASS",
+      "detail": "64460ed64c843718edb65cc4579e59ecefd3f675d1c81e3f86e1b8bf8a8d817e"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218/p3_actual_schedule.csv",
+      "status": "PASS",
+      "detail": "f9a1245905e902a90125039d90c97852aab90008a72027ad11b940b58ccfa1f1"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218/p3_candidate_scores.csv",
+      "status": "PASS",
+      "detail": "1f82f8e71691f88d77694489a6414d40915ac789dbc65de0bd971a24fbd491df"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218/p3_commitment_versions.csv",
+      "status": "PASS",
+      "detail": "7da664222f9d713b69af3eee47d1754eb04cb752cc36cb02ee18cd4abd1bdb33"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218/p3_decision_ledger.csv",
+      "status": "PASS",
+      "detail": "bfdaa9f1c8206ce57308903a0d579eccee0f13fcbb86725f7332fc96ac66b801"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218/p3_final_commitment.csv",
+      "status": "PASS",
+      "detail": "6e94743532e9e6d30107777765b51c67eb69c5d1e6d043e9cc5fb9b25bb22945"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218/p3_initial_plan.csv",
+      "status": "PASS",
+      "detail": "754bc444ef718103c5d02cd512c1ea5ab5854d22ed7c0713868252831edd1dc0"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218/p3_settlement_ledger.csv",
+      "status": "PASS",
+      "detail": "08544d9f3b9058e6117c0568fbc76da1cbdfdc1141ab0f662f773fbd1fa72b70"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_ROBUST_WORST_061218/p3_actual_schedule.csv",
+      "status": "PASS",
+      "detail": "71c693babd0f5215412d3bbec4ce7cc9fc8868e4d975010d5878233b0fae9f38"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_ROBUST_WORST_061218/p3_candidate_scores.csv",
+      "status": "PASS",
+      "detail": "bdb981984dcbf180eac55590d9c1c4ea83b2a8c25501c99fde8acdf4357cbedb"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_ROBUST_WORST_061218/p3_commitment_versions.csv",
+      "status": "PASS",
+      "detail": "7b11380edd560efca09b6b7dc5a6feca516a5abec0876d641bb631034a566c85"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_ROBUST_WORST_061218/p3_decision_ledger.csv",
+      "status": "PASS",
+      "detail": "677e59de15561377713979bae3633cf1adb09bbd5f11d5935dbb47efaace0cfb"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_ROBUST_WORST_061218/p3_final_commitment.csv",
+      "status": "PASS",
+      "detail": "87705e1faed3ad280b48f3839bd4c7abb6d0643a27100ad833778357bba82460"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_ROBUST_WORST_061218/p3_initial_plan.csv",
+      "status": "PASS",
+      "detail": "74866d2558db5a187a17a42ad5e5ac43dfb118b9beccaf4f87814c7ddb054c8c"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_ROBUST_WORST_061218/p3_settlement_ledger.csv",
+      "status": "PASS",
+      "detail": "dc5c738ff9897d03791514af911264501823a0ca3feafe4cb7573fb7b392e838"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_ZERO_TERMINAL_061218/p3_actual_schedule.csv",
+      "status": "PASS",
+      "detail": "6ddcd09fc35a4f83348ce336b536c0c3d708b8e24a5a078cb72f4ad44cc5d3f8"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_ZERO_TERMINAL_061218/p3_candidate_scores.csv",
+      "status": "PASS",
+      "detail": "420c62c6fbef6d569f4e0e7723a4bf1425f1b386c2e0e875cbc875ec4ac3deb3"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_ZERO_TERMINAL_061218/p3_commitment_versions.csv",
+      "status": "PASS",
+      "detail": "d0c0c6ce312952e7e6439f5010473dbb1a9e021870e7f64fec60e4a1bb9ca1f7"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_ZERO_TERMINAL_061218/p3_decision_ledger.csv",
+      "status": "PASS",
+      "detail": "d98f346c10da8b0311d12aac573abe9131fceaa83742f2a685b6345876a64546"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_ZERO_TERMINAL_061218/p3_final_commitment.csv",
+      "status": "PASS",
+      "detail": "dfeb6e3efdc97a25b9d6426447ac3a65ace7f23763fc078cab67fda16f7902ec"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_ZERO_TERMINAL_061218/p3_initial_plan.csv",
+      "status": "PASS",
+      "detail": "9487cca276cf9d0f3563119ec40a9ac0a551eb1bc97b776a4e6c87b35342417c"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/policies/P3_ZERO_TERMINAL_061218/p3_settlement_ledger.csv",
+      "status": "PASS",
+      "detail": "04534f42de77e8843cd15378f5391762e76494b036b8a775e00a5fb872ab34dd"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/result3.xlsx",
+      "status": "PASS",
+      "detail": "4d63a8e740d872c71994d75bdf42865fc3e595f75968ced03e3c968870d8ffa8"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:results/result3.xlsx.inspect.ndjson",
+      "status": "PASS",
+      "detail": "84ba82e43f07b28977d0cac3c2f2bfd0a1030d68f0d533360529c50af11e7090"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:scripts/p3_batch_support.py",
+      "status": "PASS",
+      "detail": "24313f7f4fc679946961b42a62fcbd9e17d0e7098ad7d1e762c628f5a434552f"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:scripts/p3_causality.py",
+      "status": "PASS",
+      "detail": "978843bcea0aefa7f45981aee752be0f8cd624eb8c4991b16f5f0f48f73335de"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:scripts/p3_data.py",
+      "status": "PASS",
+      "detail": "68dd08f06d0610d708c2ae1f64136dfebde729783976053a7d96d25d722a6be8"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:scripts/p3_dispatch.py",
+      "status": "PASS",
+      "detail": "ff164bb0e4cdb342a567a2419083868d597c9539705dd86e391caa5213446788"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:scripts/p3_export.py",
+      "status": "PASS",
+      "detail": "e232371a2b2e95df3676b976955aa0e491d11fb45db5f7c833323746bcbd0c9c"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:scripts/p3_export_workbook.mjs",
+      "status": "PASS",
+      "detail": "ae27e015bcd967bf825120a40cea0a2bdd59547fe58d05d94e89caaaeaab310c"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:scripts/p3_forecast.py",
+      "status": "PASS",
+      "detail": "b73185c4539b9629a8a1c0cd67fa926051d1afc131b051e3fc1ba752f9b7da77"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:scripts/p3_independent.py",
+      "status": "PASS",
+      "detail": "c9ddd6451db627af620b24265f80f5eba750f17526081aaeb60192c7a1fb394a"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:scripts/p3_io.py",
+      "status": "PASS",
+      "detail": "d0c09d6ca7e0b1ea8c4ed10de0dcbeafc8677b5209ff418d6db863dab3d6e11b"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:scripts/p3_preflight.py",
+      "status": "PASS",
+      "detail": "8e9d49272387a09fb61de2e3a2e71b6ed7069f7276bf9d6850a2d3f082d45920"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:scripts/p3_reporting.py",
+      "status": "PASS",
+      "detail": "f3268329a9130224cd6f0678defb63da12d21a95aa8a4199b4686d211159d279"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:scripts/run_p3_batch.py",
+      "status": "PASS",
+      "detail": "ea73c5bd10be6e814679ccc969e0ffa8e3681d870de947450b2c8daf8bd411b7"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:scripts/test_p3_batch_support.py",
+      "status": "PASS",
+      "detail": "74429e68a9f71f5a4a010bf45d8cc37bdec1c9e0ab469f329b67488a5e68665e"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:scripts/validate_p3_batch.py",
+      "status": "PASS",
+      "detail": "8be6dff8f7cce5a644a8481a4f453a61e6818e5e5b554f5c9bc188efdc91013f"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:tables/p3_component_ablation.csv",
+      "status": "PASS",
+      "detail": "de724c3ffc5154727bbeb52888ebb452b2fbb75022168adefbaac23944574c4a"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:tables/p3_endpoint_fairness.csv",
+      "status": "PASS",
+      "detail": "a9cd694cf52dc70b77f2e735cf89c1657c6bfce773671ed73e81c24b9c72bcbd"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:tables/p3_forecast_metrics.csv",
+      "status": "PASS",
+      "detail": "aeb0c6c7382c864c563635a9f479e623d03850e10b0396be4af8d646b8f5c9d6"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:tables/p3_monthly_cost_summary.csv",
+      "status": "PASS",
+      "detail": "675ae85e982dc9c8fa4d053ef557af8f32e1b455e1803b4b03f1261c461bd117"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:tables/p3_opportunity_comparison.csv",
+      "status": "PASS",
+      "detail": "3f231c1ea1c01353c31a8c9fe707c7a587611fc635fab2bafa19fe7c3883eb17"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:tables/p3_output_mapping_audit.csv",
+      "status": "PASS",
+      "detail": "9827a855bbe3c69c07f9b52d0bad80b7e7e9fc0aa7bcb6047e429ea0653f718f"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:tables/p3_partial_adjustment_summary.csv",
+      "status": "PASS",
+      "detail": "16bee6d43d0192bff823f302c5da4c01e642adc020dc8ba07307dead0772648e"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:tables/p3_partial_alpha_frequency.csv",
+      "status": "PASS",
+      "detail": "ee4f1aef75ea311a48b67ee3d8f87e850f5c3cdeb44d3548a6dc95f531b4900a"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:tables/p3_policy_comparison.csv",
+      "status": "PASS",
+      "detail": "87284140250db62f9c627bd2b949e2be79e3361ad13eb91a53856c44813f0103"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:tables/p3_proxy_rollout_gap.csv",
+      "status": "PASS",
+      "detail": "eb14eddfdb08a0e7a61de344b86246d163c973fd4291b56d352ef7cf28c3d4c5"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:tables/p3_specified_daily_summary.csv",
+      "status": "PASS",
+      "detail": "e9a2ea8c61f75295b41c91d7f13a9ffcc3c454908bc445c73b007fcb816a3a83"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:tables/p3_specified_purchase_intervals.csv",
+      "status": "PASS",
+      "detail": "e5082d1ff165b82a9c4ef32bc260f887149744d23130b4e6bf398b129274cf3d"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:tables/p3_storage_4h_summary.csv",
+      "status": "PASS",
+      "detail": "a56559e7cd9632bb7c32bdc6ba1ea76bc94f45c74b40fbaaba865ee852ee4a2c"
+    },
+    {
+      "check_id": "A5_UPLOAD_SHA:tables/p3_validation_checks.csv",
+      "status": "PASS",
+      "detail": "13f478a34133b8f2a645d85af129b273a0366a25c94994cf34ccd28fb9703f1a"
+    },
+    {
+      "check_id": "LOCAL_HANDOFF_READ_CHECK",
+      "status": "PASS",
+      "detail": "Codex must first read and document the 24 workbook cells per sheet and the actual repair chain."
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/01_model_plan/P3_DESIGN_BASIS.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/01_model_plan/P3_MODEL_PLAN.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/01_model_plan/P3_VALIDATION_PLAN.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/01_model_plan/README.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/01_model_plan/contracts/P3_MODEL_SPEC.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/01_model_plan/evidence/MODEL_MATH_SELFTEST.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/01_model_plan/evidence/SOURCE_SNAPSHOT_MANIFEST.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/01_model_plan/scripts/check_p3_model_math.py",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/01_model_plan/scripts/p3_lp_reference.py",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/01_model_plan/tasks/P3_MODELPLAN_CODEX_TASK.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/01_model_plan/tasks/P3_MODELPLAN_START_PROMPT.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/01_model_plan/evidence/PACKAGE_MANIFEST.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/00_semantic_audit/P3_SEMANTIC_AUDIT.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/00_semantic_audit/contracts/p3_semantic_contract.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/00_semantic_audit/local_verification/P3_SEMANTIC_GATE.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/00_semantic_audit/local_verification/p3_semantic_check_results.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/00_information_audit/P3_INFORMATION_AUDIT.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/00_information_audit/P3_INFORMATION_GATE.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/00_information_audit/p3_information_run_manifest.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/00_information_audit/p3_load_prefix_signal.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/00_information_audit/p3_pv_issue_metrics.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:input/original/C题.pdf",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:input/original/附件1.xlsx",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:input/original/附件2.xlsx",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:input/original/附件3.xlsx",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:input/templates/result3.xlsx",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/common/01_preprocessing/processed/fixed_day_10min.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/common/01_preprocessing/processed/year_actual_10min.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/common/01_preprocessing/processed/pv_forecast_hourly_long.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem2/02_batch_run/results/result2.xlsx",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem2/03_candidate/CANDIDATE_FREEZE_MANIFEST.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/00_information_audit/P3_INFORMATION_AUDIT_PLAN.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/00_information_audit/P3_INFORMATION_CODEX_TASK.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/00_information_audit/P3_INFORMATION_START_PROMPT.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/00_information_audit/P3_INFORMATION_AUDIT_SPEC.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/00_information_audit/scripts/report_p3_information_audit.py",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/00_information_audit/scripts/run_p3_information_audit.py",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/00_information_audit/scripts/validate_p3_information_audit.py",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem2/02_batch_run/results/p2_warmup_actual.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem2/02_batch_run/scripts/p2_dispatch.py",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/01_model_plan/local_check/P3_MODEL_PLAN_CHECK.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/01_model_plan/local_check/model_math_selftest.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/01_model_plan/local_check/independent_checks.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/01_model_plan/local_check/P3_MODEL_PLAN_GATE.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "UPSTREAM_SHA:A_route/problem3/01_model_plan/local_check/P3_MODEL_PLAN_FREEZE_MANIFEST.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "LOCAL_LOG:logs/run_info.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "LOCAL_LOG:logs/solver_invocations.jsonl",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "LOCAL_LOG:logs/causality_validation.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "LOCAL_LOG:logs/production_manifest.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "LOCAL_LOG:logs/input_manifest.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "ORIGINAL_FORMAT_FIX_SCRIPT_PRESENT",
+      "status": "PASS",
+      "detail": "Read/freeze only; never run repair on correct workbook"
+    },
+    {
+      "check_id": "ORIGINAL_FAILED_WORKBOOK_PRESERVED",
+      "status": "PASS",
+      "detail": "c7ba28696993c55ae4ef3c913fd929e36d62886f8b0b88106695542f403fb2cc"
+    },
+    {
+      "check_id": "A5_GATE",
+      "status": "PASS",
+      "detail": "PASS_P3_BATCH_WITH_OPEN_ISSUES"
+    },
+    {
+      "check_id": "PRIMARY_FIXED",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "NO_AUTO_SWAP",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "TWELVE_REGISTERED_POLICIES",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "WORKBOOK_SHA256",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "POLICY_TABLE_KEYS",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "CANDIDATE_NOT_POSTHOC_SWAP",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "MAIN_LOWEST_REPORTED",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "REPORTED_MAIN:retained_cost_yuan",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "REPORTED_MAIN:increase_cost_yuan",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "REPORTED_MAIN:cancellation_cost_yuan",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "REPORTED_MAIN:emergency_cost_yuan",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "REPORTED_MAIN:total_cost_yuan",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "REPORTED_MAIN:g0_kwh",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "REPORTED_MAIN:a_kwh",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "REPORTED_MAIN:grid_used_kwh",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "REPORTED_MAIN:grid_unused_kwh",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "REPORTED_MAIN:pv_curtailment_kwh",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "REPORTED_MAIN:charge_bus_kwh",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "REPORTED_MAIN:discharge_bus_kwh",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "REPORTED_MAIN:emergency_kwh",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "REPORTED_MAIN:soc_start_kwh",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "REPORTED_MAIN:soc_end_kwh",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_ROWS",
+      "status": "PASS",
+      "detail": "4008"
+    },
+    {
+      "check_id": "DAILY_COVERAGE:P3_MEAN_ROLLOUT_NONE",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_TOTALS:P3_MEAN_ROLLOUT_NONE",
+      "status": "PASS",
+      "detail": "max_difference=3.725290298461914e-09"
+    },
+    {
+      "check_id": "DAILY_SOC:P3_MEAN_ROLLOUT_NONE",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "POLICY_FILES:P3_MEAN_ROLLOUT_NONE",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_COVERAGE:P3_MEAN_ROLLOUT_06",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_TOTALS:P3_MEAN_ROLLOUT_06",
+      "status": "PASS",
+      "detail": "max_difference=3.725290298461914e-09"
+    },
+    {
+      "check_id": "DAILY_SOC:P3_MEAN_ROLLOUT_06",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "POLICY_FILES:P3_MEAN_ROLLOUT_06",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_COVERAGE:P3_MEAN_ROLLOUT_12",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_TOTALS:P3_MEAN_ROLLOUT_12",
+      "status": "PASS",
+      "detail": "max_difference=3.725290298461914e-09"
+    },
+    {
+      "check_id": "DAILY_SOC:P3_MEAN_ROLLOUT_12",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "POLICY_FILES:P3_MEAN_ROLLOUT_12",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_COVERAGE:P3_MEAN_ROLLOUT_18",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_TOTALS:P3_MEAN_ROLLOUT_18",
+      "status": "PASS",
+      "detail": "max_difference=1.862645149230957e-09"
+    },
+    {
+      "check_id": "DAILY_SOC:P3_MEAN_ROLLOUT_18",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "POLICY_FILES:P3_MEAN_ROLLOUT_18",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_COVERAGE:P3_MEAN_ROLLOUT_0612",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_TOTALS:P3_MEAN_ROLLOUT_0612",
+      "status": "PASS",
+      "detail": "max_difference=3.725290298461914e-09"
+    },
+    {
+      "check_id": "DAILY_SOC:P3_MEAN_ROLLOUT_0612",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "POLICY_FILES:P3_MEAN_ROLLOUT_0612",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_COVERAGE:P3_MEAN_ROLLOUT_0618",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_TOTALS:P3_MEAN_ROLLOUT_0618",
+      "status": "PASS",
+      "detail": "max_difference=1.862645149230957e-09"
+    },
+    {
+      "check_id": "DAILY_SOC:P3_MEAN_ROLLOUT_0618",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "POLICY_FILES:P3_MEAN_ROLLOUT_0618",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_COVERAGE:P3_MEAN_ROLLOUT_1218",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_TOTALS:P3_MEAN_ROLLOUT_1218",
+      "status": "PASS",
+      "detail": "max_difference=1.862645149230957e-09"
+    },
+    {
+      "check_id": "DAILY_SOC:P3_MEAN_ROLLOUT_1218",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "POLICY_FILES:P3_MEAN_ROLLOUT_1218",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_COVERAGE:P3_MAIN_MEAN_ROLLOUT_061218",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_TOTALS:P3_MAIN_MEAN_ROLLOUT_061218",
+      "status": "PASS",
+      "detail": "max_difference=3.725290298461914e-09"
+    },
+    {
+      "check_id": "DAILY_SOC:P3_MAIN_MEAN_ROLLOUT_061218",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "POLICY_FILES:P3_MAIN_MEAN_ROLLOUT_061218",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_COVERAGE:P3_NO_PREFIX_061218",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_TOTALS:P3_NO_PREFIX_061218",
+      "status": "PASS",
+      "detail": "max_difference=3.725290298461914e-09"
+    },
+    {
+      "check_id": "DAILY_SOC:P3_NO_PREFIX_061218",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "POLICY_FILES:P3_NO_PREFIX_061218",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_COVERAGE:P3_ROBUST_WORST_061218",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_TOTALS:P3_ROBUST_WORST_061218",
+      "status": "PASS",
+      "detail": "max_difference=3.725290298461914e-09"
+    },
+    {
+      "check_id": "DAILY_SOC:P3_ROBUST_WORST_061218",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "POLICY_FILES:P3_ROBUST_WORST_061218",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_COVERAGE:P3_ZERO_TERMINAL_061218",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_TOTALS:P3_ZERO_TERMINAL_061218",
+      "status": "PASS",
+      "detail": "max_difference=3.725290298461914e-09"
+    },
+    {
+      "check_id": "DAILY_SOC:P3_ZERO_TERMINAL_061218",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "POLICY_FILES:P3_ZERO_TERMINAL_061218",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_COVERAGE:P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "DAILY_TOTALS:P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218",
+      "status": "PASS",
+      "detail": "max_difference=1.862645149230957e-09"
+    },
+    {
+      "check_id": "DAILY_SOC:P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "POLICY_FILES:P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "MAIN_ALIAS:p3_actual_schedule.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "MAIN_ALIAS:p3_initial_plan.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "MAIN_ALIAS:p3_final_commitment.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "MAIN_ALIAS:p3_settlement_ledger.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "MAIN_ALIAS:p3_decision_ledger.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "MAIN_48096_KEYS",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "MAIN_BILL_FORMULA",
+      "status": "PASS",
+      "detail": "max=2.2737367544323206e-13"
+    },
+    {
+      "check_id": "MAIN_BALANCE_CONTINUITY_BOUNDS",
+      "status": "PASS",
+      "detail": "balance=2.7711166694643907e-13; soc=9.094947017729282e-13; violations=0"
+    },
+    {
+      "check_id": "MAIN_EFFECTIVE_TIMES",
+      "status": "PASS",
+      "detail": "violations=0"
+    },
+    {
+      "check_id": "MAIN_RECALC:retained_cost_yuan",
+      "status": "PASS",
+      "detail": "13058408.059413993731"
+    },
+    {
+      "check_id": "MAIN_RECALC:increase_cost_yuan",
+      "status": "PASS",
+      "detail": "177115.237992516690"
+    },
+    {
+      "check_id": "MAIN_RECALC:cancellation_cost_yuan",
+      "status": "PASS",
+      "detail": "320320.949287161115"
+    },
+    {
+      "check_id": "MAIN_RECALC:emergency_cost_yuan",
+      "status": "PASS",
+      "detail": "185927.586944238952"
+    },
+    {
+      "check_id": "MAIN_RECALC:total_cost_yuan",
+      "status": "PASS",
+      "detail": "13741771.833637909964"
+    },
+    {
+      "check_id": "MAIN_RECALC:g0_kwh",
+      "status": "PASS",
+      "detail": "22218815.970606129616"
+    },
+    {
+      "check_id": "MAIN_RECALC:a_kwh",
+      "status": "PASS",
+      "detail": "21335764.508569665253"
+    },
+    {
+      "check_id": "MAIN_RECALC:grid_used_kwh",
+      "status": "PASS",
+      "detail": "20484334.055516060442"
+    },
+    {
+      "check_id": "MAIN_RECALC:grid_unused_kwh",
+      "status": "PASS",
+      "detail": "851430.453053604928"
+    },
+    {
+      "check_id": "MAIN_RECALC:pv_curtailment_kwh",
+      "status": "PASS",
+      "detail": "1392685.222967134789"
+    },
+    {
+      "check_id": "MAIN_RECALC:charge_bus_kwh",
+      "status": "PASS",
+      "detail": "6300592.135378614068"
+    },
+    {
+      "check_id": "MAIN_RECALC:discharge_bus_kwh",
+      "status": "PASS",
+      "detail": "5110187.358717544004"
+    },
+    {
+      "check_id": "MAIN_RECALC:emergency_kwh",
+      "status": "PASS",
+      "detail": "37945.439078811847"
+    },
+    {
+      "check_id": "MAIN_EVENT_COUNTS",
+      "status": "PASS",
+      "detail": "slots=546; events=174"
+    },
+    {
+      "check_id": "MAIN_LEDGER:p3_initial_plan.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "MAIN_LEDGER:p3_final_commitment.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "MAIN_LEDGER:p3_settlement_ledger.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "BATCH_CHECK_STATUS_COUNTS",
+      "status": "PASS",
+      "detail": "{'PASS': 408986, 'NOT_APPLICABLE': 1735}"
+    },
+    {
+      "check_id": "MAIN_DECISION_COUNTS",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "SPECIFIED_24_CORRECT_KEYS",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "OLD_AUXILIARY_TABLE_CLASSIFIED",
+      "status": "PASS",
+      "detail": "Known 4h summary preserved; separate Candidate 10min extraction generated"
+    },
+    {
+      "check_id": "PROTECTED_FILES_UNCHANGED",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "BATCH_FILE_SET_UNCHANGED",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "AUTHORIZED_JUNCTION_UNCHANGED",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check_id": "CURRENT_STATE_UNCHANGED_BY_SCRIPT",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "result3_sha256": "4d63a8e740d872c71994d75bdf42865fc3e595f75968ced03e3c968870d8ffa8",
+  "ready_for_review": true,
+  "review_execution_authorized": false,
+  "open_issue_register": "CLAIMS_AND_LIMITATIONS.md",
+  "old_auxiliary_table_issue": "4h contents preserved; Candidate 24-row 10min derivative created",
+  "utc_time": "2026-09-12T13:52:38.660061+00:00"
+}

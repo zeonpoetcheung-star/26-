@@ -1,0 +1,23 @@
+{
+  "scope": "synthetic_defensive_tests_not_local_candidate_gate",
+  "tests": [
+    {
+      "test": "Reject_nonfinite_numeric",
+      "status": "PASS"
+    },
+    {
+      "test": "Reject_path_escape",
+      "status": "PASS"
+    },
+    {
+      "test": "Manifest_verify_and_mutation_detect",
+      "status": "PASS"
+    },
+    {
+      "test": "Missing_local_evidence_blocks_no_fake_pass_no_workbook_change",
+      "status": "PASS"
+    }
+  ],
+  "PASS": 4,
+  "FAIL": 0
+}

@@ -1,0 +1,11 @@
+﻿purpose,source_path,usage
+官方工作簿,../02_batch_run/results/result3.xlsx,只读原件，禁止复制重导
+MAIN执行与账单,../02_batch_run/results/p3_actual_schedule.csv,"48,096个真实槽，非LP预测"
+全部政策,../02_batch_run/results/policies/,12个策略各自完整连续轨迹
+12政策汇总,../02_batch_run/tables/p3_policy_comparison.csv,候选选择对照
+指定10分钟提取,tables/p3_candidate_specified_purchase_10min.csv,候选派生；4日×6时段，g0/a分开
+旧辅助表,../02_batch_run/tables/p3_specified_purchase_intervals.csv,实际为4小时区段；禁止当10min表
+4小时储能,../02_batch_run/tables/p3_storage_4h_summary.csv,充放电与SOC
+原始扰动与调用日志,../02_batch_run/logs/,A-7解释；本轮只核验来源与保留
+格式修复链,../02_batch_run/logs/export_format_recovery/,原失败、修复脚本和验证；不再执行修复
+模型设计,../01_model_plan/P3_MODEL_PLAN.md,已冻结方案，原样保留

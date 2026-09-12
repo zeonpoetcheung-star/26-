@@ -1,0 +1,17 @@
+{
+  "stage": "A-6",
+  "authorization": "用户明确授权：仅限 Candidate 冻结层的最小修复",
+  "path": "A_route/problem3/02_batch_run/scripts/node_modules",
+  "resolved_target": "C:/Users/JINPU/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules",
+  "kind": "项目外部运行时依赖目录联接",
+  "reason": "该唯一目录联接指向项目外部运行库，不是 A-5 业务源文件；枚举前登记身份和目标，不递归读取或冻结外部子树。原 safe_join 项目内安全检查保持不变。",
+  "skip_exact_junction_and_external_subtree_only": true,
+  "allow_other_node_modules_exclusions": false,
+  "allow_junction_mutation": false,
+  "allow_source_mutation": false,
+  "allow_new_fit_lp_replay_or_workbook_export": false,
+  "original_contract_unchanged": "P3_CANDIDATE_SPEC.json",
+  "restart_all_A6_checks": true,
+  "preserve_original_failure_evidence": true,
+  "allow_A7": false
+}
