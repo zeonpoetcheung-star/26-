@@ -1,0 +1,52 @@
+{
+  "gate": "PASS_P2_FORECAST_PROBE",
+  "selection": "BASELINE_RETAINED",
+  "selection_rule": {
+    "condition_1_q80_weighted_pinball_improvement_at_least_2pct": false,
+    "q80_weighted_pinball_relative_improvement": 0.014353804830816545,
+    "condition_2_at_least_two_blocks_noninferior": true,
+    "noninferior_block_count": 2,
+    "block_noninferior": {
+      "BLOCK_1": true,
+      "BLOCK_2": false,
+      "BLOCK_3": true
+    },
+    "condition_3_screen_cost_noninferior": false,
+    "condition_4_q50_mae_within_110pct": true
+  },
+  "run_signature": "5CAC2F2851B37E4EFB761A8B7486400A0F8FE3BE15DCA08CF9C4D77E453E5B65",
+  "input_hashes_before": {
+    "year_actual_10min.csv": "DE142DA370A71A739B26D411BAB00DC59E07428396683287437A11BFE5F191F9",
+    "fixed_day_10min.csv": "DA43C24FA8ABCB211F804229CB9EB2BC105DAC61D76588B4A41752256604E02A"
+  },
+  "input_hashes_after": {
+    "year_actual_10min.csv": "DE142DA370A71A739B26D411BAB00DC59E07428396683287437A11BFE5F191F9",
+    "fixed_day_10min.csv": "DA43C24FA8ABCB211F804229CB9EB2BC105DAC61D76588B4A41752256604E02A"
+  },
+  "fit_count": 6,
+  "fit_calls_this_run": 6,
+  "fit_elapsed_seconds_total": 0.23662769999646116,
+  "wall_elapsed_seconds_this_run": 0.7944790000037756,
+  "python_executable": "D:\\Anaconda3\\python.exe",
+  "python_version": "3.13.9",
+  "numpy_version": "2.3.5",
+  "pandas_version": "2.3.3",
+  "scikit_learn_version": "1.7.2",
+  "lightgbm_version": "4.6.0",
+  "data_scope": "2025-01-01/2025-01-31",
+  "evaluation_scope": "2025-01-15/2025-01-31",
+  "model_family_count": 1,
+  "branches": [
+    "BASELINE",
+    "LIGHTGBM"
+  ],
+  "notes": {
+    "baseline_fit_fields": "BASELINE的fit_date、train_min_date、train_max_date为空，因为经验分位数按目标日滚动校准。",
+    "lightgbm_calibration_fields": "LIGHTGBM的calibration_max_date、calibration_n_days为空，因为该分支使用拟合日期冻结的模型。",
+    "cost_scope": "仅为无储能screen，不是P2最终成本。"
+  },
+  "validator_pass_count": 43,
+  "validator_fail_count": 0,
+  "validator_completed": true,
+  "validator_fatal_traceback": null
+}

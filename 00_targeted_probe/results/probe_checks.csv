@@ -1,0 +1,44 @@
+﻿check_id,category,status,observed,expected,blocking,message
+INPUT-001,input,PASS,4464,4464,False,一月输入行数
+INPUT-002,input,PASS,31,31,False,一月日期连续完整
+INPUT-003,input,PASS,0,0,False,date与slot联合唯一
+INPUT-004,input,PASS,True,True,False,每日144个slot且严格为1..144
+INPUT-005,input,PASS,True,True,False,一月负荷与光伏均为有限值
+INPUT-006,time,PASS,True,True,False,H-END marker与slot映射
+INPUT-007,input,PASS,144,144,False,固定日电价结构
+INPUT-008,hash,PASS,DE142DA370A71A739B26D411BAB00DC59E07428396683287437A11BFE5F191F9,DE142DA370A71A739B26D411BAB00DC59E07428396683287437A11BFE5F191F9,False,年度实际输入hash与主程序记录一致
+INPUT-009,hash,PASS,DA43C24FA8ABCB211F804229CB9EB2BC105DAC61D76588B4A41752256604E02A,DA43C24FA8ABCB211F804229CB9EB2BC105DAC61D76588B4A41752256604E02A,False,固定日输入hash与主程序记录一致
+PRED-001,prediction,PASS,4896,4896,False,两方法预测总行数
+PRED-002,prediction,PASS,"{""BASELINE"": 2448, ""LIGHTGBM"": 2448}","{""BASELINE"": 2448, ""LIGHTGBM"": 2448}",False,每个方法17×144行
+PRED-003,prediction,PASS,0,0,False,预测键唯一
+PRED-004,scope,PASS,"['2025-01-15', '2025-01-16', '2025-01-17', '2025-01-18', '2025-01-19', '2025-01-20', '2025-01-21', '2025-01-22', '2025-01-23', '2025-01-24', '2025-01-25', '2025-01-26', '2025-01-27', '2025-01-28', '2025-01-29', '2025-01-30', '2025-01-31']","['2025-01-15', '2025-01-16', '2025-01-17', '2025-01-18', '2025-01-19', '2025-01-20', '2025-01-21', '2025-01-22', '2025-01-23', '2025-01-24', '2025-01-25', '2025-01-26', '2025-01-27', '2025-01-28', '2025-01-29', '2025-01-30', '2025-01-31']",False,仅含规定17个一月评价日
+PRED-005,prediction,PASS,True,True,False,各方法每日144个slot
+PRED-006,time,PASS,True,True,False,预测物理区间符合H-END
+PRED-007,numeric,PASS,True,True,False,预测与费用字段均为有限值
+PRED-008,quantile,PASS,True,True,False,保留raw并确定性排序q50/q80
+LEAK-001,causality,PASS,0,0,False,特征最大来源日严格早于目标日
+LEAK-002,causality,PASS,True,True,False,BASELINE不填伪训练日期
+LEAK-003,causality,PASS,0,0,False,基准校准截止日严格早于目标日
+LEAK-004,causality,PASS,0,0,False,训练日期早于fit且评价日不早于fit
+LEAK-005,causality,PASS,True,True,False,LIGHTGBM不填伪校准字段
+SOURCE-001,source,PASS,True,True,False,actual、季节基准与电价映射独立复算
+BASE-001,baseline,PASS,True,True,False,同槽残差经验分位数独立复算
+BASE-002,baseline,PASS,True,True,False,逐目标日校准样本天数
+MODEL-001,model,PASS,"['lightgbm_2025-01-15_q50.joblib', 'lightgbm_2025-01-15_q80.joblib', 'lightgbm_2025-01-22_q50.joblib', 'lightgbm_2025-01-22_q80.joblib', 'lightgbm_2025-01-29_q50.joblib', 'lightgbm_2025-01-29_q80.joblib']","['lightgbm_2025-01-15_q50.joblib', 'lightgbm_2025-01-15_q80.joblib', 'lightgbm_2025-01-22_q50.joblib', 'lightgbm_2025-01-22_q80.joblib', 'lightgbm_2025-01-29_q50.joblib', 'lightgbm_2025-01-29_q80.joblib']",False,仅存在规定6个LightGBM模型
+MODEL-002,model,PASS,6,6,False,fit调用日志为6行
+MODEL-003,model,PASS,True,True,False,三拟合日、两个tau与训练行数固定
+MODEL-004,model,PASS,True,True,False,18列特征及顺序固定
+MODEL-005,model,PASS,True,True,False,LightGBM参数与任务单完全一致
+MODEL-006,model,PASS,True,True,False,六次拟合耗时记录有效
+MODEL-007,model,PASS,True,True,False,训练特征、标签hash及模型元数据独立核对
+MODEL-008,model,PASS,True,True,False,加载六模型后逐行复现LIGHTGBM raw预测
+COST-001,cost,PASS,True,True,False,无储能筛查公式与5倍紧急价格独立复算
+METRIC-001,metric,PASS,8,8,False,总体与三段、两方法共8行指标
+METRIC-002,metric,PASS,True,True,False,全部指标独立复算一致
+DECISION-001,decision,PASS,BASELINE_RETAINED,BASELINE_RETAINED,False,固定选择结果一致
+DECISION-002,decision,PASS,"{'condition_1_q80_weighted_pinball_improvement_at_least_2pct': False, 'q80_weighted_pinball_relative_improvement': 0.014353804830816545, 'condition_2_at_least_two_blocks_noninferior': True, 'noninferior_block_count': 2, 'block_noninferior': {'BLOCK_1': True, 'BLOCK_2': False, 'BLOCK_3': True}, 'condition_3_screen_cost_noninferior': False, 'condition_4_q50_mae_within_110pct': True}","{'condition_1_q80_weighted_pinball_improvement_at_least_2pct': False, 'q80_weighted_pinball_relative_improvement': 0.014353804830816217, 'condition_2_at_least_two_blocks_noninferior': True, 'noninferior_block_count': 2, 'block_noninferior': {'BLOCK_1': True, 'BLOCK_2': False, 'BLOCK_3': True}, 'condition_3_screen_cost_noninferior': False, 'condition_4_q50_mae_within_110pct': True}",False,四项固定选择规则逐项一致
+DECISION-003,decision,PASS,True,True,False,fit数量、模型族与日期范围元数据
+SCOPE-001,scope,PASS,[],[],False,未生成图、Excel或result2工作簿
+SCOPE-002,scope,PASS,[],[],False,未进入A-5 Batch Run
+SCOPE-003,hash,PASS,True,True,False,validator读取前后输入hash不变
+SCOPE-004,hash,PASS,True,True,False,输入hash与主程序运行后记录一致
