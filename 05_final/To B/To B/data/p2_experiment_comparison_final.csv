@@ -1,0 +1,8 @@
+﻿policy,status,plan_cost_yuan,emergency_cost_yuan,total_cost_yuan,source_stage
+ORIGINAL_MAIN,ADOPTED,13350598.343002,626124.810542,13976723.153544,A-5 formal final
+BASELINE_ONLY_Q80,comparison,13536639.6765,588632.1351,14125271.8116,A-5 comparison
+HYBRID_Q50,risk ablation,12273419.1077,2912953.7406,15186372.8484,A-5 comparison
+A5R_REFINED_SAA,not adopted,13632595.34,478399.49,14110994.83,A-5R targeted refinement
+A5C_CAL_EWMA,not adopted,13460288.01,547867.92,14008155.92,A-5C calibration
+A5C_CAL_HARMONIC_EWMA,not adopted,13472540.53,529503.4,14002043.92,A-5C calibration
+A5D1_CAUSAL_MPC_Q50,not adopted,13350598.34,1585927.06,14936525.41,A-5D1 fixed-plan control probe

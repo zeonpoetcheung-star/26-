@@ -1,0 +1,3 @@
+﻿branch,n_rows,q50_mae_kw,q50_rmse_kw,q50_bias_kw,q80_price_weighted_pinball_yuan,q80_empirical_coverage,mae_reduction_vs_baseline,rmse_reduction_vs_baseline,weighted_loss_reduction_vs_baseline
+BASELINE,47520,312.563685,459.038863,,14.749597905,0.779609,0.0,0.0,0.0
+LIGHTGBM,47520,285.256601,413.203464,,13.265610351,0.775821,0.08736486453952585,0.09985080282843066,0.10061206844811275
