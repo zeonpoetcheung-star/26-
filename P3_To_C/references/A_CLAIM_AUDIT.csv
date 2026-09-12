@@ -1,0 +1,44 @@
+﻿check_id,claim,status,evidence,detail
+A-9.1,开发知情的因果历史回放，不称独立盲测,PASS,CLAIMS_AND_LIMITATIONS.md: …限情景最坏成本，不是完整C&CG或分布鲁棒优化。 7. **开发知情**：P3-1已看过全年诊断，正式回放运行时因果不等于完全未见独立盲测。不能将全…,primary=True qualifier=True
+A-9.2,H-END / PWL / 槽内 fast feedback 均为已披露边界或近似,PASS,CLAIMS_AND_LIMITATIONS.md: …解释。其他合同的固定轨迹重计价不是重新优化结果。 2. **H-END与PWL**：沿用前序冻结的物理区间及同次发行预测线性插值积分。发行边界采用最近已完成区…,primary=True qualifier=True
+A-9.3,取消替代结算不是题面唯一明确消歧,PASS,CLAIMS_AND_LIMITATIONS.md: …账单。  ## 必须保留的边界  1. **合同语义**：`FINAL_VS_0H_CANCEL_SUBSTITUTION` 为已披露工作假设。数值正确不证明“取消替代、最终相对0时”是官方唯一解释。其…,primary=True qualifier=True
+A-9.4,28 历史情景与 terminal value 是近似,PASS,CLAIMS_AND_LIMITATIONS.md: …**名义模型**：共享名义储能、情景短缺代理、假想次日购电、有限时域及线性终端价值都非多阶段随机全局最优。LP的z不能作为实际紧急量导出；次日假想采购与终端奖励不…,primary=True qualifier=True
+A-9.5,MAIN 不是全局最优,PASS,CLAIMS_AND_LIMITATIONS.md: …义储能、情景短缺代理、假想次日购电、有限时域及线性终端价值都非多阶段随机全局最优。LP的z不能作为实际紧急量导出；次日假想采购与终端奖励不进真实账单。 6. *…,primary=True qualifier=True
+A-9.6,P3 vs P2 不是核心因果证据,PASS,CLAIMS_AND_LIMITATIONS.md: …策账本支持。NONE与MAIN的比较是同框架闭环政策比较，比跨题P2/P3直接归因更窄，但仍不是独立盲测。  前缀预测是一种实际估计参数的低维回归；本次没…,primary=True qualifier=True
+A-9.7,opportunity ablation 才是滚动价值主证据,PASS,CLAIMS_AND_LIMITATIONS.md: …主候选，且在本次完成的12条政策因果历史回放中总费用最低。全机会不等于强制修改；658次修改和344次KEEP需由决策账本支持。NONE与MAI…,primary=True qualifier=True
+A-9.8,指定四日不要求逐日优于 P2,PASS,CLAIMS_AND_LIMITATIONS.md: …内剩余目标记录，不能偷换为独立的334天样本。 10. **指定日**：年度下降不代表四个指定日都比P2便宜。P2截图是紧急购电量kWh；日费用表…,primary=True qualifier=True
+A-9.9,WORST 降低紧急量但总费更高，不能说“鲁棒无效”,PASS,P3_CANDIDATE_DECISION.md: …IN。 - 其余7个更新时间机会集合及 NO_PREFIX、ROBUST_WORST、ZERO_TERMINAL 保留为对照，不删除，不按日期混合挑优。 - 不加深…,primary=True qualifier=True
+A-9.N[保留计划费/元],candidate-stated 保留计划费/元 reproduces from the frozen ledgers,PASS,"recomputed 13058408.059414 vs stated 13,058,408.059414",delta -5.588e-09
+A-9.N[调增费/元],candidate-stated 调增费/元 reproduces from the frozen ledgers,PASS,"recomputed 177115.237993 vs stated 177,115.237993",delta -4.833e-07
+A-9.N[取消费/元],candidate-stated 取消费/元 reproduces from the frozen ledgers,PASS,"recomputed 320320.949287 vs stated 320,320.949287",delta 1.611e-07
+A-9.N[紧急费/元],candidate-stated 紧急费/元 reproduces from the frozen ledgers,PASS,"recomputed 185927.586944 vs stated 185,927.586944",delta 2.389e-07
+A-9.N[总费用/元],candidate-stated 总费用/元 reproduces from the frozen ledgers,PASS,"recomputed 13741771.833638 vs stated 13,741,771.833638",delta -8.941e-08
+A-9.N[0时计划量g0/kWh],candidate-stated 0时计划量g0/kWh reproduces from the frozen ledgers,PASS,"recomputed 22218815.970606 vs stated 22,218,815.970606",delta 1.304e-07
+A-9.N[最终普通承诺a/kWh],candidate-stated 最终普通承诺a/kWh reproduces from the frozen ledgers,PASS,"recomputed 21335764.508570 vs stated 21,335,764.508570",delta -3.390e-07
+A-9.N[实际取用普通电/kWh],candidate-stated 实际取用普通电/kWh reproduces from the frozen ledgers,PASS,"recomputed 20484334.055516 vs stated 20,484,334.055516",delta 5.588e-08
+A-9.N[未取用普通电U/kWh],candidate-stated 未取用普通电U/kWh reproduces from the frozen ledgers,PASS,"recomputed 851430.453054 vs stated 851,430.453054",delta -3.951e-07
+A-9.N[光伏弃电/kWh],candidate-stated 光伏弃电/kWh reproduces from the frozen ledgers,PASS,"recomputed 1392685.222967 vs stated 1,392,685.222967",delta 1.348e-07
+A-9.N[紧急电量E/kWh],candidate-stated 紧急电量E/kWh reproduces from the frozen ledgers,PASS,"recomputed 37945.439079 vs stated 37,945.439079",delta -1.882e-07
+A-9.N[正式期初SOC/kWh],candidate-stated 正式期初SOC/kWh reproduces from the frozen ledgers,PASS,"recomputed 9265.259272 vs stated 9,265.259272074078",delta 0.000e+00
+A-9.N[正式期末SOC/kWh],candidate-stated 正式期末SOC/kWh reproduces from the frozen ledgers,PASS,"recomputed 1812.226982 vs stated 1,812.226982222222",delta 4.547e-13
+A-9.N[紧急正值槽],candidate-stated 紧急正值槽 reproduces from the frozen ledgers,PASS,recomputed 546.000000 vs stated 546,delta 0.000e+00
+A-9.N[连续事件],candidate-stated 连续事件 reproduces from the frozen ledgers,PASS,recomputed 174.000000 vs stated 174,delta 0.000e+00
+A-9.C[P3_MEAN_ROLLOUT_NONE],stated gap vs MAIN for P3_MEAN_ROLLOUT_NONE reproduces,PASS,recomputed 474378.213394 vs stated 474378.213394,delta -3.304e-07
+A-9.C[P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218],stated gap vs MAIN for P3_PARTIAL_ADJUST_MEAN_ROLLOUT_061218 reproduces,PASS,recomputed 10898.194558 vs stated 10898.194558,delta 1.455e-07
+A-9.C[P3_NO_PREFIX_061218],stated gap vs MAIN for P3_NO_PREFIX_061218 reproduces,PASS,recomputed 85790.606234 vs stated 85790.606234,delta -2.095e-07
+A-9.C[P3_ROBUST_WORST_061218],stated gap vs MAIN for P3_ROBUST_WORST_061218 reproduces,PASS,recomputed 535826.097185 vs stated 535826.097185,delta 2.187e-07
+A-9.C[P3_ZERO_TERMINAL_061218],stated gap vs MAIN for P3_ZERO_TERMINAL_061218 reproduces,PASS,recomputed 3251.411120 vs stated 3251.41112,delta -4.905e-07
+A-9.D[日内机会],stated 1002 intraday opportunities (6/12/18 releases) reproduce,PASS,recomputed 1002,334 days x 3 releases
+A-9.D[实际修改],stated 658 accepted intraday changes reproduce,PASS,recomputed 658,releases whose alpha changed the plan
+A-9.D[保持],stated 344 KEEPs reproduce,PASS,recomputed 344,
+A-9.D[结构],release rows per day and slots written per release,PASS,"[np.int64(36), np.int64(72), np.int64(108), np.int64(144)]","0:00 writes 144 slots, later releases write the remainder"
+A-9.D[alpha],observed alpha at accepted intraday releases,INFO,[1.0],1.0 = the full ADJUST candidate is taken
+A-9.P1,prohibited-phrase occurrences across candidate documents,INFO,9 occurrences,all occurrences are negations/disclaimers
+A-9.P2,AFFIRMATIVE use of a prohibited formulation,PASS,0 affirmative occurrences,
+A-9.P3,permitted formulation for the candidate's standing,PASS,CLAIMS_AND_LIMITATIONS.md: …未知项写成已解决。  ## 可采用的结论  MAIN是本项目预登记的主候选，且在本次完成的12条政策因果历史回放中总费用最低。全机会不等于强制修改；658…,
+A-9.Q1,"candidate states MAIN was pre-registered, not chosen after seeing the year",PASS,P3_CANDIDATE_DECISION.md: …870d8ffa8`。  ## 3. 保留MAIN的依据  MAIN原本就是预登记主候选，而非看完全年结果以后改选出来。A-5已报告12条政策各334天完成，MAIN在…,
+A-9.Q2,candidate states the score is not the realised bill,PASS,CLAIMS_AND_LIMITATIONS.md: …合。共享名义储能LP产生候选，实际控制另由因果反馈逐槽执行。情景评分不是未来实现账单。  ## 必须保留的边界  1. **合同语义**：`FINAL_VS_0H_…,
+A-9.Q3,candidate discloses the auxiliary-table defect (4h vs 10min),PASS,README.md: …ified_purchase_intervals.csv` 实际是四个指定日各六个 **4小时** 区段，不是题面六个 **10分钟** 时段。它可作四小时汇总参…,
+A-9.Q4,candidate discloses the frozen terminal inventory (not 6000 reset),PASS,CLAIMS_AND_LIMITATIONS.md: …月因果预热后，所有P3策略从相同期初状态开始，此后各自连续。没有每日重置6000；不要将P2/P3年末库存差忽略。P3期末约1812.23而P2约8752.82…,
+A-9.Q5,candidate does not describe the review as completed,PASS,P3_CANDIDATE_GATE.md: …=false`。  通过表示候选身份和冻结完整性已本地核对，不表示A-7通过或全局最优。停在A-6，下一阶段需用户明确授权。 …,
+A-9.Q6,candidate does not present the freeze hash as proof of algorithmic correctness,PASS,P3_CANDIDATE_DECISION.md: … A-6只确认候选身份、输入输出一致性、文件来源和冻结指纹。不把SHA一致理解成整个算法正确证明；完整独立结果Review留给A-7。  本地冻结成功目标Gate：`PASS_…,

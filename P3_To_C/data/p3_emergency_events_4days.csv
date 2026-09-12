@@ -1,0 +1,2 @@
+﻿policy_id,date,start_slot,end_slot,physical_interval_start,physical_interval_end,slot_count,emergency_kwh,emergency_cost_yuan,threshold_kwh
+P3_MAIN_MEAN_ROLLOUT_061218,2025-09-23,123,123,2025-09-23T20:20:00,2025-09-23T20:30:00,1,6.375,42.996187500000005,1e-08
