@@ -1,0 +1,54 @@
+{
+  "stage": "P3-1 Information Audit",
+  "issue_hours": [
+    0,
+    6,
+    12,
+    18
+  ],
+  "lead_bins_hours": [
+    [
+      0,
+      6
+    ],
+    [
+      6,
+      12
+    ],
+    [
+      12,
+      18
+    ],
+    [
+      18,
+      24
+    ]
+  ],
+  "daylight_clock": {
+    "start": "06:00",
+    "end": "18:00",
+    "end_exclusive": true
+  },
+  "paired_revisions": [
+    "0->6",
+    "0->12",
+    "0->18",
+    "6->12",
+    "6->18",
+    "12->18"
+  ],
+  "load_baselines": [
+    "W1",
+    "D1"
+  ],
+  "prefix_stats": [
+    "mean_residual",
+    "median_residual",
+    "last6_mean_residual"
+  ],
+  "formal_strategy_optimization_allowed": false,
+  "model_training_allowed": false,
+  "result3_generation_allowed": false,
+  "robust_gamma_allowed": false,
+  "external_same_problem_sources_allowed": false
+}

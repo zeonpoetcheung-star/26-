@@ -1,0 +1,7 @@
+{
+  "PASS": 122,
+  "FAIL": 0,
+  "blocking": 0,
+  "Gate": "PASS_P3_INFORMATION_AUDIT_WITH_OPEN_ISSUES",
+  "说明": "映射及全部分组指标独立重算；未来遮蔽仅验证信息构造，不证明任何未来策略性能。"
+}
