@@ -1,0 +1,1302 @@
+{
+  "stage": "A-4",
+  "status": "本地独立核验完成",
+  "original_defects": [
+    {
+      "id": "A4-IO-01",
+      "file": "scripts/p3_lp_reference.py",
+      "line": 33,
+      "case": "Battery(max_kwh=-1)",
+      "expected": "拒绝非法参数",
+      "observed": "未拒绝；返回SOC=6000",
+      "lp_calls": 0
+    },
+    {
+      "id": "A4-IO-02",
+      "file": "scripts/p3_lp_reference.py",
+      "line": 33,
+      "case": "Battery(eta_c=NaN)",
+      "expected": "拒绝缺失参数",
+      "observed": "未拒绝；返回SOC=NaN",
+      "lp_calls": 0
+    }
+  ],
+  "local_overlay_source": "def apply_input_guards(module):\n    import inspect, math, numpy as np\n    def battery_guard(b):\n        values=(b.lo,b.hi,b.max_kwh,b.eta_c,b.eta_d)\n        if not all(math.isfinite(float(x)) for x in values):\n            raise ValueError('Battery parameters must be finite')\n        if not (0 <= b.lo <= b.hi and b.max_kwh >= 0 and 0 < b.eta_c <= 1 and 0 < b.eta_d <= 1):\n            raise ValueError('Invalid physical battery parameters')\n    def guarded(original):\n        signature=inspect.signature(original)\n        def wrapped(*args,**kwargs):\n            bound=signature.bind(*args,**kwargs); bound.apply_defaults()\n            values=bound.arguments\n            b=values.get('battery',values.get('b'))\n            if b is not None: battery_guard(b)\n            if 'terminal_value' in values:\n                t=values['terminal_value']\n                if not math.isfinite(float(t)) or t < 0:\n                    raise ValueError('Terminal value must be finite nonnegative')\n            if original.__name__=='ordinary_cost':\n                for name in ('g0','a','price'):\n                    x=np.asarray(values[name],dtype=float)\n                    if not np.isfinite(x).all() or np.any(x<0):\n                        raise ValueError('Settlement inputs must be finite nonnegative')\n            return original(*args,**kwargs)\n        return wrapped\n    for name in ('ordinary_cost','feedback','solve_plan','causal_rollout'):\n        setattr(module,name,guarded(getattr(module,name)))\n",
+  "local_overlay_scope": "仅运行时校验输入，不修改冻结脚本、公式、目标函数、参数或合法输入输出；A5实现必须显式纳入",
+  "reproduction_preflight_source": "import csv,json,hashlib,math\nfrom pathlib import Path\nfrom datetime import datetime,timedelta\nroot=Path.cwd(); base=root/'A_route/problem3/01_model_plan'; p3=base.parent\ndef digest(p): return hashlib.sha256(p.read_bytes()).hexdigest()\nfiles={}; checks=[]\ndef c(name,ok,detail=None):\n    checks.append(dict(check=name,passed=bool(ok),detail=detail))\n    if not ok: raise AssertionError(name+': '+str(detail))\ndef track(p,kind,expected=None,size=None):\n    p=p.resolve(); got=digest(p); n=p.stat().st_size\n    if expected is not None: c('哈希_'+str(p.relative_to(root)),got==expected,dict(expected=expected,actual=got))\n    if size is not None: c('字节数_'+str(p.relative_to(root)),n==size,dict(expected=size,actual=n))\n    files[str(p)]=dict(path=str(p),relative_path=str(p.relative_to(root)),size_bytes=n,sha256=got,role=kind)\npkg=json.loads((base/'evidence/PACKAGE_MANIFEST.json').read_text(encoding='utf-8'))\nfor r in pkg['files']: track(base/r['path'],'模型包冻结文件',r['sha256'],r['size_bytes'])\ntrack(base/'evidence/PACKAGE_MANIFEST.json','模型包原始清单')\nsnap=json.loads((base/'evidence/SOURCE_SNAPSHOT_MANIFEST.json').read_text(encoding='utf-8'))\nfor r in snap['files']:\n    path=p3/'00_semantic_audit'/r['source_member'] if r['source_member'].startswith('local_verification/') else p3/r['source_member']\n    track(path,'设计引用的审计快照',r['sha256'],r['size_bytes'])\nsem=json.loads((p3/'00_semantic_audit/contracts/p3_semantic_contract.json').read_text(encoding='utf-8'))\nfor section in ['official_inputs','common_inputs']:\n    for r in sem[section].values(): track(root/r['relative_path'],'官方输入或冻结Common',r['sha256'],r.get('size_bytes'))\np2=sem['p2_protection']\ntrack(root/p2['result2_relative_path'],'受保护P2结果',p2['result2_sha256'])\ns0=json.loads((p3/'00_semantic_audit/local_verification/p3_semantic_check_results.json').read_text(encoding='utf-8'))\nc('P3-0本地Gate',s0['gate']=='PASS_P3_SEMANTIC_AUDIT_WITH_OPEN_ISSUES' and (s0['PASS'],s0['FAIL'],s0['blocking'])==(77,0,0))\ninfo=json.loads((p3/'00_information_audit/p3_information_run_manifest.json').read_text(encoding='utf-8'))\nc('P3-1本地Gate',info['validator']['Gate']=='PASS_P3_INFORMATION_AUDIT_WITH_OPEN_ISSUES' and (info['validator']['PASS'],info['validator']['FAIL'],info['validator']['blocking'])==(122,0,0))\n# CURRENT_STATE作为已授权的新阶段状态另取当前快照，不要求等于P3-1运行时的旧状态。\nstate=root/'A_route/CURRENT_STATE.md'; old_state_hash=info['输入SHA256'][str(state)]\ntrack(state,'本轮A-4授权状态，非沿用上一阶段状态哈希')\nfor path,expected in info['输入SHA256'].items():\n    if Path(path)!=state: track(Path(path),'P3-1所依赖冻结输入',expected)\nfor name,expected in info['脚本SHA256'].items(): track(p3/'00_information_audit/scripts'/name,'P3-1签名脚本',expected)\ncandidate=root/'A_route/problem2/03_candidate/CANDIDATE_FREEZE_MANIFEST.json'\nm=json.loads(candidate.read_text(encoding='utf-8-sig'))\ntrack(candidate,'P2冻结身份',s0['read_only_input_hashes'][str(candidate)])\nc('P2身份',m['candidate_id']=='ORIGINAL_MAIN' and m['canonical_result2_sha256']==p2['result2_sha256'])\ndef records(x):\n    if isinstance(x,dict):\n        if 'path' in x and 'sha256' in x: yield x\n        for v in x.values(): yield from records(v)\n    elif isinstance(x,list):\n        for v in x: yield from records(v)\nfor name in ['p2_warmup_actual.csv','p2_dispatch.py']:\n    found=[r for r in records(m) if r['path'].replace('\\\\','/').endswith('/'+name)]\n    c('P2清单定位_'+name,len(found)>0)\n    r=found[0]; track(root/r['path'],'P2共享预热或反馈规则',r['sha256'],r.get('size_bytes'))\nwith (root/'A_route/problem2/02_batch_run/results/p2_warmup_actual.csv').open(encoding='utf-8-sig',newline='') as f: warm=list(csv.DictReader(f))\nrequired=['policy','date','slot_id','physical_interval_start','physical_interval_end','soc_start_kwh','soc_end_kwh','charge_bus_kwh','discharge_bus_kwh']\nc('预热字段',all(k in warm[0] for k in required))\nc('预热4464且唯一策略',len(warm)==4464 and {r['policy'] for r in warm}=={'WARMUP'})\nstart=datetime(2025,1,1)\nc('预热31天全部槽连续唯一',all(datetime.fromisoformat(r['physical_interval_start'])==start+timedelta(minutes=10*i) and datetime.fromisoformat(r['physical_interval_end'])==start+timedelta(minutes=10*(i+1)) and int(r['slot_id'])==i%144+1 and r['date']==(start+timedelta(minutes=10*i)).date().isoformat() for i,r in enumerate(warm)))\nsoc=[float(r['soc_start_kwh']) for r in warm]; ends=[float(r['soc_end_kwh']) for r in warm]\nrec=max(abs(ends[i]-soc[i]-.9*float(r['charge_bus_kwh'])+float(r['discharge_bus_kwh'])/.9) for i,r in enumerate(warm))\ncontinuity=max(abs(a-b) for a,b in zip(ends[:-1],soc[1:]))\nc('预热SOC连续及递推',continuity<1e-7 and rec<1e-7 and abs(soc[0]-6000)<1e-7 and min(soc+ends)>=1200-1e-7 and max(soc+ends)<=10800+1e-7,dict(max_continuity_error=continuity,max_recursion_error=rec))\nc('预热终态与模型一致',abs(ends[-1]-9265.2592720741)<1e-7,ends[-1])\nwith (root/sem['common_inputs']['fixed']['relative_path']).open(encoding='utf-8-sig',newline='') as f: prices=[float(r['price_fixed_yuan_per_kwh']) for r in csv.DictReader(f)]\nc('价格144且正有限',len(prices)==144 and all(math.isfinite(x) and x>0 for x in prices))\nwith (root/sem['common_inputs']['actual']['relative_path']).open(encoding='utf-8-sig',newline='') as f: ar=list(csv.DictReader(f))\nak={(r['date'],int(r['slot_id'])) for r in ar}\nc('Common实际全年键完整',len(ar)==len(ak)==52560 and all(((start+timedelta(days=d)).date().isoformat(),j) in ak for d in range(365) for j in range(1,145)))\nwith (root/sem['common_inputs']['pv_hourly']['relative_path']).open(encoding='utf-8-sig',newline='') as f: fr=list(csv.DictReader(f))\nfk={(datetime.fromisoformat(r['issue_datetime']),int(r['horizon_hour'])) for r in fr}\nc('Common发行与小时完整',len(fr)==len(fk)==35040 and all((start+timedelta(days=d,hours=h),j) in fk for d in range(365) for h in [0,6,12,18] for j in range(1,25)))\ncalendar=[]\nfor h in [0,6,12,18]:\n    cut=datetime(2025,2,1,h)\n    eligible=[datetime(2025,1,8,h)+timedelta(days=i) for i in range(24) if datetime(2025,1,8,h)+timedelta(days=i+1)<=cut]\n    c('正式首发行成熟历史数量_'+str(h),len(eligible)==24 and len(eligible)>=14,dict(paths=24,max_source_issue=eligible[-1].isoformat(),max_label_end=(eligible[-1]+timedelta(days=1)).isoformat()))\n    calendar.append(dict(issue_hour=h,formal_first_event=cut.isoformat(),mature_paths=24,regression_complete_days=24 if h else 0))\nc('首个14日回归时间边界',(datetime(2025,1,22)-datetime(2025,1,8)).days==14)\nc('残差窗口仅时间可实现不实际生成',all(datetime(2025,12,31,h)+timedelta(hours=24)-timedelta(days=7)<=datetime(2025,12,31,h) for h in [0,6,12,18]))\nprint(json.dumps(dict(checks=checks,files=list(files.values()),warmup=dict(rows=4464,policy='WARMUP',initial_soc=soc[0],terminal_soc=ends[-1],recursion_error=rec,continuity_error=continuity),calendar=calendar,price=dict(min=min(prices),max=max(prices),terminal_value=.9*min(prices),grid_fill_cost_per_stored_kwh=min(prices)/.9),state_transition=dict(previous_audit_hash=old_state_hash,current_hash=digest(state),reason='用户明确授权A-4；仅更新授权状态来源，冻结数据与审计文件不变')),ensure_ascii=False))\n",
+  "source_and_calendar_checks": [
+    {
+      "check": "哈希_A_route\\problem3\\01_model_plan\\P3_DESIGN_BASIS.md",
+      "passed": true,
+      "detail": {
+        "expected": "14612ec63ac075ba092ca6fc136eb0e63a6936f16eb726107d42b0cac4fa1e70",
+        "actual": "14612ec63ac075ba092ca6fc136eb0e63a6936f16eb726107d42b0cac4fa1e70"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem3\\01_model_plan\\P3_DESIGN_BASIS.md",
+      "passed": true,
+      "detail": {
+        "expected": 4899,
+        "actual": 4899
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\01_model_plan\\P3_MODEL_PLAN.md",
+      "passed": true,
+      "detail": {
+        "expected": "1e81056a24cfd79c58cf27232b5646703d6c1f9d1c9f9fbd718e402ab73d8a3b",
+        "actual": "1e81056a24cfd79c58cf27232b5646703d6c1f9d1c9f9fbd718e402ab73d8a3b"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem3\\01_model_plan\\P3_MODEL_PLAN.md",
+      "passed": true,
+      "detail": {
+        "expected": 20161,
+        "actual": 20161
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\01_model_plan\\P3_VALIDATION_PLAN.md",
+      "passed": true,
+      "detail": {
+        "expected": "7fb4183601a6cad1ea9f8f69f501b1986bc1fdd839705e53ddffbddd5958cc0e",
+        "actual": "7fb4183601a6cad1ea9f8f69f501b1986bc1fdd839705e53ddffbddd5958cc0e"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem3\\01_model_plan\\P3_VALIDATION_PLAN.md",
+      "passed": true,
+      "detail": {
+        "expected": 4926,
+        "actual": 4926
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\01_model_plan\\README.md",
+      "passed": true,
+      "detail": {
+        "expected": "952d59a823e87e0f44e09c5f30e2f83655b1838ebcb25b9c45505f369f853b45",
+        "actual": "952d59a823e87e0f44e09c5f30e2f83655b1838ebcb25b9c45505f369f853b45"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem3\\01_model_plan\\README.md",
+      "passed": true,
+      "detail": {
+        "expected": 1666,
+        "actual": 1666
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\01_model_plan\\contracts\\P3_MODEL_SPEC.json",
+      "passed": true,
+      "detail": {
+        "expected": "bb5c1799f78cec894732c3f4c364ea35a847c8dda5907237786ba9808e0fadcb",
+        "actual": "bb5c1799f78cec894732c3f4c364ea35a847c8dda5907237786ba9808e0fadcb"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem3\\01_model_plan\\contracts\\P3_MODEL_SPEC.json",
+      "passed": true,
+      "detail": {
+        "expected": 4038,
+        "actual": 4038
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\01_model_plan\\evidence\\MODEL_MATH_SELFTEST.json",
+      "passed": true,
+      "detail": {
+        "expected": "9e3872ac800f420a3e67afb739d3e91c5c40ef73053394f14ca41a456f347a4d",
+        "actual": "9e3872ac800f420a3e67afb739d3e91c5c40ef73053394f14ca41a456f347a4d"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem3\\01_model_plan\\evidence\\MODEL_MATH_SELFTEST.json",
+      "passed": true,
+      "detail": {
+        "expected": 5072,
+        "actual": 5072
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\01_model_plan\\evidence\\SOURCE_SNAPSHOT_MANIFEST.json",
+      "passed": true,
+      "detail": {
+        "expected": "6257f0880b46fd7de96ce97305291c29d4abb24737873384ed2759740b13a9f4",
+        "actual": "6257f0880b46fd7de96ce97305291c29d4abb24737873384ed2759740b13a9f4"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem3\\01_model_plan\\evidence\\SOURCE_SNAPSHOT_MANIFEST.json",
+      "passed": true,
+      "detail": {
+        "expected": 1871,
+        "actual": 1871
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\01_model_plan\\scripts\\check_p3_model_math.py",
+      "passed": true,
+      "detail": {
+        "expected": "cdcf699729adc9f4ebe6563e60c757c1700011fc66e494942955515a4c053e6a",
+        "actual": "cdcf699729adc9f4ebe6563e60c757c1700011fc66e494942955515a4c053e6a"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem3\\01_model_plan\\scripts\\check_p3_model_math.py",
+      "passed": true,
+      "detail": {
+        "expected": 5182,
+        "actual": 5182
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\01_model_plan\\scripts\\p3_lp_reference.py",
+      "passed": true,
+      "detail": {
+        "expected": "3fd3cf261a6b07f16a12aadd85f5217fdf2a7181e35de5264440a8575285f334",
+        "actual": "3fd3cf261a6b07f16a12aadd85f5217fdf2a7181e35de5264440a8575285f334"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem3\\01_model_plan\\scripts\\p3_lp_reference.py",
+      "passed": true,
+      "detail": {
+        "expected": 10849,
+        "actual": 10849
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\01_model_plan\\tasks\\P3_MODELPLAN_CODEX_TASK.md",
+      "passed": true,
+      "detail": {
+        "expected": "4d8bd605482ed7fa8b590a9dc468cd891c2cf0827567a593cafbf1ada452f410",
+        "actual": "4d8bd605482ed7fa8b590a9dc468cd891c2cf0827567a593cafbf1ada452f410"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem3\\01_model_plan\\tasks\\P3_MODELPLAN_CODEX_TASK.md",
+      "passed": true,
+      "detail": {
+        "expected": 4666,
+        "actual": 4666
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\01_model_plan\\tasks\\P3_MODELPLAN_START_PROMPT.md",
+      "passed": true,
+      "detail": {
+        "expected": "a9475980d73e72efa843deae99287a820e29ee60be743c1fb00733fe2eeee963",
+        "actual": "a9475980d73e72efa843deae99287a820e29ee60be743c1fb00733fe2eeee963"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem3\\01_model_plan\\tasks\\P3_MODELPLAN_START_PROMPT.md",
+      "passed": true,
+      "detail": {
+        "expected": 815,
+        "actual": 815
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\00_semantic_audit\\P3_SEMANTIC_AUDIT.md",
+      "passed": true,
+      "detail": {
+        "expected": "c2e96a9052791fa2d34ea9dc445faf2aa594cd1c5efbd21f087d272ea5cd8142",
+        "actual": "c2e96a9052791fa2d34ea9dc445faf2aa594cd1c5efbd21f087d272ea5cd8142"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem3\\00_semantic_audit\\P3_SEMANTIC_AUDIT.md",
+      "passed": true,
+      "detail": {
+        "expected": 15069,
+        "actual": 15069
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\00_semantic_audit\\contracts\\p3_semantic_contract.json",
+      "passed": true,
+      "detail": {
+        "expected": "37550c5037def95db71a41ad630e807ea4d46fe6a1dbef4e1edae47f10d80083",
+        "actual": "37550c5037def95db71a41ad630e807ea4d46fe6a1dbef4e1edae47f10d80083"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem3\\00_semantic_audit\\contracts\\p3_semantic_contract.json",
+      "passed": true,
+      "detail": {
+        "expected": 5918,
+        "actual": 5918
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\00_semantic_audit\\local_verification\\P3_SEMANTIC_GATE.md",
+      "passed": true,
+      "detail": {
+        "expected": "9279f4d3ff56778bb32ff85b539ae0dbcf033847cb3569d1483324b1f57b85b4",
+        "actual": "9279f4d3ff56778bb32ff85b539ae0dbcf033847cb3569d1483324b1f57b85b4"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem3\\00_semantic_audit\\local_verification\\P3_SEMANTIC_GATE.md",
+      "passed": true,
+      "detail": {
+        "expected": 369,
+        "actual": 369
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\00_semantic_audit\\local_verification\\p3_semantic_check_results.json",
+      "passed": true,
+      "detail": {
+        "expected": "b72ff6b95a295ecd64258c2982102eedf5baf74fa518fed4e1d7c6306bdc552c",
+        "actual": "b72ff6b95a295ecd64258c2982102eedf5baf74fa518fed4e1d7c6306bdc552c"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem3\\00_semantic_audit\\local_verification\\p3_semantic_check_results.json",
+      "passed": true,
+      "detail": {
+        "expected": 13441,
+        "actual": 13441
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\00_information_audit\\P3_INFORMATION_AUDIT.md",
+      "passed": true,
+      "detail": {
+        "expected": "ff8ad57add1b4defd8057e67501bf21690b7369d2ef201978279e46cbeba4b77",
+        "actual": "ff8ad57add1b4defd8057e67501bf21690b7369d2ef201978279e46cbeba4b77"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem3\\00_information_audit\\P3_INFORMATION_AUDIT.md",
+      "passed": true,
+      "detail": {
+        "expected": 17755,
+        "actual": 17755
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\00_information_audit\\P3_INFORMATION_GATE.md",
+      "passed": true,
+      "detail": {
+        "expected": "66cdcc0ab6b0a2785ad3b0ac53aad416ab2ba052de2d7f114509bb4a1470c723",
+        "actual": "66cdcc0ab6b0a2785ad3b0ac53aad416ab2ba052de2d7f114509bb4a1470c723"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem3\\00_information_audit\\P3_INFORMATION_GATE.md",
+      "passed": true,
+      "detail": {
+        "expected": 383,
+        "actual": 383
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\00_information_audit\\p3_information_run_manifest.json",
+      "passed": true,
+      "detail": {
+        "expected": "028740896828d3b085b8fdbdc310bec0d2e59fbc585d0154acc54c77130bf07b",
+        "actual": "028740896828d3b085b8fdbdc310bec0d2e59fbc585d0154acc54c77130bf07b"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem3\\00_information_audit\\p3_information_run_manifest.json",
+      "passed": true,
+      "detail": {
+        "expected": 4999,
+        "actual": 4999
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\00_information_audit\\p3_load_prefix_signal.csv",
+      "passed": true,
+      "detail": {
+        "expected": "db8553d34aa45b9302cb3861e77627d233ecb64525e83d56a001b600962ca030",
+        "actual": "db8553d34aa45b9302cb3861e77627d233ecb64525e83d56a001b600962ca030"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem3\\00_information_audit\\p3_load_prefix_signal.csv",
+      "passed": true,
+      "detail": {
+        "expected": 5342,
+        "actual": 5342
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\00_information_audit\\p3_pv_issue_metrics.csv",
+      "passed": true,
+      "detail": {
+        "expected": "3001ff7a3b81dbde37360b3cd6808d772b6ecba13c52f5ec2230b3888254c0c3",
+        "actual": "3001ff7a3b81dbde37360b3cd6808d772b6ecba13c52f5ec2230b3888254c0c3"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem3\\00_information_audit\\p3_pv_issue_metrics.csv",
+      "passed": true,
+      "detail": {
+        "expected": 4899,
+        "actual": 4899
+      }
+    },
+    {
+      "check": "哈希_input\\original\\C题.pdf",
+      "passed": true,
+      "detail": {
+        "expected": "2c098f6ae9dd47ae965aebdec3b9facf3de6c173f999783c1012c08fc5fb9d2d",
+        "actual": "2c098f6ae9dd47ae965aebdec3b9facf3de6c173f999783c1012c08fc5fb9d2d"
+      }
+    },
+    {
+      "check": "字节数_input\\original\\C题.pdf",
+      "passed": true,
+      "detail": {
+        "expected": 354389,
+        "actual": 354389
+      }
+    },
+    {
+      "check": "哈希_input\\original\\附件1.xlsx",
+      "passed": true,
+      "detail": {
+        "expected": "66b87134f5ecccd68184d3539bb1293ef039f9e0fdd955a589b9bfa7f227c377",
+        "actual": "66b87134f5ecccd68184d3539bb1293ef039f9e0fdd955a589b9bfa7f227c377"
+      }
+    },
+    {
+      "check": "字节数_input\\original\\附件1.xlsx",
+      "passed": true,
+      "detail": {
+        "expected": 16003,
+        "actual": 16003
+      }
+    },
+    {
+      "check": "哈希_input\\original\\附件2.xlsx",
+      "passed": true,
+      "detail": {
+        "expected": "2e95fd446bfafa0d8c59577b5c2e2ea8b3f1def20dde54a3062556f4da9b4c72",
+        "actual": "2e95fd446bfafa0d8c59577b5c2e2ea8b3f1def20dde54a3062556f4da9b4c72"
+      }
+    },
+    {
+      "check": "字节数_input\\original\\附件2.xlsx",
+      "passed": true,
+      "detail": {
+        "expected": 907128,
+        "actual": 907128
+      }
+    },
+    {
+      "check": "哈希_input\\original\\附件3.xlsx",
+      "passed": true,
+      "detail": {
+        "expected": "8a61b06c52bd0d639a1cc37c61a7d9f5b75edcbca718f64c1bd3498ec9f9d843",
+        "actual": "8a61b06c52bd0d639a1cc37c61a7d9f5b75edcbca718f64c1bd3498ec9f9d843"
+      }
+    },
+    {
+      "check": "字节数_input\\original\\附件3.xlsx",
+      "passed": true,
+      "detail": {
+        "expected": 293526,
+        "actual": 293526
+      }
+    },
+    {
+      "check": "哈希_input\\templates\\result3.xlsx",
+      "passed": true,
+      "detail": {
+        "expected": "c59da470cabd0be23f602c95c8aa9d11ec224a0cdac216b3e1f218e65d006bdc",
+        "actual": "c59da470cabd0be23f602c95c8aa9d11ec224a0cdac216b3e1f218e65d006bdc"
+      }
+    },
+    {
+      "check": "字节数_input\\templates\\result3.xlsx",
+      "passed": true,
+      "detail": {
+        "expected": 265429,
+        "actual": 265429
+      }
+    },
+    {
+      "check": "哈希_A_route\\common\\01_preprocessing\\processed\\fixed_day_10min.csv",
+      "passed": true,
+      "detail": {
+        "expected": "da43c24fa8abcb211f804229cb9eb2bc105dac61d76588b4a41752256604e02a",
+        "actual": "da43c24fa8abcb211f804229cb9eb2bc105dac61d76588b4a41752256604e02a"
+      }
+    },
+    {
+      "check": "哈希_A_route\\common\\01_preprocessing\\processed\\year_actual_10min.csv",
+      "passed": true,
+      "detail": {
+        "expected": "de142da370a71a739b26d411bab00dc59e07428396683287437a11bfe5f191f9",
+        "actual": "de142da370a71a739b26d411bab00dc59e07428396683287437a11bfe5f191f9"
+      }
+    },
+    {
+      "check": "哈希_A_route\\common\\01_preprocessing\\processed\\pv_forecast_hourly_long.csv",
+      "passed": true,
+      "detail": {
+        "expected": "e00a71fcf73a3cecf44d5e4d64ad5255ad565ed348f2be7ca1b9812bf1f92adb",
+        "actual": "e00a71fcf73a3cecf44d5e4d64ad5255ad565ed348f2be7ca1b9812bf1f92adb"
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem2\\02_batch_run\\results\\result2.xlsx",
+      "passed": true,
+      "detail": {
+        "expected": "93b0bf0ab5e419cc179b78c409fcfa88616cd95572f1f958268ccf42c5086a74",
+        "actual": "93b0bf0ab5e419cc179b78c409fcfa88616cd95572f1f958268ccf42c5086a74"
+      }
+    },
+    {
+      "check": "P3-0本地Gate",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "P3-1本地Gate",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "哈希_input\\original\\C题.pdf",
+      "passed": true,
+      "detail": {
+        "expected": "2c098f6ae9dd47ae965aebdec3b9facf3de6c173f999783c1012c08fc5fb9d2d",
+        "actual": "2c098f6ae9dd47ae965aebdec3b9facf3de6c173f999783c1012c08fc5fb9d2d"
+      }
+    },
+    {
+      "check": "哈希_input\\original\\附件1.xlsx",
+      "passed": true,
+      "detail": {
+        "expected": "66b87134f5ecccd68184d3539bb1293ef039f9e0fdd955a589b9bfa7f227c377",
+        "actual": "66b87134f5ecccd68184d3539bb1293ef039f9e0fdd955a589b9bfa7f227c377"
+      }
+    },
+    {
+      "check": "哈希_input\\original\\附件2.xlsx",
+      "passed": true,
+      "detail": {
+        "expected": "2e95fd446bfafa0d8c59577b5c2e2ea8b3f1def20dde54a3062556f4da9b4c72",
+        "actual": "2e95fd446bfafa0d8c59577b5c2e2ea8b3f1def20dde54a3062556f4da9b4c72"
+      }
+    },
+    {
+      "check": "哈希_input\\original\\附件3.xlsx",
+      "passed": true,
+      "detail": {
+        "expected": "8a61b06c52bd0d639a1cc37c61a7d9f5b75edcbca718f64c1bd3498ec9f9d843",
+        "actual": "8a61b06c52bd0d639a1cc37c61a7d9f5b75edcbca718f64c1bd3498ec9f9d843"
+      }
+    },
+    {
+      "check": "哈希_input\\templates\\result3.xlsx",
+      "passed": true,
+      "detail": {
+        "expected": "c59da470cabd0be23f602c95c8aa9d11ec224a0cdac216b3e1f218e65d006bdc",
+        "actual": "c59da470cabd0be23f602c95c8aa9d11ec224a0cdac216b3e1f218e65d006bdc"
+      }
+    },
+    {
+      "check": "哈希_A_route\\common\\01_preprocessing\\processed\\fixed_day_10min.csv",
+      "passed": true,
+      "detail": {
+        "expected": "da43c24fa8abcb211f804229cb9eb2bc105dac61d76588b4a41752256604e02a",
+        "actual": "da43c24fa8abcb211f804229cb9eb2bc105dac61d76588b4a41752256604e02a"
+      }
+    },
+    {
+      "check": "哈希_A_route\\common\\01_preprocessing\\processed\\year_actual_10min.csv",
+      "passed": true,
+      "detail": {
+        "expected": "de142da370a71a739b26d411bab00dc59e07428396683287437a11bfe5f191f9",
+        "actual": "de142da370a71a739b26d411bab00dc59e07428396683287437a11bfe5f191f9"
+      }
+    },
+    {
+      "check": "哈希_A_route\\common\\01_preprocessing\\processed\\pv_forecast_hourly_long.csv",
+      "passed": true,
+      "detail": {
+        "expected": "e00a71fcf73a3cecf44d5e4d64ad5255ad565ed348f2be7ca1b9812bf1f92adb",
+        "actual": "e00a71fcf73a3cecf44d5e4d64ad5255ad565ed348f2be7ca1b9812bf1f92adb"
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem2\\02_batch_run\\results\\result2.xlsx",
+      "passed": true,
+      "detail": {
+        "expected": "93b0bf0ab5e419cc179b78c409fcfa88616cd95572f1f958268ccf42c5086a74",
+        "actual": "93b0bf0ab5e419cc179b78c409fcfa88616cd95572f1f958268ccf42c5086a74"
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem2\\03_candidate\\CANDIDATE_FREEZE_MANIFEST.json",
+      "passed": true,
+      "detail": {
+        "expected": "e87776dc0448a80ec451081bc7c58efa9038b71ff436fc16fcac9e96f7678ff4",
+        "actual": "e87776dc0448a80ec451081bc7c58efa9038b71ff436fc16fcac9e96f7678ff4"
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\00_semantic_audit\\P3_SEMANTIC_AUDIT.md",
+      "passed": true,
+      "detail": {
+        "expected": "c2e96a9052791fa2d34ea9dc445faf2aa594cd1c5efbd21f087d272ea5cd8142",
+        "actual": "c2e96a9052791fa2d34ea9dc445faf2aa594cd1c5efbd21f087d272ea5cd8142"
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\00_semantic_audit\\contracts\\p3_semantic_contract.json",
+      "passed": true,
+      "detail": {
+        "expected": "37550c5037def95db71a41ad630e807ea4d46fe6a1dbef4e1edae47f10d80083",
+        "actual": "37550c5037def95db71a41ad630e807ea4d46fe6a1dbef4e1edae47f10d80083"
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\00_semantic_audit\\local_verification\\P3_SEMANTIC_GATE.md",
+      "passed": true,
+      "detail": {
+        "expected": "9279f4d3ff56778bb32ff85b539ae0dbcf033847cb3569d1483324b1f57b85b4",
+        "actual": "9279f4d3ff56778bb32ff85b539ae0dbcf033847cb3569d1483324b1f57b85b4"
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\00_semantic_audit\\local_verification\\p3_semantic_check_results.json",
+      "passed": true,
+      "detail": {
+        "expected": "b72ff6b95a295ecd64258c2982102eedf5baf74fa518fed4e1d7c6306bdc552c",
+        "actual": "b72ff6b95a295ecd64258c2982102eedf5baf74fa518fed4e1d7c6306bdc552c"
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\00_information_audit\\P3_INFORMATION_AUDIT_PLAN.md",
+      "passed": true,
+      "detail": {
+        "expected": "9a7985a4c78fbed783109df15d2b3838b51bfb394964dfe425f881c42b67904a",
+        "actual": "9a7985a4c78fbed783109df15d2b3838b51bfb394964dfe425f881c42b67904a"
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\00_information_audit\\P3_INFORMATION_CODEX_TASK.md",
+      "passed": true,
+      "detail": {
+        "expected": "b9a6e53bff5f591e5bb4bf1f42ff8cde38b27f2cfa6ceb9918383e8e2e9e0c7b",
+        "actual": "b9a6e53bff5f591e5bb4bf1f42ff8cde38b27f2cfa6ceb9918383e8e2e9e0c7b"
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\00_information_audit\\P3_INFORMATION_START_PROMPT.md",
+      "passed": true,
+      "detail": {
+        "expected": "09cca70050dcd296c08be0c8ac3d99aa8e2e08bad32703e97d3cffbd1d609bcc",
+        "actual": "09cca70050dcd296c08be0c8ac3d99aa8e2e08bad32703e97d3cffbd1d609bcc"
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\00_information_audit\\P3_INFORMATION_AUDIT_SPEC.json",
+      "passed": true,
+      "detail": {
+        "expected": "340639100ad8c934759a71ef44c69c971d33e3bd9fed2989589da9d15e024a3e",
+        "actual": "340639100ad8c934759a71ef44c69c971d33e3bd9fed2989589da9d15e024a3e"
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\00_information_audit\\scripts\\report_p3_information_audit.py",
+      "passed": true,
+      "detail": {
+        "expected": "2fde0b0fb64b819c0461735abe094ac3f994c88df92917f568f383786cdd919a",
+        "actual": "2fde0b0fb64b819c0461735abe094ac3f994c88df92917f568f383786cdd919a"
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\00_information_audit\\scripts\\run_p3_information_audit.py",
+      "passed": true,
+      "detail": {
+        "expected": "6348c934c8ecf13374ddf9a7294949d20dc259bc350b8963397a7131383cb9aa",
+        "actual": "6348c934c8ecf13374ddf9a7294949d20dc259bc350b8963397a7131383cb9aa"
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem3\\00_information_audit\\scripts\\validate_p3_information_audit.py",
+      "passed": true,
+      "detail": {
+        "expected": "c4454b1ccf888a189cce83e596b8d2da6de0b3bd0782184253a692e5b7c5a6a0",
+        "actual": "c4454b1ccf888a189cce83e596b8d2da6de0b3bd0782184253a692e5b7c5a6a0"
+      }
+    },
+    {
+      "check": "哈希_A_route\\problem2\\03_candidate\\CANDIDATE_FREEZE_MANIFEST.json",
+      "passed": true,
+      "detail": {
+        "expected": "e87776dc0448a80ec451081bc7c58efa9038b71ff436fc16fcac9e96f7678ff4",
+        "actual": "e87776dc0448a80ec451081bc7c58efa9038b71ff436fc16fcac9e96f7678ff4"
+      }
+    },
+    {
+      "check": "P2身份",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "P2清单定位_p2_warmup_actual.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "哈希_A_route\\problem2\\02_batch_run\\results\\p2_warmup_actual.csv",
+      "passed": true,
+      "detail": {
+        "expected": "5d393eba396c352173b0193a9fa7dc2a18140eb48f0f5ae980a9f9bc67f4ab1f",
+        "actual": "5d393eba396c352173b0193a9fa7dc2a18140eb48f0f5ae980a9f9bc67f4ab1f"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem2\\02_batch_run\\results\\p2_warmup_actual.csv",
+      "passed": true,
+      "detail": {
+        "expected": 953409,
+        "actual": 953409
+      }
+    },
+    {
+      "check": "P2清单定位_p2_dispatch.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "哈希_A_route\\problem2\\02_batch_run\\scripts\\p2_dispatch.py",
+      "passed": true,
+      "detail": {
+        "expected": "e6fcc4b571b4dfdfc6d7d538baa0b35ae08bd0e82cbe70530f7beb1e6c1fcb9b",
+        "actual": "e6fcc4b571b4dfdfc6d7d538baa0b35ae08bd0e82cbe70530f7beb1e6c1fcb9b"
+      }
+    },
+    {
+      "check": "字节数_A_route\\problem2\\02_batch_run\\scripts\\p2_dispatch.py",
+      "passed": true,
+      "detail": {
+        "expected": 7338,
+        "actual": 7338
+      }
+    },
+    {
+      "check": "预热字段",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "预热4464且唯一策略",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "预热31天全部槽连续唯一",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "预热SOC连续及递推",
+      "passed": true,
+      "detail": {
+        "max_continuity_error": 0,
+        "max_recursion_error": 9.094947017729282e-13
+      }
+    },
+    {
+      "check": "预热终态与模型一致",
+      "passed": true,
+      "detail": 9265.259272074078
+    },
+    {
+      "check": "价格144且正有限",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Common实际全年键完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Common发行与小时完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "正式首发行成熟历史数量_0",
+      "passed": true,
+      "detail": {
+        "paths": 24,
+        "max_source_issue": "2025-01-31T00:00:00",
+        "max_label_end": "2025-02-01T00:00:00"
+      }
+    },
+    {
+      "check": "正式首发行成熟历史数量_6",
+      "passed": true,
+      "detail": {
+        "paths": 24,
+        "max_source_issue": "2025-01-31T06:00:00",
+        "max_label_end": "2025-02-01T06:00:00"
+      }
+    },
+    {
+      "check": "正式首发行成熟历史数量_12",
+      "passed": true,
+      "detail": {
+        "paths": 24,
+        "max_source_issue": "2025-01-31T12:00:00",
+        "max_label_end": "2025-02-01T12:00:00"
+      }
+    },
+    {
+      "check": "正式首发行成熟历史数量_18",
+      "passed": true,
+      "detail": {
+        "paths": 24,
+        "max_source_issue": "2025-01-31T18:00:00",
+        "max_label_end": "2025-02-01T18:00:00"
+      }
+    },
+    {
+      "check": "首个14日回归时间边界",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "残差窗口仅时间可实现不实际生成",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "checks": [
+    {
+      "check": "独立分段普通费_(100, 80, 1)",
+      "passed": true,
+      "detail": {
+        "actual": 90,
+        "expected": "90"
+      }
+    },
+    {
+      "check": "独立分段普通费_(100, 150, 1)",
+      "passed": true,
+      "detail": {
+        "actual": 175,
+        "expected": "175"
+      }
+    },
+    {
+      "check": "独立分段普通费_(100, 0, 1)",
+      "passed": true,
+      "detail": {
+        "actual": 50,
+        "expected": "50"
+      }
+    },
+    {
+      "check": "独立分段普通费_(0, 20, 1)",
+      "passed": true,
+      "detail": {
+        "actual": 30,
+        "expected": "30"
+      }
+    },
+    {
+      "check": "独立分段普通费_(100, 80, 2)",
+      "passed": true,
+      "detail": {
+        "actual": 180,
+        "expected": "180"
+      }
+    },
+    {
+      "check": "独立分段普通费_(100, 100, 1)",
+      "passed": true,
+      "detail": {
+        "actual": 100,
+        "expected": "100"
+      }
+    },
+    {
+      "check": "取消与未取用不混淆",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "最终相对0时与逐次备选独立计算",
+      "passed": true,
+      "detail": {
+        "main": 90,
+        "incremental": "140"
+      }
+    },
+    {
+      "check": "实际账单不重复加初始报价",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "独立单槽最优_None",
+      "passed": true,
+      "detail": {
+        "q": 80,
+        "expected_q": 80,
+        "objective": 93.63636363636364,
+        "enumerated_optimum": 93.63636363636364
+      }
+    },
+    {
+      "check": "独立单槽最优_100",
+      "passed": true,
+      "detail": {
+        "q": 90,
+        "expected_q": 90,
+        "objective": 99.54545454545455,
+        "enumerated_optimum": 99.54545454545455
+      }
+    },
+    {
+      "check": "独立单槽最优_40",
+      "passed": true,
+      "detail": {
+        "q": 70,
+        "expected_q": 70,
+        "objective": 112.27272727272728,
+        "enumerated_optimum": 112.27272727272727
+      }
+    },
+    {
+      "check": "独立单槽最优_80",
+      "passed": true,
+      "detail": {
+        "q": 80,
+        "expected_q": 80,
+        "objective": 93.63636363636364,
+        "enumerated_optimum": 93.63636363636364
+      }
+    },
+    {
+      "check": "离散平坦最优区按目标验收",
+      "passed": true,
+      "detail": {
+        "q_interval": [
+          80,
+          90
+        ],
+        "objective": 95
+      }
+    },
+    {
+      "check": "KEEP是ADJUST可行特例",
+      "passed": true,
+      "detail": {
+        "keep": 135.45454545454547,
+        "adjust": 112.27272727272728
+      }
+    },
+    {
+      "check": "独立分支反馈_0",
+      "passed": true,
+      "detail": {
+        "max_difference": 0
+      }
+    },
+    {
+      "check": "独立反馈能量SOC互斥_0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "独立分支反馈_1",
+      "passed": true,
+      "detail": {
+        "max_difference": 0
+      }
+    },
+    {
+      "check": "独立反馈能量SOC互斥_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "独立分支反馈_2",
+      "passed": true,
+      "detail": {
+        "max_difference": 0
+      }
+    },
+    {
+      "check": "独立反馈能量SOC互斥_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "独立分支反馈_3",
+      "passed": true,
+      "detail": {
+        "max_difference": 0
+      }
+    },
+    {
+      "check": "独立反馈能量SOC互斥_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "独立分支反馈_4",
+      "passed": true,
+      "detail": {
+        "max_difference": 0
+      }
+    },
+    {
+      "check": "独立反馈能量SOC互斥_4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "独立分支反馈_5",
+      "passed": true,
+      "detail": {
+        "max_difference": 0
+      }
+    },
+    {
+      "check": "独立反馈能量SOC互斥_5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "名义候选目标排序不保证反馈评分排序",
+      "passed": true,
+      "detail": {
+        "surrogate_keep": 10,
+        "surrogate_adjust": 7.5,
+        "feedback_keep": 10,
+        "feedback_adjust": 55,
+        "limitation": "两个固定可行候选反例，仅说明代理排序不能替代回放；不声称其为自由ADJUST的求解输出"
+      }
+    },
+    {
+      "check": "去循环有理数证明SOC不变耗能不增",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "共享储能变量与情景无索引_mean",
+      "passed": true,
+      "detail": {
+        "variable_count": 22,
+        "scenario_count": 2,
+        "horizon": 3
+      }
+    },
+    {
+      "check": "共享储能独立LP目标_mean",
+      "passed": true,
+      "detail": {
+        "reference": 7.87037037037037,
+        "independent": 7.87037037037037
+      }
+    },
+    {
+      "check": "名义物理与代理独立复核_mean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "完整路径回放分数独立复算_mean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "固定候选未来扰动前缀不变_mean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "假想延续与实际账单分开_mean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "共享储能变量与情景无索引_worst",
+      "passed": true,
+      "detail": {
+        "variable_count": 23,
+        "scenario_count": 2,
+        "horizon": 3
+      }
+    },
+    {
+      "check": "共享储能独立LP目标_worst",
+      "passed": true,
+      "detail": {
+        "reference": 7.87037037037037,
+        "independent": 7.87037037037037
+      }
+    },
+    {
+      "check": "名义物理与代理独立复核_worst",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "完整路径回放分数独立复算_worst",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "固定候选未来扰动前缀不变_worst",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "假想延续与实际账单分开_worst",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "本地输入补丁拒绝_负电池上限",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "本地输入补丁拒绝_缺失充电效率",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "本地输入补丁拒绝_负普通电量",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "本地输入补丁拒绝_缺失当前负荷",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "本地输入补丁拒绝_负状态界",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "本地输入补丁拒绝_非法效率",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "本地输入补丁拒绝_缺失结算输入",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "本地输入补丁拒绝_负结算量",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "本地输入补丁拒绝_缺失终端值",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "本地输入补丁拒绝_缺失情景",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "非法输入不触发求解器",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "固定终端值小于购电储入成本",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "决策边界无当前未结束槽_0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "决策边界无当前未结束槽_6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "决策边界无当前未结束槽_12",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "决策边界无当前未结束槽_18",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "11条政策与MAIN仅一次",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "非神经网络非全年参数部署边界",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "pass_count": 59,
+  "fail_count": 0,
+  "lp_calls": 9,
+  "lp_invocations": [
+    {
+      "call": 1,
+      "kind": "独立单槽普通费epigraph_None",
+      "success": true,
+      "status": 0,
+      "objective": 93.63636363636364
+    },
+    {
+      "call": 2,
+      "kind": "独立单槽普通费epigraph_100",
+      "success": true,
+      "status": 0,
+      "objective": 99.54545454545455
+    },
+    {
+      "call": 3,
+      "kind": "独立单槽普通费epigraph_40",
+      "success": true,
+      "status": 0,
+      "objective": 112.27272727272728
+    },
+    {
+      "call": 4,
+      "kind": "独立单槽普通费epigraph_80",
+      "success": true,
+      "status": 0,
+      "objective": 93.63636363636364
+    },
+    {
+      "call": 5,
+      "kind": "独立KEEP约束",
+      "success": true,
+      "status": 0,
+      "objective": 135.45454545454547
+    },
+    {
+      "call": 6,
+      "kind": "参考核人工共享储能_mean",
+      "success": true,
+      "status": 0,
+      "objective": 7.870370370370371
+    },
+    {
+      "call": 7,
+      "kind": "独立消元累计SOC与epigraph_mean",
+      "success": true,
+      "status": 0,
+      "objective": 8.27037037037037
+    },
+    {
+      "call": 8,
+      "kind": "参考核人工共享储能_worst",
+      "success": true,
+      "status": 0,
+      "objective": 7.870370370370371
+    },
+    {
+      "call": 9,
+      "kind": "独立消元累计SOC与epigraph_worst",
+      "success": true,
+      "status": 0,
+      "objective": 8.27037037037037
+    }
+  ],
+  "original_defect_count": 2,
+  "local_overlay_applied": true,
+  "official_data_fit": 0,
+  "real_strategy_replay_days": 0,
+  "result_workbooks_generated": 0,
+  "summary_zh": {
+    "数学及独立接口检查": "59 PASS / 0 FAIL",
+    "来源与日历检查": "99 PASS / 0 FAIL",
+    "原始参考核输入防御": "0 PASS / 2 FAIL；缺陷证据保留",
+    "本地补丁": "仅输入校验，拒绝非法参数；合法输入数学不变；正式实现必须显式接入",
+    "独立人工LP调用数": 9,
+    "参考脚本人工LP调用数": 8,
+    "本轮LP总调用数": 17,
+    "正式训练次数": 0,
+    "真实策略回放天数": 0,
+    "生成工作簿数": 0
+  },
+  "reproduction_independent_source": "import sys,json,math,hashlib,inspect\nfrom pathlib import Path\nfrom fractions import Fraction as F\nimport numpy as np\nfrom scipy.optimize import linprog as scipy_lp\nroot=Path.cwd(); base=root/'A_route/problem3/01_model_plan'\nsys.path.insert(0,str(base/'scripts'))\nimport p3_lp_reference as ref\nrecord=json.loads((base/'local_check/independent_checks.json').read_text(encoding='utf-8'))\nscope={}; exec(record['local_overlay_source'],scope); scope['apply_input_guards'](ref)\nchecks=[]; calls=[]; captures=[]\ndef ck(name,ok,detail=None):\n    checks.append(dict(check=name,passed=bool(ok),detail=detail))\ndef near(a,b,tol=1e-7): return bool(np.allclose(a,b,atol=tol,rtol=1e-9))\ndef lp(*args,**kw):\n    if len(calls)>=12: raise RuntimeError('Independent LP budget exceeded')\n    calls.append(dict(call=len(calls)+1,kind=active))\n    ans=scipy_lp(*args,**kw)\n    calls[-1].update(success=bool(ans.success),status=int(ans.status),objective=float(ans.fun) if ans.success else None)\n    if not ans.success: raise RuntimeError(ans.message)\n    return ans\ndef settlement(g,a,p):\n    return p*min(g,a)+F(3,2)*p*max(a-g,0)+F(1,2)*p*max(g-a,0)\nfor g,a,p in [(100,80,1),(100,150,1),(100,0,1),(0,20,1),(100,80,2),(100,100,1)]:\n    exact=settlement(F(g),F(a),F(p))\n    got=ref.ordinary_cost(np.array([g]),np.array([a]),np.array([p]))[0]\n    ck('独立分段普通费_'+str((g,a,p)),near(got,float(exact)),dict(actual=float(got),expected=str(exact)))\nck('取消与未取用不混淆',settlement(F(100),F(100),F(1))==100 and settlement(F(100),F(80),F(1))==90)\npath=[100,150,80]\nincrement=F(path[0])+sum(F(3,2)*max(b-a,0)-F(1,2)*max(a-b,0) for a,b in zip(path,path[1:]))\nck('最终相对0时与逐次备选独立计算',settlement(F(path[0]),F(path[-1]),F(1))==90 and increment==140,dict(main=90,incremental=str(increment)))\nck('实际账单不重复加初始报价',settlement(F(100),F(80),F(1))+5*10==140)\nX=np.arange(0.,101.,10.); K=len(X)\ndef empirical(q,g):\n    ordinary=q if g is None else float(settlement(F(g),F(float(q)),F(1)))\n    return ordinary+5*np.maximum(X-q,0).mean()\ndef one_slot(g=None,keep=None):\n    # 用普通费用epigraph而不是参考核的u+/u-，电池完全消去。\n    nv=K+1+(g is not None); obj=np.zeros(nv); obj[1:K+1]=5/K\n    obj[0 if g is None else -1]=1\n    A=[]; rhs=[]\n    for i,x in enumerate(X):\n        row=np.zeros(nv); row[0]=-1; row[1+i]=-1; A.append(row);rhs.append(-x)\n    if g is not None:\n        for slope,constant in [(.5,.5*g),(1.5,-.5*g)]:\n            row=np.zeros(nv); row[0]=slope; row[-1]=-1;A.append(row);rhs.append(-constant)\n    bounds=[(0,None)]*nv\n    if keep is not None: bounds[0]=(keep,keep)\n    return lp(obj,A_ub=np.array(A),b_ub=rhs,bounds=bounds,method='highs')\nsmall={}\nfor g,expected in [(None,80),(100,90),(40,70),(80,80)]:\n    active='独立单槽普通费epigraph_'+str(g); ans=one_slot(g)\n    grid=np.unique(np.r_[X, [] if g is None else [g]])\n    minimum=min(empirical(q,g) for q in grid)\n    ck('独立单槽最优_'+str(g),near(ans.fun,minimum) and near(empirical(ans.x[0],g),minimum),\n       dict(q=float(ans.x[0]),expected_q=expected,objective=float(ans.fun),enumerated_optimum=float(minimum)))\n    small[g]=ans\nflat=lambda q:q+5*np.maximum(np.arange(10.,101.,10.)-q,0).mean()\nck('离散平坦最优区按目标验收',near(flat(80),flat(85)) and near(flat(85),flat(90)),dict(q_interval=[80,90],objective=flat(80)))\nactive='独立KEEP约束'; keep=one_slot(40,40)\nck('KEEP是ADJUST可行特例',near(keep.x[0],40) and small[40].fun<=keep.fun+1e-8,dict(keep=float(keep.fun),adjust=float(small[40].fun)))\ndef controller(s,a,l,v,b):\n    if a+v>=l:\n        C=min(a+v-l,b.max_kwh,(b.hi-s)/b.eta_c);D=0.;E=0.\n        excess=a+v-l-C;unused=min(a,excess);spill=max(excess-a,0.)\n    else:\n        D=min(l-a-v,b.max_kwh,(s-b.lo)*b.eta_d);C=0.;E=l-a-v-D;unused=spill=0.\n    return dict(charge=C,discharge=D,emergency=E,grid_used=a-unused,grid_unused=unused,pv_spill=spill,soc_end=s+b.eta_c*C-D/b.eta_d)\nb=ref.Battery()\ncase_list=[(6000,500,600,0),(1200,50,100,0),(10800,500,100,700),(6000,0,2000,0),(10800,0,100,900),(1200,1000,0,0)]\nfor i,args in enumerate(case_list):\n    expected=controller(*args,b); got=ref.feedback(*args,b)\n    ck('独立分支反馈_'+str(i),all(near(got[k],v) for k,v in expected.items()),dict(max_difference=max(abs(got[k]-v) for k,v in expected.items())))\n    s,a,l,v=args\n    ck('独立反馈能量SOC互斥_'+str(i),near(got['grid_used']+got['emergency']+v+got['discharge'],l+got['charge']+got['pv_spill']) and\n       min(got['charge'],got['discharge'])<1e-8 and (got['emergency']<1e-8 or got['charge']<1e-8) and 1200-1e-8<=got['soc_end']<=10800+1e-8)\n# 一个明确标注为可行候选的排序反例，不宣称它们是ADJUST自由LP输出。\nbc=ref.Battery(0,1,1,1,1)\nq_keep=[0.,1.]; q_adjust=[0.,0.]; g0=[0.,1.]; p=[.5,10.]\nscore=[]\nfor q in [q_keep,q_adjust]:\n    s=1.; emergency=[]\n    for j in range(2):\n        r=controller(s,q[j],1.,0.,bc);s=r['soc_end'];emergency.append(r['emergency'])\n    score.append(sum(float(settlement(F(g0[j]),F(q[j]),F(p[j])))+5*p[j]*emergency[j] for j in range(2)))\nproxy_keep=10.; proxy_adjust=5.+5*.5\nck('名义候选目标排序不保证反馈评分排序',proxy_adjust<proxy_keep and score[1]>score[0],\n   dict(surrogate_keep=proxy_keep,surrogate_adjust=proxy_adjust,feedback_keep=score[0],feedback_adjust=score[1],\n        limitation='两个固定可行候选反例，仅说明代理排序不能替代回放；不声称其为自由ADJUST的求解输出'))\neta=F(9,10)\nloop=[]\nfor C,D in [(F(300),F(200)),(F(100),F(300)),(F(0),F(2))]:\n    eps=min(C,D/(eta*eta));cc=C-eps;dd=D-eta*eta*eps\n    loop.append(eta*C-D/eta==eta*cc-dd/eta and min(cc,dd)==0 and cc-dd<=C-D)\nck('去循环有理数证明SOC不变耗能不增',all(loop))\ndef capture(*a,**kw):\n    captures.append(dict(obj=np.asarray(a[0]),Aub=kw['A_ub'].toarray(),Aeq=kw['A_eq'].toarray(),bounds=kw['bounds']))\n    return lp(*a,**kw)\nref.linprog=capture\nnet=np.array([[2.,-1.,3.],[3.,0.,1.]])\nprice=np.array([1.,3.,2.]); g=np.array([1.,1.]); N=3; K=2; I=2\nbmini=ref.Battery(0.,4.,2.,.9,.9); s0=2.; terminal=.2\ndef independent_shared(risk):\n    # 累积SOC不等式消去全部S，普通费用epigraph，和参考核采取不同变量布局。\n    q=0;C=N;D=2*N;z=3*N;t=z+K*N;theta=t+I;nv=theta+(risk=='worst')\n    objective=np.zeros(nv); objective[:N]=np.r_[np.zeros(I),price[I:]]\n    objective[C:C+N]=-terminal*.9;objective[D:D+N]=terminal/.9;objective[t:t+I]=1\n    if risk=='mean': objective[z:z+K*N]=np.tile(5*price/K,K)\n    else: objective[theta]=1\n    A=[];rhs=[]\n    def add(terms,bound):\n        r=np.zeros(nv)\n        for k,val in terms: r[k]=val\n        A.append(r);rhs.append(bound)\n    for k in range(K):\n        for j in range(N): add([(q+j,-1),(C+j,1),(D+j,-1),(z+k*N+j,-1)],-net[k,j])\n    for j in range(N):\n        upper=[(C+i,.9) for i in range(j+1)]+[(D+i,-1/.9) for i in range(j+1)]\n        add(upper,bmini.hi-s0);add([(idx,-val) for idx,val in upper],s0-bmini.lo)\n    for j in range(I):\n        add([(q+j,.5*price[j]),(t+j,-1)],-.5*price[j]*g[j])\n        add([(q+j,1.5*price[j]),(t+j,-1)],.5*price[j]*g[j])\n    if risk=='worst':\n        for k in range(K): add([(z+k*N+j,5*price[j]) for j in range(N)]+[(theta,-1)],0)\n    bounds=[(0,None)]*nv\n    for j in range(N): bounds[C+j]=bounds[D+j]=(0,bmini.max_kwh)\n    result=lp(objective,A_ub=np.array(A),b_ub=rhs,bounds=bounds,method='highs')\n    return result.fun-terminal*(s0-bmini.lo)\nfor risk in ['mean','worst']:\n    active='参考核人工共享储能_'+risk\n    answer=ref.solve_plan(net,price,s0,I,g,risk=risk,terminal_value=terminal,battery=bmini)\n    matrix=captures[-1]\n    shared_ok=len(answer['nominal_charge'])==N and answer['shortfall_proxy'].shape==(K,N)\n    for k in range(K):\n        for j in range(N):\n            row=matrix['Aub'][k*N+j]\n            shared_ok &= row[N+j]==1 and row[2*N+j]==-1 and row[j]==-1 and row[4*N+k*N+j]==-1\n    ck('共享储能变量与情景无索引_'+risk,shared_ok,dict(variable_count=len(matrix['obj']),scenario_count=K,horizon=N))\n    active='独立消元累计SOC与epigraph_'+risk; independent_value=independent_shared(risk)\n    ck('共享储能独立LP目标_'+risk,near(independent_value,answer['objective_surrogate']),dict(reference=answer['objective_surrogate'],independent=float(independent_value)))\n    s=s0+np.cumsum(.9*answer['nominal_charge']-answer['nominal_discharge']/.9)\n    ck('名义物理与代理独立复核_'+risk,near(s,answer['nominal_soc_end']) and np.min(s)>=-1e-8 and np.max(s)<=4+1e-8 and\n       near(np.maximum(net+answer['nominal_charge']-answer['nominal_discharge']-answer['commitment'],0),answer['shortfall_proxy']))\n    L=np.array([[3.,1.,4.],[4.,2.,2.]])\n    PV=L-net;pv_new=PV.copy(); loads_new=L.copy();loads_new[:,2]+=10\n    roll=ref.causal_rollout(answer['commitment'],L,PV,price,s0,I,g,risk,terminal,bmini)\n    changed=ref.causal_rollout(answer['commitment'],loads_new,PV,price,s0,I,g,risk,terminal,bmini)\n    ordinary=sum(float(settlement(F(g[j]),F(float(answer['commitment'][j])),F(float(price[j])))) for j in range(I))+price[-1]*answer['commitment'][-1]\n    independent_scores=[]\n    for k in range(K):\n        running=s0;emergency_cost=0\n        for j in range(N):\n            r=controller(running,answer['commitment'][j],L[k,j],PV[k,j],bmini);running=r['soc_end'];emergency_cost+=5*price[j]*r['emergency']\n        independent_scores.append(ordinary+emergency_cost-terminal*(running-bmini.lo))\n    expected=np.mean(independent_scores) if risk=='mean' else max(independent_scores)\n    ck('完整路径回放分数独立复算_'+risk,near(roll['score'],expected) and near(roll['path_scores'],independent_scores))\n    ck('固定候选未来扰动前缀不变_'+risk,all(roll['trajectories'][k][:2]==changed['trajectories'][k][:2] for k in range(K)))\n    ck('假想延续与实际账单分开_'+risk,roll['score_label']=='CONDITIONAL_SCENARIO_ROLLOUT_NOT_ACTUAL_BILL' and len(answer['commitment'][:I])==I)\n# 输入拒绝在本地补丁下执行；不额外调用任何LP。\ninvalid=[\n ('负电池上限',lambda:ref.feedback(6000,200,100,0,ref.Battery(max_kwh=-1))),\n ('缺失充电效率',lambda:ref.feedback(6000,200,100,0,ref.Battery(eta_c=float('nan')))),\n ('负普通电量',lambda:ref.feedback(6000,-1,100,0,ref.Battery())),\n ('缺失当前负荷',lambda:ref.feedback(6000,100,float('nan'),0,ref.Battery())),\n ('负状态界',lambda:ref.feedback(6000,100,100,0,ref.Battery(lo=-1))),\n ('非法效率',lambda:ref.feedback(6000,100,100,0,ref.Battery(eta_d=1.2))),\n ('缺失结算输入',lambda:ref.ordinary_cost(np.array([100.]),np.array([float('nan')]),np.array([1.]))),\n ('负结算量',lambda:ref.ordinary_cost(np.array([100.]),np.array([-1.]),np.array([1.]))),\n ('缺失终端值',lambda:ref.solve_plan(np.array([[1.]]),np.array([1.]),0,1,terminal_value=float('nan'),battery=ref.Battery(0,0,0,1,1))),\n ('缺失情景',lambda:ref.causal_rollout(np.array([1.]),np.array([[float('nan')]]),np.array([[0.]]),np.array([1.]),6000,1,None)),\n]\nbefore=len(calls)\nfor label,function in invalid:\n    try: function(); rejected=False\n    except ValueError: rejected=True\n    ck('本地输入补丁拒绝_'+label,rejected)\nck('非法输入不触发求解器',len(calls)==before)\nck('固定终端值小于购电储入成本',.9*.3713<.3713/.9)\nfor hour,completed in [(0,0),(6,36),(12,72),(18,108)]:\n    ends=np.arange(1,145)*10\n    visible=ends<=hour*60\n    ck('决策边界无当前未结束槽_'+str(hour),visible.sum()==completed and np.flatnonzero(~visible)[0]+1==completed+1)\nspec=json.loads((base/'contracts/P3_MODEL_SPEC.json').read_text(encoding='utf-8'))\nopps=[tuple(x) for x in spec['opportunity_sets']]\nck('11条政策与MAIN仅一次',len(opps)==len(set(opps))==8 and opps.count((6,12,18))==1 and len(spec['additional_ablations'])==3)\nck('非神经网络非全年参数部署边界',spec['scenarios']['use_full_year_quantile_parameters'] is False and spec['load']['publication_versions_immutable'] is True and spec['next_stage_authorized'] is False)\nprint(json.dumps(dict(checks=checks,pass_count=sum(c['passed'] for c in checks),fail_count=sum(not c['passed'] for c in checks),\n                     lp_calls=len(calls),lp_invocations=calls,original_defect_count=2,local_overlay_applied=True,\n                     official_data_fit=0,real_strategy_replay_days=0,result_workbooks_generated=0),ensure_ascii=False,allow_nan=False))\n",
+  "independent_scope_groups": [
+    "普通费分段式与结算列不重复",
+    "最终相对0时与逐次备选分离",
+    "单槽分位最优及离散平坦区目标值",
+    "KEEP嵌套与代理排序不等于执行排序",
+    "共享储能去循环及物理反馈",
+    "未来扰动前缀不变与非法/缺失输入拒绝"
+  ],
+  "warmup": {
+    "rows": 4464,
+    "policy": "WARMUP",
+    "initial_soc": 6000,
+    "terminal_soc": 9265.259272074078,
+    "recursion_error": 9.094947017729282e-13,
+    "continuity_error": 0
+  },
+  "calendar_availability": [
+    {
+      "issue_hour": 0,
+      "formal_first_event": "2025-02-01T00:00:00",
+      "mature_paths": 24,
+      "regression_complete_days": 0
+    },
+    {
+      "issue_hour": 6,
+      "formal_first_event": "2025-02-01T06:00:00",
+      "mature_paths": 24,
+      "regression_complete_days": 24
+    },
+    {
+      "issue_hour": 12,
+      "formal_first_event": "2025-02-01T12:00:00",
+      "mature_paths": 24,
+      "regression_complete_days": 24
+    },
+    {
+      "issue_hour": 18,
+      "formal_first_event": "2025-02-01T18:00:00",
+      "mature_paths": 24,
+      "regression_complete_days": 24
+    }
+  ],
+  "terminal_price_check": {
+    "min": 0.3713,
+    "max": 1.3952,
+    "terminal_value": 0.33417,
+    "grid_fill_cost_per_stored_kwh": 0.41255555555555556
+  },
+  "limitations": [
+    "人工候选排序反例不宣称由自由ADJUST求解器生成",
+    "不证明年度闭环性能或经济改善",
+    "输入补丁嵌入本文件，不改原冻结代码",
+    "前缀回归与历史残差路径只核对设计与可用日期，没有正式生成或拟合"
+  ]
+}

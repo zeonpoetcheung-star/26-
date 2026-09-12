@@ -1,0 +1,50 @@
+{
+  "scope": "uploaded source snapshots actually opened for this design; not live local verification",
+  "files": [
+    {
+      "source_member": "00_semantic_audit/P3_SEMANTIC_AUDIT.md",
+      "size_bytes": 15069,
+      "sha256": "c2e96a9052791fa2d34ea9dc445faf2aa594cd1c5efbd21f087d272ea5cd8142"
+    },
+    {
+      "source_member": "00_semantic_audit/contracts/p3_semantic_contract.json",
+      "size_bytes": 5918,
+      "sha256": "37550c5037def95db71a41ad630e807ea4d46fe6a1dbef4e1edae47f10d80083"
+    },
+    {
+      "source_member": "local_verification/P3_SEMANTIC_GATE.md",
+      "size_bytes": 369,
+      "sha256": "9279f4d3ff56778bb32ff85b539ae0dbcf033847cb3569d1483324b1f57b85b4"
+    },
+    {
+      "source_member": "local_verification/p3_semantic_check_results.json",
+      "size_bytes": 13441,
+      "sha256": "b72ff6b95a295ecd64258c2982102eedf5baf74fa518fed4e1d7c6306bdc552c"
+    },
+    {
+      "source_member": "00_information_audit/P3_INFORMATION_AUDIT.md",
+      "size_bytes": 17755,
+      "sha256": "ff8ad57add1b4defd8057e67501bf21690b7369d2ef201978279e46cbeba4b77"
+    },
+    {
+      "source_member": "00_information_audit/P3_INFORMATION_GATE.md",
+      "size_bytes": 383,
+      "sha256": "66cdcc0ab6b0a2785ad3b0ac53aad416ab2ba052de2d7f114509bb4a1470c723"
+    },
+    {
+      "source_member": "00_information_audit/p3_information_run_manifest.json",
+      "size_bytes": 4999,
+      "sha256": "028740896828d3b085b8fdbdc310bec0d2e59fbc585d0154acc54c77130bf07b"
+    },
+    {
+      "source_member": "00_information_audit/p3_load_prefix_signal.csv",
+      "size_bytes": 5342,
+      "sha256": "db8553d34aa45b9302cb3861e77627d233ecb64525e83d56a001b600962ca030"
+    },
+    {
+      "source_member": "00_information_audit/p3_pv_issue_metrics.csv",
+      "size_bytes": 4899,
+      "sha256": "3001ff7a3b81dbde37360b3cd6808d772b6ecba13c52f5ec2230b3888254c0c3"
+    }
+  ]
+}

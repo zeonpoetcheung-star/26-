@@ -1,0 +1,257 @@
+{
+  "scope": "SYNTHETIC_MODEL_MATH_ONLY",
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "settlement_100_to_100",
+      "pass": true,
+      "detail": {
+        "value": 100.0,
+        "expected": 100
+      }
+    },
+    {
+      "check": "settlement_100_to_80",
+      "pass": true,
+      "detail": {
+        "value": 90.0,
+        "expected": 90
+      }
+    },
+    {
+      "check": "settlement_100_to_150",
+      "pass": true,
+      "detail": {
+        "value": 175.0,
+        "expected": 175
+      }
+    },
+    {
+      "check": "settlement_100_to_0",
+      "pass": true,
+      "detail": {
+        "value": 50.0,
+        "expected": 50
+      }
+    },
+    {
+      "check": "path_vs_final_not_mixed",
+      "pass": true,
+      "detail": {
+        "incremental": 140.0,
+        "main": 90
+      }
+    },
+    {
+      "check": "plan_quote_not_added_twice",
+      "pass": true,
+      "detail": {
+        "final_bill": 140,
+        "not": 240
+      }
+    },
+    {
+      "check": "newsvendor_None",
+      "pass": true,
+      "detail": {
+        "q": 80.0,
+        "expected": 80.0
+      }
+    },
+    {
+      "check": "newsvendor_100.0",
+      "pass": true,
+      "detail": {
+        "q": 90.0,
+        "expected": 90.0
+      }
+    },
+    {
+      "check": "newsvendor_40.0",
+      "pass": true,
+      "detail": {
+        "q": 70.0,
+        "expected": 70.0
+      }
+    },
+    {
+      "check": "newsvendor_80.0",
+      "pass": true,
+      "detail": {
+        "q": 80.0,
+        "expected": 80.0
+      }
+    },
+    {
+      "check": "finite_set_worst_case",
+      "pass": true,
+      "detail": {
+        "q": 100.0
+      }
+    },
+    {
+      "check": "keep_nested_in_adjust",
+      "pass": true,
+      "detail": {
+        "keep": 135.45454545454544,
+        "adjust": 112.27272727272728
+      }
+    },
+    {
+      "check": "empty_storage_emergency",
+      "pass": true,
+      "detail": {
+        "charge": -0.0,
+        "discharge": 0.0,
+        "emergency": 50.0,
+        "grid_used": 50.0,
+        "grid_unused": 0.0,
+        "pv_spill": 0.0,
+        "soc_end": 1200.0
+      }
+    },
+    {
+      "check": "unused_vs_pv_spill",
+      "pass": true,
+      "detail": {
+        "charge": 0.0,
+        "discharge": -0.0,
+        "emergency": 0.0,
+        "grid_used": 0.0,
+        "grid_unused": 500.0,
+        "pv_spill": 600.0,
+        "soc_end": 10800.0
+      }
+    },
+    {
+      "check": "loop_removal_preserves_soc",
+      "pass": true,
+      "detail": {
+        "C": 53.08641975308643,
+        "D": 0.0
+      }
+    },
+    {
+      "check": "current_feedback_non_simultaneous_0_0",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "current_feedback_non_simultaneous_0_1",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "current_feedback_non_simultaneous_0_2",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "current_feedback_non_simultaneous_0_3",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "current_feedback_non_simultaneous_1_0",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "current_feedback_non_simultaneous_1_1",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "current_feedback_non_simultaneous_1_2",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "current_feedback_non_simultaneous_1_3",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "current_feedback_non_simultaneous_2_0",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "current_feedback_non_simultaneous_2_1",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "current_feedback_non_simultaneous_2_2",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "current_feedback_non_simultaneous_2_3",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "rollout_physical_balance",
+      "pass": true,
+      "detail": {
+        "balance": 0.0,
+        "soc": 0.0
+      }
+    },
+    {
+      "check": "rollout_future_perturbation",
+      "pass": true,
+      "detail": {
+        "future_changed_after_slot": 2
+      }
+    },
+    {
+      "check": "continuation_not_returned_as_today",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "clock_first_modifiable_0",
+      "pass": true,
+      "detail": {
+        "slot": 1
+      }
+    },
+    {
+      "check": "clock_first_modifiable_6",
+      "pass": true,
+      "detail": {
+        "slot": 37
+      }
+    },
+    {
+      "check": "clock_first_modifiable_12",
+      "pass": true,
+      "detail": {
+        "slot": 73
+      }
+    },
+    {
+      "check": "clock_first_modifiable_18",
+      "pass": true,
+      "detail": {
+        "slot": 109
+      }
+    },
+    {
+      "check": "pwl_energy_conservation",
+      "pass": true,
+      "detail": {
+        "integral_kwh": 300.0
+      }
+    }
+  ],
+  "pass_count": 35,
+  "fail_count": 0,
+  "lp_calls": 8,
+  "official_data_fit": 0,
+  "annual_strategy_runs": 0,
+  "result_workbooks_generated": 0,
+  "not_a_gate": "Does not certify local sources, forecast quality or annual economic performance."
+}

@@ -1,0 +1,410 @@
+{
+  "schema_version": "P3_MODEL_PLAN_FREEZE_LOCAL_A4_V1",
+  "model_version": "P3_MODEL_PLAN_V1",
+  "stage": "A-4",
+  "primary_candidate": "P3_MAIN_MEAN_ROLLOUT_061218",
+  "status": "PASS_P3_MODEL_PLAN_WITH_OPEN_ISSUES",
+  "next_stage_authorized": false,
+  "READY_FOR_P3_A5_AFTER_EXPLICIT_AUTHORIZATION": true,
+  "scope_zh": "设计冻结：原模型包及本地输入校验补充；不表示年度实现、预测或策略费用已验收",
+  "files": [
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\01_model_plan\\P3_DESIGN_BASIS.md",
+      "relative_path": "A_route\\problem3\\01_model_plan\\P3_DESIGN_BASIS.md",
+      "size_bytes": 4899,
+      "sha256": "14612ec63ac075ba092ca6fc136eb0e63a6936f16eb726107d42b0cac4fa1e70",
+      "role": "模型包冻结文件"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\01_model_plan\\P3_MODEL_PLAN.md",
+      "relative_path": "A_route\\problem3\\01_model_plan\\P3_MODEL_PLAN.md",
+      "size_bytes": 20161,
+      "sha256": "1e81056a24cfd79c58cf27232b5646703d6c1f9d1c9f9fbd718e402ab73d8a3b",
+      "role": "模型包冻结文件"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\01_model_plan\\P3_VALIDATION_PLAN.md",
+      "relative_path": "A_route\\problem3\\01_model_plan\\P3_VALIDATION_PLAN.md",
+      "size_bytes": 4926,
+      "sha256": "7fb4183601a6cad1ea9f8f69f501b1986bc1fdd839705e53ddffbddd5958cc0e",
+      "role": "模型包冻结文件"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\01_model_plan\\README.md",
+      "relative_path": "A_route\\problem3\\01_model_plan\\README.md",
+      "size_bytes": 1666,
+      "sha256": "952d59a823e87e0f44e09c5f30e2f83655b1838ebcb25b9c45505f369f853b45",
+      "role": "模型包冻结文件"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\01_model_plan\\contracts\\P3_MODEL_SPEC.json",
+      "relative_path": "A_route\\problem3\\01_model_plan\\contracts\\P3_MODEL_SPEC.json",
+      "size_bytes": 4038,
+      "sha256": "bb5c1799f78cec894732c3f4c364ea35a847c8dda5907237786ba9808e0fadcb",
+      "role": "模型包冻结文件"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\01_model_plan\\evidence\\MODEL_MATH_SELFTEST.json",
+      "relative_path": "A_route\\problem3\\01_model_plan\\evidence\\MODEL_MATH_SELFTEST.json",
+      "size_bytes": 5072,
+      "sha256": "9e3872ac800f420a3e67afb739d3e91c5c40ef73053394f14ca41a456f347a4d",
+      "role": "模型包冻结文件"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\01_model_plan\\evidence\\SOURCE_SNAPSHOT_MANIFEST.json",
+      "relative_path": "A_route\\problem3\\01_model_plan\\evidence\\SOURCE_SNAPSHOT_MANIFEST.json",
+      "size_bytes": 1871,
+      "sha256": "6257f0880b46fd7de96ce97305291c29d4abb24737873384ed2759740b13a9f4",
+      "role": "模型包冻结文件"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\01_model_plan\\scripts\\check_p3_model_math.py",
+      "relative_path": "A_route\\problem3\\01_model_plan\\scripts\\check_p3_model_math.py",
+      "size_bytes": 5182,
+      "sha256": "cdcf699729adc9f4ebe6563e60c757c1700011fc66e494942955515a4c053e6a",
+      "role": "模型包冻结文件"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\01_model_plan\\scripts\\p3_lp_reference.py",
+      "relative_path": "A_route\\problem3\\01_model_plan\\scripts\\p3_lp_reference.py",
+      "size_bytes": 10849,
+      "sha256": "3fd3cf261a6b07f16a12aadd85f5217fdf2a7181e35de5264440a8575285f334",
+      "role": "模型包冻结文件"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\01_model_plan\\tasks\\P3_MODELPLAN_CODEX_TASK.md",
+      "relative_path": "A_route\\problem3\\01_model_plan\\tasks\\P3_MODELPLAN_CODEX_TASK.md",
+      "size_bytes": 4666,
+      "sha256": "4d8bd605482ed7fa8b590a9dc468cd891c2cf0827567a593cafbf1ada452f410",
+      "role": "模型包冻结文件"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\01_model_plan\\tasks\\P3_MODELPLAN_START_PROMPT.md",
+      "relative_path": "A_route\\problem3\\01_model_plan\\tasks\\P3_MODELPLAN_START_PROMPT.md",
+      "size_bytes": 815,
+      "sha256": "a9475980d73e72efa843deae99287a820e29ee60be743c1fb00733fe2eeee963",
+      "role": "模型包冻结文件"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\01_model_plan\\evidence\\PACKAGE_MANIFEST.json",
+      "relative_path": "A_route\\problem3\\01_model_plan\\evidence\\PACKAGE_MANIFEST.json",
+      "size_bytes": 1922,
+      "sha256": "699b7bf9919665e9469bf8de46feb5c16778b6b446cf4cf25af5deab9ce1b6d5",
+      "role": "模型包原始清单"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\00_semantic_audit\\P3_SEMANTIC_AUDIT.md",
+      "relative_path": "A_route\\problem3\\00_semantic_audit\\P3_SEMANTIC_AUDIT.md",
+      "size_bytes": 15069,
+      "sha256": "c2e96a9052791fa2d34ea9dc445faf2aa594cd1c5efbd21f087d272ea5cd8142",
+      "role": "P3-1所依赖冻结输入"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\00_semantic_audit\\contracts\\p3_semantic_contract.json",
+      "relative_path": "A_route\\problem3\\00_semantic_audit\\contracts\\p3_semantic_contract.json",
+      "size_bytes": 5918,
+      "sha256": "37550c5037def95db71a41ad630e807ea4d46fe6a1dbef4e1edae47f10d80083",
+      "role": "P3-1所依赖冻结输入"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\00_semantic_audit\\local_verification\\P3_SEMANTIC_GATE.md",
+      "relative_path": "A_route\\problem3\\00_semantic_audit\\local_verification\\P3_SEMANTIC_GATE.md",
+      "size_bytes": 369,
+      "sha256": "9279f4d3ff56778bb32ff85b539ae0dbcf033847cb3569d1483324b1f57b85b4",
+      "role": "P3-1所依赖冻结输入"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\00_semantic_audit\\local_verification\\p3_semantic_check_results.json",
+      "relative_path": "A_route\\problem3\\00_semantic_audit\\local_verification\\p3_semantic_check_results.json",
+      "size_bytes": 13441,
+      "sha256": "b72ff6b95a295ecd64258c2982102eedf5baf74fa518fed4e1d7c6306bdc552c",
+      "role": "P3-1所依赖冻结输入"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\00_information_audit\\P3_INFORMATION_AUDIT.md",
+      "relative_path": "A_route\\problem3\\00_information_audit\\P3_INFORMATION_AUDIT.md",
+      "size_bytes": 17755,
+      "sha256": "ff8ad57add1b4defd8057e67501bf21690b7369d2ef201978279e46cbeba4b77",
+      "role": "设计引用的审计快照"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\00_information_audit\\P3_INFORMATION_GATE.md",
+      "relative_path": "A_route\\problem3\\00_information_audit\\P3_INFORMATION_GATE.md",
+      "size_bytes": 383,
+      "sha256": "66cdcc0ab6b0a2785ad3b0ac53aad416ab2ba052de2d7f114509bb4a1470c723",
+      "role": "设计引用的审计快照"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\00_information_audit\\p3_information_run_manifest.json",
+      "relative_path": "A_route\\problem3\\00_information_audit\\p3_information_run_manifest.json",
+      "size_bytes": 4999,
+      "sha256": "028740896828d3b085b8fdbdc310bec0d2e59fbc585d0154acc54c77130bf07b",
+      "role": "设计引用的审计快照"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\00_information_audit\\p3_load_prefix_signal.csv",
+      "relative_path": "A_route\\problem3\\00_information_audit\\p3_load_prefix_signal.csv",
+      "size_bytes": 5342,
+      "sha256": "db8553d34aa45b9302cb3861e77627d233ecb64525e83d56a001b600962ca030",
+      "role": "设计引用的审计快照"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\00_information_audit\\p3_pv_issue_metrics.csv",
+      "relative_path": "A_route\\problem3\\00_information_audit\\p3_pv_issue_metrics.csv",
+      "size_bytes": 4899,
+      "sha256": "3001ff7a3b81dbde37360b3cd6808d772b6ecba13c52f5ec2230b3888254c0c3",
+      "role": "设计引用的审计快照"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\input\\original\\C题.pdf",
+      "relative_path": "input\\original\\C题.pdf",
+      "size_bytes": 354389,
+      "sha256": "2c098f6ae9dd47ae965aebdec3b9facf3de6c173f999783c1012c08fc5fb9d2d",
+      "role": "P3-1所依赖冻结输入"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\input\\original\\附件1.xlsx",
+      "relative_path": "input\\original\\附件1.xlsx",
+      "size_bytes": 16003,
+      "sha256": "66b87134f5ecccd68184d3539bb1293ef039f9e0fdd955a589b9bfa7f227c377",
+      "role": "P3-1所依赖冻结输入"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\input\\original\\附件2.xlsx",
+      "relative_path": "input\\original\\附件2.xlsx",
+      "size_bytes": 907128,
+      "sha256": "2e95fd446bfafa0d8c59577b5c2e2ea8b3f1def20dde54a3062556f4da9b4c72",
+      "role": "P3-1所依赖冻结输入"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\input\\original\\附件3.xlsx",
+      "relative_path": "input\\original\\附件3.xlsx",
+      "size_bytes": 293526,
+      "sha256": "8a61b06c52bd0d639a1cc37c61a7d9f5b75edcbca718f64c1bd3498ec9f9d843",
+      "role": "P3-1所依赖冻结输入"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\input\\templates\\result3.xlsx",
+      "relative_path": "input\\templates\\result3.xlsx",
+      "size_bytes": 265429,
+      "sha256": "c59da470cabd0be23f602c95c8aa9d11ec224a0cdac216b3e1f218e65d006bdc",
+      "role": "P3-1所依赖冻结输入"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\common\\01_preprocessing\\processed\\fixed_day_10min.csv",
+      "relative_path": "A_route\\common\\01_preprocessing\\processed\\fixed_day_10min.csv",
+      "size_bytes": 14562,
+      "sha256": "da43c24fa8abcb211f804229cb9eb2bc105dac61d76588b4a41752256604e02a",
+      "role": "P3-1所依赖冻结输入"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\common\\01_preprocessing\\processed\\year_actual_10min.csv",
+      "relative_path": "A_route\\common\\01_preprocessing\\processed\\year_actual_10min.csv",
+      "size_bytes": 2425262,
+      "sha256": "de142da370a71a739b26d411bab00dc59e07428396683287437a11bfe5f191f9",
+      "role": "P3-1所依赖冻结输入"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\common\\01_preprocessing\\processed\\pv_forecast_hourly_long.csv",
+      "relative_path": "A_route\\common\\01_preprocessing\\processed\\pv_forecast_hourly_long.csv",
+      "size_bytes": 4580413,
+      "sha256": "e00a71fcf73a3cecf44d5e4d64ad5255ad565ed348f2be7ca1b9812bf1f92adb",
+      "role": "P3-1所依赖冻结输入"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem2\\02_batch_run\\results\\result2.xlsx",
+      "relative_path": "A_route\\problem2\\02_batch_run\\results\\result2.xlsx",
+      "size_bytes": 574581,
+      "sha256": "93b0bf0ab5e419cc179b78c409fcfa88616cd95572f1f958268ccf42c5086a74",
+      "role": "P3-1所依赖冻结输入"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\CURRENT_STATE.md",
+      "relative_path": "A_route\\CURRENT_STATE.md",
+      "size_bytes": 1062,
+      "sha256": "f8146ce9872ab3aacb9987ec25cb385c83790a588346f80a15e61cc7ff5eec9c",
+      "role": "本轮A-4授权状态，非沿用上一阶段状态哈希"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem2\\03_candidate\\CANDIDATE_FREEZE_MANIFEST.json",
+      "relative_path": "A_route\\problem2\\03_candidate\\CANDIDATE_FREEZE_MANIFEST.json",
+      "size_bytes": 662001,
+      "sha256": "e87776dc0448a80ec451081bc7c58efa9038b71ff436fc16fcac9e96f7678ff4",
+      "role": "P2冻结身份"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\00_information_audit\\P3_INFORMATION_AUDIT_PLAN.md",
+      "relative_path": "A_route\\problem3\\00_information_audit\\P3_INFORMATION_AUDIT_PLAN.md",
+      "size_bytes": 7881,
+      "sha256": "9a7985a4c78fbed783109df15d2b3838b51bfb394964dfe425f881c42b67904a",
+      "role": "P3-1所依赖冻结输入"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\00_information_audit\\P3_INFORMATION_CODEX_TASK.md",
+      "relative_path": "A_route\\problem3\\00_information_audit\\P3_INFORMATION_CODEX_TASK.md",
+      "size_bytes": 5556,
+      "sha256": "b9a6e53bff5f591e5bb4bf1f42ff8cde38b27f2cfa6ceb9918383e8e2e9e0c7b",
+      "role": "P3-1所依赖冻结输入"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\00_information_audit\\P3_INFORMATION_START_PROMPT.md",
+      "relative_path": "A_route\\problem3\\00_information_audit\\P3_INFORMATION_START_PROMPT.md",
+      "size_bytes": 1419,
+      "sha256": "09cca70050dcd296c08be0c8ac3d99aa8e2e08bad32703e97d3cffbd1d609bcc",
+      "role": "P3-1所依赖冻结输入"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\00_information_audit\\P3_INFORMATION_AUDIT_SPEC.json",
+      "relative_path": "A_route\\problem3\\00_information_audit\\P3_INFORMATION_AUDIT_SPEC.json",
+      "size_bytes": 792,
+      "sha256": "340639100ad8c934759a71ef44c69c971d33e3bd9fed2989589da9d15e024a3e",
+      "role": "P3-1所依赖冻结输入"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\00_information_audit\\scripts\\report_p3_information_audit.py",
+      "relative_path": "A_route\\problem3\\00_information_audit\\scripts\\report_p3_information_audit.py",
+      "size_bytes": 18293,
+      "sha256": "2fde0b0fb64b819c0461735abe094ac3f994c88df92917f568f383786cdd919a",
+      "role": "P3-1签名脚本"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\00_information_audit\\scripts\\run_p3_information_audit.py",
+      "relative_path": "A_route\\problem3\\00_information_audit\\scripts\\run_p3_information_audit.py",
+      "size_bytes": 25357,
+      "sha256": "6348c934c8ecf13374ddf9a7294949d20dc259bc350b8963397a7131383cb9aa",
+      "role": "P3-1签名脚本"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\00_information_audit\\scripts\\validate_p3_information_audit.py",
+      "relative_path": "A_route\\problem3\\00_information_audit\\scripts\\validate_p3_information_audit.py",
+      "size_bytes": 23982,
+      "sha256": "c4454b1ccf888a189cce83e596b8d2da6de0b3bd0782184253a692e5b7c5a6a0",
+      "role": "P3-1签名脚本"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem2\\02_batch_run\\results\\p2_warmup_actual.csv",
+      "relative_path": "A_route\\problem2\\02_batch_run\\results\\p2_warmup_actual.csv",
+      "size_bytes": 953409,
+      "sha256": "5d393eba396c352173b0193a9fa7dc2a18140eb48f0f5ae980a9f9bc67f4ab1f",
+      "role": "P2共享预热或反馈规则"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem2\\02_batch_run\\scripts\\p2_dispatch.py",
+      "relative_path": "A_route\\problem2\\02_batch_run\\scripts\\p2_dispatch.py",
+      "size_bytes": 7338,
+      "sha256": "e6fcc4b571b4dfdfc6d7d538baa0b35ae08bd0e82cbe70530f7beb1e6c1fcb9b",
+      "role": "P2共享预热或反馈规则"
+    }
+  ],
+  "required_local_overlay": {
+    "container_file": "local_check/independent_checks.json",
+    "json_field": "local_overlay_source",
+    "sha256_utf8": "2cdb4b680564d989b7c5910f6b23c3983eb7af5880ecd6942d9500c6da749a7e",
+    "requirement": "A5正式实现必须显式纳入等价有限/非负/物理参数校验，合法输入数学不变；原源码未覆盖"
+  },
+  "reproduction": {
+    "independent_source_field": "reproduction_independent_source",
+    "independent_source_sha256": "677a3c59c67b6483ea25c5d605df1f99e6630a4fda224c93ab3c83fac6ec7133",
+    "preflight_source_field": "reproduction_preflight_source"
+  },
+  "local_check_summary": {
+    "source_PASS": 99,
+    "source_FAIL": 0,
+    "reference_PASS": 35,
+    "reference_FAIL": 0,
+    "independent_PASS": 59,
+    "independent_FAIL": 0,
+    "original_guard_FAIL": 2,
+    "guard_resolution": "本地运行时补丁通过；原始证据保留",
+    "reference_lp_calls": 8,
+    "independent_lp_calls": 9,
+    "total_actual_lp_calls": 17,
+    "official_model_fits": 0,
+    "real_strategy_replay_days": 0,
+    "workbook_exports": 0
+  },
+  "warmup": {
+    "rows": 4464,
+    "policy": "WARMUP",
+    "initial_soc": 6000,
+    "terminal_soc": 9265.259272074078,
+    "recursion_error": 9.094947017729282e-13,
+    "continuity_error": 0
+  },
+  "calendar_availability": [
+    {
+      "issue_hour": 0,
+      "formal_first_event": "2025-02-01T00:00:00",
+      "mature_paths": 24,
+      "regression_complete_days": 0
+    },
+    {
+      "issue_hour": 6,
+      "formal_first_event": "2025-02-01T06:00:00",
+      "mature_paths": 24,
+      "regression_complete_days": 24
+    },
+    {
+      "issue_hour": 12,
+      "formal_first_event": "2025-02-01T12:00:00",
+      "mature_paths": 24,
+      "regression_complete_days": 24
+    },
+    {
+      "issue_hour": 18,
+      "formal_first_event": "2025-02-01T18:00:00",
+      "mature_paths": 24,
+      "regression_complete_days": 24
+    }
+  ],
+  "terminal_price_check": {
+    "min": 0.3713,
+    "max": 1.3952,
+    "terminal_value": 0.33417,
+    "grid_fill_cost_per_stored_kwh": 0.41255555555555556
+  },
+  "state_transition": {
+    "previous_audit_hash": "57af11b8313d379d7311de78c4b88a5018d6e438bb52acea382b1a356ad5ec47",
+    "current_hash": "f8146ce9872ab3aacb9987ec25cb385c83790a588346f80a15e61cc7ff5eec9c",
+    "reason": "用户明确授权A-4；仅更新授权状态来源，冻结数据与审计文件不变"
+  },
+  "frozen_package_unchanged": true,
+  "common_p2_and_prior_audits_unchanged": true,
+  "local_outputs": [
+    "P3_MODEL_PLAN_CHECK.md",
+    "model_math_selftest.json",
+    "independent_checks.json",
+    "P3_MODEL_PLAN_FREEZE_MANIFEST.json",
+    "P3_MODEL_PLAN_GATE.md"
+  ],
+  "gate": "PASS_P3_MODEL_PLAN_WITH_OPEN_ISSUES",
+  "final_identity_verification": {
+    "verified_at_utc": "2026-09-12T09:29:06.506561+00:00",
+    "protected_files_checked": 41,
+    "changed_files": [],
+    "PASS": true
+  },
+  "local_verified_artifacts": [
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\01_model_plan\\local_check\\P3_MODEL_PLAN_CHECK.md",
+      "size_bytes": 17545,
+      "sha256": "62d4a0d3593a25c6205dc69796babe8e072dee9227b5413871ae06fa6a949a2b"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\01_model_plan\\local_check\\model_math_selftest.json",
+      "size_bytes": 5328,
+      "sha256": "81cb7d136eae00e2a1109e7dcfa289724e065f99a3d25ca44e55bb6828c2c670"
+    },
+    {
+      "path": "D:\\2026数模国赛\\CUMCM2026_C\\A_route\\problem3\\01_model_plan\\local_check\\independent_checks.json",
+      "size_bytes": 59341,
+      "sha256": "c53a710394e45550ab4732482497ab546a696ebe09b3f3182a7191ba73b1bc06"
+    }
+  ],
+  "blocking": 0,
+  "open_implementation_requirements": [
+    "正式实现显式纳入已签名的本地输入防御补丁或等价校验",
+    "A5仍须实际验证发布版本、历史成熟链、全量物理账单和输出合同",
+    "共享名义轨迹、假想延续及有限历史风险为已披露近似；不保证经济收益"
+  ]
+}

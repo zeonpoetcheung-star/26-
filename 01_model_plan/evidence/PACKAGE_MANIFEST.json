@@ -1,0 +1,61 @@
+{
+  "package": "P3_MODEL_PLAN_V1",
+  "status": "DESIGN_PACKAGE_NOT_A5_RESULT",
+  "files": [
+    {
+      "path": "P3_DESIGN_BASIS.md",
+      "size_bytes": 4899,
+      "sha256": "14612ec63ac075ba092ca6fc136eb0e63a6936f16eb726107d42b0cac4fa1e70"
+    },
+    {
+      "path": "P3_MODEL_PLAN.md",
+      "size_bytes": 20161,
+      "sha256": "1e81056a24cfd79c58cf27232b5646703d6c1f9d1c9f9fbd718e402ab73d8a3b"
+    },
+    {
+      "path": "P3_VALIDATION_PLAN.md",
+      "size_bytes": 4926,
+      "sha256": "7fb4183601a6cad1ea9f8f69f501b1986bc1fdd839705e53ddffbddd5958cc0e"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 1666,
+      "sha256": "952d59a823e87e0f44e09c5f30e2f83655b1838ebcb25b9c45505f369f853b45"
+    },
+    {
+      "path": "contracts/P3_MODEL_SPEC.json",
+      "size_bytes": 4038,
+      "sha256": "bb5c1799f78cec894732c3f4c364ea35a847c8dda5907237786ba9808e0fadcb"
+    },
+    {
+      "path": "evidence/MODEL_MATH_SELFTEST.json",
+      "size_bytes": 5072,
+      "sha256": "9e3872ac800f420a3e67afb739d3e91c5c40ef73053394f14ca41a456f347a4d"
+    },
+    {
+      "path": "evidence/SOURCE_SNAPSHOT_MANIFEST.json",
+      "size_bytes": 1871,
+      "sha256": "6257f0880b46fd7de96ce97305291c29d4abb24737873384ed2759740b13a9f4"
+    },
+    {
+      "path": "scripts/check_p3_model_math.py",
+      "size_bytes": 5182,
+      "sha256": "cdcf699729adc9f4ebe6563e60c757c1700011fc66e494942955515a4c053e6a"
+    },
+    {
+      "path": "scripts/p3_lp_reference.py",
+      "size_bytes": 10849,
+      "sha256": "3fd3cf261a6b07f16a12aadd85f5217fdf2a7181e35de5264440a8575285f334"
+    },
+    {
+      "path": "tasks/P3_MODELPLAN_CODEX_TASK.md",
+      "size_bytes": 4666,
+      "sha256": "4d8bd605482ed7fa8b590a9dc468cd891c2cf0827567a593cafbf1ada452f410"
+    },
+    {
+      "path": "tasks/P3_MODELPLAN_START_PROMPT.md",
+      "size_bytes": 815,
+      "sha256": "a9475980d73e72efa843deae99287a820e29ee60be743c1fb00733fe2eeee963"
+    }
+  ]
+}

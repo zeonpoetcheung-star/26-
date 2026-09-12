@@ -1,0 +1,142 @@
+{
+  "schema_version": "P3_MODEL_PLAN_V1",
+  "stage": "A-4 / 01_model_plan",
+  "status": "DESIGNED_PENDING_LOCAL_MODEL_CHECK",
+  "next_stage_authorized": false,
+  "primary_candidate": "P3_MAIN_MEAN_ROLLOUT_061218",
+  "semantic_contract_relative": "../00_semantic_audit/contracts/p3_semantic_contract.json",
+  "semantics": {
+    "settlement": "FINAL_VS_0H_CANCEL_SUBSTITUTION",
+    "interpolation": "PWL_POINT_TRAPEZOID",
+    "time_axis": "H-END",
+    "price_reference": "delivery_slot",
+    "adjusted_EQ": "ordinary_plus_emergency_actual_daily_bill"
+  },
+  "data": {
+    "formal_start": "2025-02-01",
+    "formal_end": "2025-12-31",
+    "formal_days": 334,
+    "slots_per_day": 144,
+    "dt_hours": 0.16666666666666666,
+    "warmup": "read-only shared P2 January actual trajectory, verified once",
+    "residual_publication_start": "2025-01-08",
+    "p2_result2_sha256": "93b0bf0ab5e419cc179b78c409fcfa88616cd95572f1f958268ccf42c5086a74"
+  },
+  "battery": {
+    "soc_min_kwh": 1200,
+    "soc_max_kwh": 10800,
+    "capacity_kwh": 12000,
+    "power_max_kw": 5000,
+    "eta_c": 0.9,
+    "eta_d": 0.9
+  },
+  "load": {
+    "baseline": "target_date_minus_7_same_slot",
+    "prefix_method": "winsorized_centered_shrinkage_regression",
+    "window_completed_days": 56,
+    "minimum_days": 14,
+    "winsor_quantiles": [
+      0.05,
+      0.95
+    ],
+    "relative_ridge": 0.1,
+    "slope_bounds": [
+      0,
+      1
+    ],
+    "degenerate_mean_square_kw2": 1e-12,
+    "continuation_prefix_correction": false,
+    "cold_fallback": "alpha=beta=0",
+    "publication_versions_immutable": true
+  },
+  "scenarios": {
+    "type": "paired_complete_historical_load_pv_residual_paths",
+    "window_paths": 28,
+    "minimum_paths": 14,
+    "same_issue_hour": true,
+    "maturity": "source_issue+24h<=decision_time",
+    "weights": "equal",
+    "physical_projection": "clip load and PV separately to zero from below, log counts",
+    "use_full_year_quantile_parameters": false
+  },
+  "optimizer": {
+    "solver": "scipy.optimize.linprog/highs",
+    "horizon_slots": 144,
+    "storage_recourse": "single_shared_nominal_C_D_S_across_scenarios",
+    "risk_main": "empirical_mean_shortfall_cost",
+    "risk_alternative": "finite_scenario_worst_path_shortfall_cost",
+    "terminal_value": "eta_d*min(fixed_daily_price)",
+    "hard_terminal_equality": false,
+    "active_constraints": "physical bounds and shared state recursion",
+    "primal_tolerance": 1e-08,
+    "dual_tolerance": 1e-08,
+    "loop_removal": "SOC-preserving algebraic cancellation plus independent validation"
+  },
+  "acceptance": {
+    "candidates": [
+      "KEEP_current_commitment",
+      "ADJUST_candidate"
+    ],
+    "score": "causal_feedback_on_same_eligible_scenarios_same_state_same_24h",
+    "next_day": "hypothetical only, never an early binding contract",
+    "main_risk": "mean",
+    "robust_risk": "max entire path score",
+    "epsilon_absolute_CNY": 1e-06,
+    "epsilon_relative": 1e-10,
+    "replace_only_if_score_improves": true,
+    "actual_future_read": false
+  },
+  "opportunity_sets": [
+    [],
+    [
+      6
+    ],
+    [
+      12
+    ],
+    [
+      18
+    ],
+    [
+      6,
+      12
+    ],
+    [
+      6,
+      18
+    ],
+    [
+      12,
+      18
+    ],
+    [
+      6,
+      12,
+      18
+    ]
+  ],
+  "additional_ablations": [
+    "NO_PREFIX_061218",
+    "ROBUST_WORST_061218",
+    "ZERO_TERMINAL_061218"
+  ],
+  "main_selection": "pre-designated; no annual hindsight swap or per-day winner blending",
+  "a4_budget": {
+    "official_data_model_fits": 0,
+    "real_strategy_replay_days": 0,
+    "reference_synthetic_lp_calls": 8,
+    "extra_independent_synthetic_lp_max": 12,
+    "workbook_exports": 0
+  },
+  "forbidden": [
+    "external_same_problem_answers",
+    "B_route_model_injection",
+    "full_year_residual_fit",
+    "future_actual_or_future_forecast_issue",
+    "per_scenario_clairvoyant_storage_optimization",
+    "neural_network_or_RL_search",
+    "CCG_or_continuous_Gamma_search",
+    "common_or_P2_modification",
+    "annual_batch_without_next_authorization"
+  ]
+}
