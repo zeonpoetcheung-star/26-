@@ -1,0 +1,58 @@
+"""P2-S1（备份版）｜在线 selector 的 LightGBM 逐月采用率折线。
+
+用途：保留"月采用率折线"这一版式，便于日后二选一。
+折线：每月 LightGBM 被采用的天数占比；点旁短标为"采用天数/当月天数"。
+数据来源：data/p2_selector_monthly_counts.csv。
+关键数值：正式 334 天中 LightGBM 采用 301 天（90.1%）；2 月全用基准，3 月起稳定采用。
+"""
+from __future__ import annotations
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+from _figbase import (load_csv, save_pub,
+                      C_PRIMARY, C_GREY, C_REF, C_GRID)
+
+
+def load_and_validate():
+    m = load_csv('p2_selector_monthly_counts.csv').sort_values('month')
+    assert m['LIGHTGBM'].sum() == 301
+    assert m['total_days'].sum() == 334
+    return m
+
+
+def build(m):
+    months = [f'{int(x[5:7])}' for x in m['month']]
+    x = np.arange(len(m))
+    lg = m['LIGHTGBM'].to_numpy()
+    td = m['total_days'].to_numpy()
+    ratio = lg / td * 100
+
+    fig, ax = plt.subplots(figsize=(6.0, 3.0))
+    ax.axhline(100, color=C_REF, linewidth=0.8, linestyle='--', zorder=1)
+    ax.plot(x, ratio, color=C_PRIMARY, linewidth=1.3, marker='o', markersize=4.5,
+            markeredgecolor='white', markeredgewidth=0.6, zorder=4)
+    for xi, r, a, t in zip(x, ratio, lg, td):
+        ax.annotate(f'{int(a)}/{int(t)}', (xi, r), textcoords='offset points',
+                    xytext=(0, 7), ha='center', fontsize=7, color=C_GREY)
+    ax.annotate('2 月仅用基准', xy=(0, 0), xytext=(1.1, 26), fontsize=8,
+                color=C_GREY, arrowprops=dict(arrowstyle='-', color=C_GREY, lw=0.7))
+    ax.set_xticks(x)
+    ax.set_xticklabels(months, fontsize=8)
+    ax.set_xlabel('月份 (2025)')
+    ax.set_ylabel('LightGBM 采用率 / %')
+    ax.set_ylim(-6, 116)
+    ax.set_yticks([0, 25, 50, 75, 100])
+    ax.grid(axis='both', color=C_GRID, linewidth=0.55, alpha=0.48, linestyle='--')
+    fig.subplots_adjust(left=0.10, right=0.985, bottom=0.165, top=0.95)
+    return fig
+
+
+def main():
+    m = load_and_validate()
+    save_pub(build(m), 'figures/_backup/fig_p2_selector_ratio_line')
+    print('BACKUP: monthly adoption-rate line written to figures/_backup/')
+
+
+if __name__ == '__main__':
+    main()

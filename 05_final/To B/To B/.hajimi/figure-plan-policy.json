@@ -1,0 +1,6 @@
+{
+  "required": true,
+  "minimum": 8,
+  "planPath": "FIGURE_PLAN.json",
+  "planHash": "e7141d8f8e560b169cea8e49a60c45924f9715b4ca642c1c47e698d2eb9964d3"
+}

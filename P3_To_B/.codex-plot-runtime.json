@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "profile": "modeling-competition",
+  "capability": "all",
+  "workspace": "/mnt/c/Users/sunny/Desktop/26-/P3_To_B",
+  "runtime_skill": "/home/sunny/.config/opencode/skills/vivid-figures-skill/original/resources",
+  "paths": {
+    "python": "/home/sunny/linux-conda/envs/mathmodel/bin/python3.12",
+    "managed_python": null,
+    "chrome": null,
+    "drawio": null,
+    "mmdc": null,
+    "node": "/mnt/d/node.exe",
+    "xelatex": "/mnt/d/latexabout/texlive/2025/bin/windows/xelatex.exe",
+    "bash": "/mnt/c/Windows/system32/bash.exe",
+    "capture_electron": null,
+    "capture_js": null,
+    "shared_scripts": "/mnt/c/Users/sunny/Desktop/26-/P3_To_B/skills/shared-scripts",
+    "utils": "/mnt/c/Users/sunny/Desktop/26-/P3_To_B/_utils",
+    "templates": "/mnt/c/Users/sunny/Desktop/26-/P3_To_B/_templates",
+    "tools": "/mnt/c/Users/sunny/Desktop/26-/P3_To_B/tools"
+  },
+  "injection": {
+    "shared": {
+      "copied": 128,
+      "preserved": 0
+    },
+    "utils": {
+      "copied": 128,
+      "preserved": 0
+    },
+    "templates": {
+      "copied": 7,
+      "preserved": 0
+    },
+    "tools": {
+      "copied": 3,
+      "preserved": 0
+    }
+  },
+  "prompt_policy": "vendored drawing prompts are immutable"
+}
